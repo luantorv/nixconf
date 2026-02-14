@@ -5,7 +5,7 @@
     enable = true;
     package = pkgs.swaylock-effects;
     settings = {
-      image = "${home/luis/.config/home-manager/nixoslogo.png}";
+      image = "${../nixoslogo.png}";
       scaling = "fill";
       color = "000000";
       ring-color = "5277c3";

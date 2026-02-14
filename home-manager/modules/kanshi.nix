@@ -28,6 +28,10 @@
             position = "1920.0";
           }
         ];
+        profile.exec = [
+          "riverctl set-focused-tags -o eDP-1 1"
+          "riverctl set-focused-tags -o HDMI-A-1 2"
+        ];
       }
     ];
   };

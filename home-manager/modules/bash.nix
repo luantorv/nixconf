@@ -39,10 +39,13 @@
       #grep = "rg";
       #cd = "zoxide";
       #lzg = "lazygit";
-
+      
       gen-rb = "sudo nixos-rebuild switch";
+      gen-up = "sudo cp -r ~/nixconf/nixos/* /etc/nixos/";
       gen-ls = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+
       hms = "home-manager switch";
+      hmu = "cp -r ~/nixconf/home-manager/* ~/.config/home-manager/";
     };
   };
 }

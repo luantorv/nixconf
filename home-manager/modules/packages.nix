@@ -16,6 +16,7 @@
     wl-clipboard
     cliphist
     wlr-randr
+    pulsemixer
     
     # browser
     brave

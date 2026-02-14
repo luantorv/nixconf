@@ -10,7 +10,7 @@
         layer = "top";
         position = "top";
         exclusive = true;
-        heigh = 24;
+        height = 24;
 
         mode = "hide";
         start_hidden = true;
@@ -43,42 +43,46 @@
           tooltip = false;
         };
 
-        network = {
-          format-wifi = "WIFI: {essid} {signalBm}dBm";
-          format-ethernet = "ETH:CONECTED";
-          format-disconnected = "RED:OFF";
-          tooltip = false;
+        "network" = {
+          format-wifi = "WIFI: {essid} ({signalStrength}%)";
+          format-ethernet = "ETH: CONECTED";
+          format-disconnected = "RED: OFF";
+          tooltip-format-wifi = "{ifname} - {ipaddr}/{cidr}";
+          tooltip-format-ethernet = "{ifanme} - {ipaddr}";
+          on-click = "foot --app-id=float-term -e nmtui";
         };
 
-        "bluetooth" = {
-          "interval" = 10;
-          "format" = "BT:{status}";
-          "format-off" = "";
-          "format-on" = "BT:ON";
-          "format-connected" = "BT:{device_alias}";
-          "tooltip-format" = "{controller_alias}\t{controller_address}";
-          "tooltip-format-connected" = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
-          "format-connected-battery" = "BT:{device_alias}:{device_battery_percentage}%";
-          "on-click" = "blueman-manager";
+        bluetooth = {
+          interval = 10;
+          format = "BT:{status}";
+          format-off = "";
+          format-on = "BT:ON";
+          format-connected = "BT:{device_alias}";
+          tooltip-format = "{controller_alias}\t{controller_address}";
+          tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
+          format-connected-battery = "BT:{device_alias}:{device_battery_percentage}%";
+          on-click = "blueman-manager";
         };
 
         pulseaudio = {
           format = "VOL:{volume}%";
           format-muted = "VOL:MUTE";
           on-click = "pamixer -t";
+          on-click-right = "foot --app-id=float-term -e pulsemixer";
           scroll-step = 5;
           tooltip = false;
         };
 
-        "pulseaduio#microphone" = {
-          "format" = "{format_source}";
-          "format-source" = "MIC:{volume}%";
-          "format-source-muted" = "MIC:MUTE";
-          "on-click" = "pamixer --default-source -t";
-          "on-scroll-up" = "pamixer --default-source -i 5";
-          "on-scroll-down" = "pamixer --default-source -i 5";
-          "scroll-step" = 5;
-          "tooltip" = false;
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source = "MIC:{volume}%";
+          format-source-muted = "MIC:MUTE";
+          on-click = "pamixer --default-source -t";
+          on-click-right = "foot --app-id=float-term -e pulsemixer";
+          on-scroll-up = "pamixer --default-source -i 5";
+          on-scroll-down = "pamixer --default-source -d 5";
+          scroll-step = 5;
+          tooltip = false;
         };
 
         backlight = {
@@ -106,38 +110,38 @@
       }
 
       window#waybar {
-        background: ${negro};
-        background-color: ${negro};
-        color: ${blanco};
-        border-bottom: 2px solid ${blanco}; /* linea divisoria simple */
+        background: ${config.colors.negro};
+        background-color: ${config.colors.negro};
+        color: ${config.colors.blanco};
+        border-bottom: 2px solid ${config.colors.blanco}; /* linea divisoria simple */
       }
 
       #tags button {
-        color: ${gris};
+        color: ${config.colors.gris};
         padding: 0 5px;
         border-bottom: 3px solid transparent;
       }
 
       #tags button.focused {
-        background: linear-gradient(45deg, ${nixAzul}, ${nixCeleste});
-        color: ${blanco};
-        border-bottom: 3px solid ${blanco};
+        background: linear-gradient(45deg, ${config.colors.nixAzul}, ${config.colors.nixCeleste});
+        color: ${config.colors.blanco};
+        border-bottom: 3px solid ${config.colors.blanco};
       }
 
       #tags button.visible:not(.focused) {
-        background: linear-gradient(45deg, ${conRojo}, ${conNaranja});
-        color: ${negro};
+        background: linear-gradient(45deg, ${config.colors.conRojo}, ${config.colors.conNaranja});
+        color: ${config.colors.negro};
         font-weight: bold;
-        border-bottom: 3px solid ${conRojo};
+        border-bottom: 3px solid ${config.colors.conRojo};
       }
 
       #tags button.occupied:not(.focused):not(.visible) {
-        color: ${nixCeleste};
+        color: ${config.colors.nixCeleste};
       }
 
-      #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth {
+      #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth, #battery {
         padding: 0 10px;
-        border-left: 1px solid ${blanco};
+        border-left: 1px solid ${config.colors.blanco};
       }
 
       #clock {
@@ -145,34 +149,42 @@
       }
 
       #custom-caffeine {
-        color: ${nixCeleste};
+        color: ${config.colors.nixCeleste};
         padding: 0 10px;
-        border-right: 1px solid ${blanco}
+        border-right: 1px solid ${config.colors.blanco}
       }
 
       #bluetooth {
-        color: ${nixCeleste};
+        color: ${config.colors.nixCeleste};
         padding: 0 10px;
       }
 
       #bluetooth.on {
-        color: ${conRojo};
+        color: ${config.colors.conRojo};
         font-weight: bold;
       }
 
       #bluetooth.connected {
-        color: ${nixAzul};
+        color: ${config.colors.nixAzul};
         font-weight: bold;
       }
 
+      #pulseaudio {
+        color: ${config.colors.blanco};
+        margin-left: 5px; 
+      }
+
+      #pulseaudio.muted:not(.microphone) {
+        color: ${config.colors.conNaranja};
+      }
+
       #pulseaudio.microphone {
-        color: ${blanco};
-        padding: 0 10px;
+        color: ${config.colors.blanco};
         margin-left: 5px;
       }
 
-      #pulseaudio.microphone.muted {
-        color: ${conRojo};
+      #pulseaudio.microphone.source-muted {
+        color: ${config.colors.conNaranja};
       }
     '';
   };

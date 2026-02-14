@@ -38,12 +38,6 @@
       riverctl default-layout rivertile
       riverctl send-layout-cmd rivertile "main-ratio 0.5"
 
-      # Monitores
-      riverctl output '*' mode max
-      riverctl focus-output next
-      riverctl set-focused-tags 2
-      riverctl focus-output next
-
       # ===== ATAJOS =====
 
       # Super + Enter -> terminal
@@ -60,6 +54,9 @@
 
       # Super + B -> Alternar Waybar
       riverctl map normal Super B spawn "pkill -SIGUSR1 waybar"
+
+      # Super + O -> Enviar ventana al proximo monitor
+      riverctl map normal Super O send-to-output next
 
       # Salir de River
       riverctl map normal Super+Shift E exit 
@@ -87,6 +84,7 @@
       riverctl map normal None XF86AudioRaiseVolume spawn 'pamixer -i 5'
       riverctl map normal None XF86AudioLowerVolume spawn 'pamixer -d 5'
       riverctl map normal None XF86AudioMute        spawn 'pamixer -t'
+      riverctl map normal None XF86AudioMicMute     spawn 'pamixer --default-source -t'
 
       # Control de Brillo
       riverctl map normal None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
@@ -100,6 +98,20 @@
 
       # Super 0 -> Enviar ventanas de la pantalla actual al otro monitor
       riverctl map normal Super 0 spawn "riverctl focus-output next && riverctl set-focused-tags $(riverctl -view-get-tags)"
+
+      # TouchPad
+      riverctl input '*Touchpad*' tap enabled
+      riverctl input '*Touchpad*' natural-scroll enabled
+      riverctl input '*Touchpad*' accel_profile adaptive
+
+      # Ventanas flotantes para módulos de Waybar
+      riverctl rule-add -app-id 'float-term' float
+      riverctl rule-add -app-id 'float-term' dimensions 800 500
+      riverctl rule-add -app-id 'float-term' border-color-focused "0x7ebae4ff"
+
+      riverctl rule-add -app-id 'blueman' float
+      riverctl rule-add -app-id 'blueman-manager' dimensions 800 500
+      riverctl rule-add -app-id 'blueman-manager' position center
 
       # Layout
       riverctl default-layout rivertile

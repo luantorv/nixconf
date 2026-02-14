@@ -7,25 +7,25 @@
       allow_images = false;
       width = "80%";
       height = "30%";
-      location = "bottom";
+      location = "center";
       prompt = "> ";
       term = "foot";
     };
 
     style = ''
       window {
-        background-color: ${negro};
-        color: ${blanco};
+        background-color: ${config.colors.negro};
+        color: ${config.colors.blanco};
         font-family: ¨JetBrains Mono¨;
-        border: 2px solid ${blanco};
+        border: 2px solid ${config.colors.blanco};
         border-radius: 12px;
       }
 
       #input {
-        background-color: ${negro};
-        color: ${blanco};
+        background-color: ${config.colors.negro};
+        color: ${config.colors.blanco};
         border: none;
-        border-bottom: 1px solid ${gris};
+        border-bottom: 1px solid ${config.colors.gris};
         margin: 10px;
         padding: 5px;
       }
@@ -35,12 +35,12 @@
       }
 
       #entry:selected {
-        background-color: ${nixAzul};
+        background-color: ${config.colors.nixAzul};
         border-radius: 8px;
       }
 
       #text:selected {
-        color: ${blanco};
+        color: ${config.colors.blanco};
       }
     '';
   };
