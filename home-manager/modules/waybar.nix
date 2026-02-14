@@ -101,15 +101,15 @@
         };
 
         "custom/media" = {
-          format = "{icon} {}";
+          format = "{icon} {text}";
           return-type = "json";
           max-length = 40;
           format-icons = {
-            spotify = "SPOTIFY";
-            default = "PLAYING";
+            Playing = "PLAYING";
+            Paused = "PAUSED";
           };
           escape = true;
-          exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"' -F";
+          exec = ''playerctl -a metadata --format '{ "text": "{{artist}} - {{title}}}", "alt": "{{status}}", "class": "{{status}}" }' -F 2>/dev/null || echo '{ "text": "", "alt": "Stopped", "class": "stopped" }' '';
         };
       }
     ];
@@ -202,8 +202,13 @@
 
       #custom-media {
         color: ${config.colors.nixCeleste};
+        border-left: 1px solid ${config.colors.blanco};
         padding: 0 10px;
         font-style: italic;
+      }
+
+      #custom-media.Paused {
+        color: ${config.colors.gris};
       }
     '';
   };
