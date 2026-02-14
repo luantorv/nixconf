@@ -20,6 +20,7 @@
           "clock" 
           "battery" 
           "backlight"
+          "custom/media"
         ];
 
         modules-center = [ 
@@ -98,6 +99,18 @@
           "on-click" = "if pgrep -x swayidle > /dev/null; then pkill -x swayidle; else swayidle -w timeout 300 \"swaylock -f\" & fi";
           "tooltip" = false;
         };
+
+        "custom/media" = {
+          format = "{icon} {}";
+          return-type = "json";
+          max-length = 40;
+          format-icons = {
+            spotify = "SPOTIFY";
+            default = "PLAYING";
+          };
+          escape = true;
+          exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"' -F";
+        };
       }
     ];
 
@@ -139,7 +152,7 @@
         color: ${config.colors.nixCeleste};
       }
 
-      #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth, #battery {
+      #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth, #battery, #custom-media {
         padding: 0 10px;
         border-left: 1px solid ${config.colors.blanco};
       }
@@ -185,6 +198,12 @@
 
       #pulseaudio.microphone.source-muted {
         color: ${config.colors.conNaranja};
+      }
+
+      #custom-media {
+        color: ${config.colors.nixCeleste};
+        padding: 0 10px;
+        font-style: italic;
       }
     '';
   };

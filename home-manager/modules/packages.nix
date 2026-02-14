@@ -17,8 +17,9 @@
     cliphist
     wlr-randr
     pulsemixer
+    playerctl
     
-    # browser
+    # browser & other
     brave
 
     # terminal utilities

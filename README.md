@@ -102,6 +102,7 @@ cp -r assets/wallpapers/* ~/Images/wallpapers/
 The NixOS configuration is split into modules for better organization:
 
 - `boot.nix`: Bootloader and kernel configuration
+- `disc.nix`: Auto mounting partition
 - `networking.nix`: Network settings
 - `packages.nix`: System-wide packages
 - `security.nix`: Security policies and settings
@@ -114,8 +115,10 @@ User-specific configuration managed through Home Manager:
 
 - `bash.nix`: Bash shell configuration
 - `cliphist.nix`: Clipboard history manager
+- `colors.nix`: Color Pallete 
 - `foot.nix`: Terminal emulator settings
 - `gtk.nix`: GTK theme and appearance
+- `home-manager.nix`: Home Manager Basic Config
 - `kanshi.nix`: Display output management
 - `packages.nix`: User packages
 - `river.nix`: River window manager configuration

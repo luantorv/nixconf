@@ -90,6 +90,12 @@
       riverctl map normal None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
       riverctl map normal None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 
+      # Controles Multimedia
+      riverctl map normal None XF86AudioPlay spawn 'playerctl play-pause'
+      riverctl map normal None XF86AudioNext spawn 'playerctl next'
+      riverctl map normal None XF86AudioPrev spawn 'playerctl previous'
+      riverctl map normal None XF86AudioStop spawn 'playerctl stop'
+
       # Menu de energia
       riverctl map normal Super L spawn 'pgrep wofi && pkill wofi || (echo -e "1. Bloquear\n2. Sesion\n3. Reiniciar\n4. Apagar\n5. Portapapeles" | wofi --dmenu --header "SISTEMA:" | awk "{print \$2}" | xargs -I{} sh -c "case {} in Bloquear) swaylock -f;; Sesion) riverctl exit;; Reiniciar) reboot;; Apagar) poweroff;; Portapapeles) cliphist wipe;; esac")'
 
