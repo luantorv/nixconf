@@ -18,6 +18,9 @@
     wlr-randr
     pulsemixer
     playerctl
+    grim
+    slurp
+    swappy
     
     # browser & other
     brave

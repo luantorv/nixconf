@@ -12,7 +12,7 @@
         exclusive = true;
         height = 24;
 
-        mode = "hide";
+        mode = "dock";
         start_hidden = true;
 
         modules-left = [ 
@@ -110,6 +110,18 @@
           };
           escape = true;
           exec = ''playerctl -a metadata --format '{ "text": "{{artist}} - {{title}}}", "alt": "{{status}}", "class": "{{status}}" }' -F 2>/dev/null || echo '{ "text": "", "alt": "Stopped", "class": "stopped" }' '';
+        };
+
+        battery = {
+          states = {
+            warning = 20;
+            critical = 10;
+          };
+          format = "BAT:{capacity}%";
+          format-charning = "CHR:{capacity}%";
+          format-plugged = "PWR:{capacity}%";
+          format-alt = "TIME: {time}";
+          tooltip = false;
         };
       }
     ];
@@ -209,6 +221,35 @@
 
       #custom-media.Paused {
         color: ${config.colors.gris};
+      }
+
+      #battery {
+        color: ${config.colors.nixCeleste};
+        padding: 0 10px;
+      }
+
+      #battery.charning, #battery.plugged {
+        color: ${config.colors.nixAzul};
+      }
+
+      #battery.warning:not(.charning) {
+        color: ${config.colors.conNaranja};
+      }
+
+      #battery.critical:not(.charning) {
+        color: ${config.colors.conRojo};
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      @keyframes blink {
+        to {
+          background-color: ${config.colors.conRojo};
+          color: ${config.colors.blanco};
+        }
       }
     '';
   };

@@ -16,9 +16,9 @@
     text = ''
       #!/bin/sh
 
-      # Propafar variables de entorno a systemd y DBus
-      riverctl import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      dbus-update-activation-environment --all
+      # Importar variables del entorno de systemd y activar el target gráfico
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+      systemctl --user start graphical-session.target
 
       # Configuración básica
       riverctl set-repeat 50 300
@@ -100,7 +100,8 @@
       riverctl map normal Super L spawn 'pgrep wofi && pkill wofi || (echo -e "1. Bloquear\n2. Sesion\n3. Reiniciar\n4. Apagar\n5. Portapapeles" | wofi --dmenu --header "SISTEMA:" | awk "{print \$2}" | xargs -I{} sh -c "case {} in Bloquear) swaylock -f;; Sesion) riverctl exit;; Reiniciar) reboot;; Apagar) poweroff;; Portapapeles) cliphist wipe;; esac")'
 
       # Portapapeles
-      riverctl map normal Super V spawn "sh -c 'pgrep wofi && pkill wofi || (${pkgs.cliphist}/bin/cliphist list | ${pkgs.wofi}/bin/wofi --dmenu --header \"PORTAPAPELES:\"| ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy && sleep 0.1)' "
+      riverctl spawn "systemctl --user start cliphist"
+      riverctl map normal Super V spawn "sh -c 'pgrep wofi && pkill wofi || (cliphist list | wofi --dmenu --prompt 'Portapapeles' | cliphist decode | wl-copy)' "
 
       # Super 0 -> Enviar ventanas de la pantalla actual al otro monitor
       riverctl map normal Super 0 spawn "riverctl focus-output next && riverctl set-focused-tags $(riverctl -view-get-tags)"
@@ -115,9 +116,10 @@
       riverctl rule-add -app-id 'float-term' dimensions 800 500
       riverctl rule-add -app-id 'float-term' border-color-focused "0x7ebae4ff"
 
-      riverctl rule-add -app-id 'blueman' float
-      riverctl rule-add -app-id 'blueman-manager' dimensions 800 500
-      riverctl rule-add -app-id 'blueman-manager' position center
+      # Screenshoots
+      riverctl map normal Super+Shift P spawn 'grim -g "$(slurp -b 00000088 -c ffffffff -s 00000000)" - | swappy -f -'
+      riverctl map normal None Print    spawn 'grim - | swappy -f -'
+      riverctl rule-add -app-id 'swappy' float
 
       # Layout
       riverctl default-layout rivertile
