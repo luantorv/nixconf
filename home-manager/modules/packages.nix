@@ -21,6 +21,7 @@
     grim
     slurp
     swappy
+    swww
     
     # browser & other
     brave

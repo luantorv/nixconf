@@ -9,7 +9,7 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
   <img src="assets/screenshoots/waybar.png" alt="Waybar" width="45%">
   <img src="assets/screenshoots/wofi.png" alt="Wofi launcher" width="45%">
   <img src="assets/screenshoots/wofi-energy_menu.png" alt="Wofi power menu" width="45%">
-  <img src="assets/screenshoots/vim.png" alt="Vim" width="45%">
+  <img src="assets/screenshoots/nvim.png" alt="Vim" width="45%">
   <img src="assets/screenshoots/htop.png" alt="Htop" width="45%">
 </div>
 
@@ -19,7 +19,7 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 - Window Manager: River (Wayland compositor)
 - Terminal: foot
 - Shell: bash
-- Editor: vim
+- Editor: nvim
 - Status Bar: waybar
 - Launcher: wofi
 - GTK Theme: Adwaita-dark
@@ -35,6 +35,9 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 - Clipboard manager: cliphist for clipboard history
 - Screen locker: swaylock for session security
 - Display management: kanshi for automatic display configuration
+- Login Manager: tuigreet for login in TTY session
+- Screenshoots features with grim, slurp and swappy
+- Wallpapers services with swww
 
 ## Installation
 
@@ -113,20 +116,25 @@ The NixOS configuration is split into modules for better organization:
 
 User-specific configuration managed through Home Manager:
 
-- `bash.nix`: Bash shell configuration
-- `cliphist.nix`: Clipboard history manager
-- `colors.nix`: Color Pallete 
-- `foot.nix`: Terminal emulator settings
-- `gtk.nix`: GTK theme and appearance
-- `home-manager.nix`: Home Manager Basic Config
-- `kanshi.nix`: Display output management
-- `packages.nix`: User packages
-- `river.nix`: River window manager configuration
-- `swaylock.nix`: Screen locker settings
-- `variables.nix`: Environment variables
-- `vim.nix`: Vim editor configuration
-- `waybar.nix`: Status bar configuration
-- `wofi.nix`: Application launcher settings
+- In `~/.config/home-manager/modules/`
+    - `bash.nix`: Bash shell configuration
+    - `cliphist.nix`: Clipboard history manager
+    - `colors.nix`: Color Pallete 
+    - `foot.nix`: Terminal emulator settings
+    - `gtk.nix`: GTK theme and appearance
+    - `home-manager.nix`: Home Manager Basic Config
+    - `kanshi.nix`: Display output management
+    - `nvim.nix`: Neovim minimal config
+    - `packages.nix`: User packages
+    - `river.nix`: River window manager configuration
+    - `swaylock.nix`: Screen locker settings
+    - `variables.nix`: Environment variables
+    - `vim.nix`: Vim editor configuration
+    - `waybar.nix`: Status bar configuration
+    - `wofi.nix`: Application launcher settings
+
+- In `~/.config/home-manager/scripts/`
+    - `wallpaper_cycle.sh`: for presentation of wallpapers
 
 ## Customization
 

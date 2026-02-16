@@ -38,6 +38,8 @@
       riverctl default-layout rivertile
       riverctl send-layout-cmd rivertile "main-ratio 0.5"
 
+      swww-daemon &
+
       # ===== ATAJOS =====
 
       # Super + Enter -> terminal
@@ -57,6 +59,15 @@
 
       # Super + O -> Enviar ventana al proximo monitor
       riverctl map normal Super O send-to-output next
+
+      # Super + W -> Seleccionar fondo estático
+      riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="$HOME/Images/Wallpapers"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center)'
+
+      # Super + Alt + W -> Iniciar presentación de fondos
+      riverctl map normal Super+Alt W spawn "$HOME/.config/home-manager/scripts/wallpaper_cycle.sh"
+
+      # Super + Shift + W -> Quitar fondo de pantalla (Modo por defecto)
+      riverctl map normal Super+Shift W spawn 'swww clear 000000 && pkill -f wallpaper_cycle.sh'
 
       # Salir de River
       riverctl map normal Super+Shift E exit 
