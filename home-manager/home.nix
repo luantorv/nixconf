@@ -17,6 +17,7 @@
     ./modules/gtk.nix
     ./modules/waybar.nix
     ./modules/wofi.nix
+    ./modules/yazi.nix
 
     ./modules/cliphist.nix
     ./modules/swappy.nix

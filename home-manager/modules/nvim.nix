@@ -27,8 +27,8 @@
       vim.opt.showtabline = 2
 
       vim.api.nvim_create_autocmd("TermClose", {
-	pattern = "*",
-	command = "if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif"
+	      pattern = "*",
+	      command = "if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif"
       })
     '';
   };

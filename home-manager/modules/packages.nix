@@ -8,6 +8,7 @@
     wofi
     foot
     jetbrains-mono
+    nerd-fonts.jetbrains-mono
     pamixer
     brightnessctl
     wlopm
@@ -22,20 +23,26 @@
     slurp
     swappy
     swww
-    
+
     # browser & other
     brave
+    vscodium
+    xfce.thunar
 
     # terminal utilities
-    yazi # file manager
-    fzf # fuzzy find
-    lazygit # tui for git
-    tmux # multi
+    yazi
+    exiftool
+    ffmpegthumbnailer
+    poppler-utils
+    fzf
+    lazygit
+    tmux
+    atuin
 
-    zoxide # cd con historial inteligente
-    eza # alternativa a ls
-    bat #cat con highlight
-    fd # faster find
-    ripgrep # faster grep  
+    zoxide
+    eza
+    bat
+    fd
+    ripgrep
   ];
 }

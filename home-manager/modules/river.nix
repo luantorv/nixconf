@@ -48,6 +48,12 @@
       # Super + Space -> wofi
       riverctl map normal Super Space spawn "pgrep wofi && pkill wofi || wofi --show drun --layer overlay"
 
+      # Super + E -> yazi
+      riverctl map normal Super E spawn "foot -e yazi"
+
+      # Super + Shift + E -> thunar
+      riverctl map normal Super+Shift E spawn thunar
+
       # Super + Q -> cerrar ventana focused
       riverctl map normal Super Q close
 
@@ -70,7 +76,7 @@
       riverctl map normal Super+Shift W spawn 'swww clear 000000 && pkill -f wallpaper_cycle.sh'
 
       # Salir de River
-      riverctl map normal Super+Shift E exit 
+      riverctl map normal Super+Alt E exit 
 
       # Navegar entre ventanas con Super = J/K
       riverctl map normal Super J focus-view next
