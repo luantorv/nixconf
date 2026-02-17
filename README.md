@@ -19,25 +19,14 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 - Window Manager: River (Wayland compositor)
 - Terminal: foot
 - Shell: bash
-- Editor: nvim
+- Editor: vim - nvim - vscodium
+- File Manager: yazi - thunar
 - Status Bar: waybar
 - Launcher: wofi
 - GTK Theme: Adwaita-dark
 - Icons: Adwaita
 - Font: JetBrains Mono (12pt)
 - Cursor: Adwaita (24px)
-
-## Features
-
-- Declarative configuration: Everything configured through Nix
-- Home Manager integration: User-level configuration management
-- Wayland native: Modern display server protocol
-- Clipboard manager: cliphist for clipboard history
-- Screen locker: swaylock for session security
-- Display management: kanshi for automatic display configuration
-- Login Manager: tuigreet for login in TTY session
-- Screenshoots features with grim, slurp and swappy
-- Wallpapers services with swww
 
 ## Installation
 
@@ -58,7 +47,7 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 
 ### Clone the Repository
 
--To clone without screenshots (recommended):
+- To clone without screenshots (recommended):
 
 ```sh
 git clone --filter=blob:none --no-checkout https://github.com/luantorv/nixconf.git
@@ -94,8 +83,8 @@ home-manager switch
 - Wallpapers (optional):
 
 ```sh
-mkdir -p ~/Images/wallpapers
-cp -r assets/wallpapers/* ~/Images/wallpapers/
+mkdir -p ~/Images/Wallpapers
+cp -r assets/wallpapers/* ~/Images/Wallpapers/
 ```
 
 ## Configuration Layout
@@ -105,7 +94,7 @@ cp -r assets/wallpapers/* ~/Images/wallpapers/
 The NixOS configuration is split into modules for better organization:
 
 - `boot.nix`: Bootloader and kernel configuration
-- `disc.nix`: Auto mounting partition
+- `disk.nix`: Auto mounting partition
 - `networking.nix`: Network settings
 - `packages.nix`: System-wide packages
 - `security.nix`: Security policies and settings
@@ -127,25 +116,16 @@ User-specific configuration managed through Home Manager:
     - `nvim.nix`: Neovim minimal config
     - `packages.nix`: User packages
     - `river.nix`: River window manager configuration
+    - `swappy.nix`: Some screenshoot config
     - `swaylock.nix`: Screen locker settings
     - `variables.nix`: Environment variables
     - `vim.nix`: Vim editor configuration
     - `waybar.nix`: Status bar configuration
     - `wofi.nix`: Application launcher settings
+    - `yazi.nix`: Config for file management
 
 - In `~/.config/home-manager/scripts/`
     - `wallpaper_cycle.sh`: for presentation of wallpapers
-
-## Customization
-
-Feel free to modify any configuration file to suit your needs. The modular structure makes it easy to enable/disable specific features.
-
-Key files to customize:
-
-- `home-manager/modules/variables.nix`: Personal environment variables
-- `home-manager/modules/river.nix`: Keybindings and window management rules
-- `home-manager/modules/waybar.nix`: Status bar appearance and modules
-- `nixos/modules/users.nix`: User account settings
 
 ## Credits
 
