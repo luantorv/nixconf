@@ -6,10 +6,10 @@
   environment.systemPackages = with pkgs; [
   	vim
   	wget
-        git
-	htop
-	fastfetch
-	tree
-        tuigreet
+    git
+	  htop
+	  fastfetch
+	  tree
+    tuigreet
   ];
 }

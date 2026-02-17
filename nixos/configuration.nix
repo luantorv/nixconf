@@ -10,6 +10,7 @@
       ./modules/security.nix
       ./modules/services.nix
       ./modules/users.nix
+      ./modules/disk.nix
     ];
 
   # Esto es oara activar las características experimentales
