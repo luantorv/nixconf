@@ -28,6 +28,10 @@
     brave
     vscodium
     xfce.thunar
+    zathura
+    onlyoffice-desktopeditors
+    nomacs
+    discordo
 
     # terminal utilities
     yazi
