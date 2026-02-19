@@ -11,6 +11,7 @@
     ./modules/river.nix
     ./modules/kanshi.nix
     ./modules/bash.nix
+    ./modules/starship.nix
     ./modules/nvim.nix
     ./modules/vim.nix
     ./modules/foot.nix
