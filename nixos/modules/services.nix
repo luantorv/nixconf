@@ -51,4 +51,8 @@
     TTYHangup = true;
     TTYVTDisallocate = true;
   };
+
+  services.tlp.enable = false;
+  services.power-profiles-daemon.enable = true;
+  hardware.cpu.intel.updateMicrocode = true;
 }

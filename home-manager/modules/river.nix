@@ -54,6 +54,9 @@
       # Super + Shift + E -> thunar
       riverctl map normal Super+Shift E spawn thunar
 
+      # Super + C -> VSCodium
+      riverctl map normal Super C spawn codium
+
       # Super + Q -> cerrar ventana focused
       riverctl map normal Super Q close
 
@@ -132,6 +135,15 @@
       riverctl rule-add -app-id 'float-term' float
       riverctl rule-add -app-id 'float-term' dimensions 800 500
       riverctl rule-add -app-id 'float-term' border-color-focused "0x7ebae4ff"
+
+      # Super + F1 -> Battery Save Power Mode
+      riverctl map normal Super F1 spawn "powerprofilesctl set power-saver"
+
+      # Super + F2 -> Balanced Power Mode
+      riverctl map normal Super F2 spawn "powerprofilesctl set balanced"
+
+      # Super + F3 -> Performance Power Mode
+      riverctl map normal Super F3 spawn "powerprofilesctl set performance"
 
       # Screenshoots
       riverctl map normal Super+Shift P spawn 'grim -g "$(slurp -b 00000088 -c ffffffff -s 00000000)" - | swappy -f -'

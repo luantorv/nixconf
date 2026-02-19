@@ -11,9 +11,18 @@ Keyboard shortcuts used by default. You can change them in `nixconf/home-manager
 | Super + B | Open/close waybar |
 | Super + V | Open/close clipboard |
 | Super + L | Open/close energy menu |
+| Super + C | Open VSCodium |
 | Super + E | Open yazi |
 | Super + Shift + E | Open Thunar |
 | Super + Alt + E | Exit WM (River) |
+
+## Power Modes
+
+| Keybind | Action |
+|---------|--------|
+| Super + F1 | Set Power-Save Mode |
+| Super + F2 | Set Balanced Mode |
+| Super + F3 | Set Performance Mode |
 
 ## Windows
 

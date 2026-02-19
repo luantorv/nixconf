@@ -19,7 +19,7 @@
           "custom/caffeine" 
           "clock" 
           "battery" 
-          "backlight"
+          "custom/power_profile"
           "custom/media"
         ];
 
@@ -28,6 +28,7 @@
         ];
 
         modules-right = [ 
+          "backlight"
           "network" 
           "bluetooth" 
           "pulseaudio" 
@@ -123,6 +124,15 @@
           format-alt = "TIME: {time}";
           tooltip = false;
         };
+
+        "custom/power_profile" = {
+          exec = "powerprofilesctl get";
+          interval = 30;
+          format = "PWR {}";
+          on-click = "powerprofilesctl set performance";
+          on-click-right = "powerprofilesctl set power-saver";
+          tooltip = false;
+        };
       }
     ];
 
@@ -164,7 +174,7 @@
         color: ${config.colors.pink};
       }
 
-      #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth, #battery, #custom-media {
+      #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth, #battery, #custom-media, #custom-power_profile {
         padding: 0 10px;
         border-left: 1px solid ${config.colors.white};
       }
