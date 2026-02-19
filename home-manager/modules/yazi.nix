@@ -23,24 +23,24 @@
     theme = {
       manager = {
         border_symbol = "|";
-        border_style = { fg = "${config.colors.blanco}"; };
+        border_style = { fg = "${config.colors.white}"; };
       };
 
       status = {
-        separator_open = "";
-        separator_close = "";
-        style = { bg = "${config.colors.nixCeleste}"; fg = "${config.colors.negro}"; };
+        separator_open = "[";
+        separator_close = "]";
+        style = { bg = "${config.colors.darkblue}"; fg = "${config.colors.white}"; };
       };
 
       filelist = {
-        hovered = { bg = "${config.colors.nixAzul}"; fg = "${config.colors.blanco}"; bold = true; };
-        selected = { bg = "${config.colors.nixCeleste}"; fg = "${config.colors.negro}"; bold = true; };
+        hovered = { bg = "${config.colors.darkblue}"; fg = "${config.colors.white}"; bold = true; };
+        selected = { bg = "${config.colors.skyblue}"; fg = "${config.colors.black}"; bold = true; };
       };
 
       icon = {
         rules = [
-          { name = "*.nix"; symbol = ""; color = "${config.colors.nixCeleste}"; }
-          { name = "*.sh"; symbol = ""; color = "${config.colors.blanco}"; }
+          { name = "*.nix"; symbol = "nix"; color = "${config.colors.skyblue}"; }
+          { name = "*.sh"; symbol = "sh"; color = "${config.colors.green}"; }
         ];
       };
     };

@@ -135,38 +135,38 @@
       }
 
       window#waybar {
-        background: ${config.colors.negro};
-        background-color: ${config.colors.negro};
-        color: ${config.colors.blanco};
-        border-bottom: 2px solid ${config.colors.blanco}; /* linea divisoria simple */
+        background: ${config.colors.black};
+        background-color: ${config.colors.black};
+        color: ${config.colors.white};
+        border-bottom: 2px solid ${config.colors.white};
       }
 
       #tags button {
-        color: ${config.colors.gris};
+        color: ${config.colors.grey};
         padding: 0 5px;
         border-bottom: 3px solid transparent;
       }
 
       #tags button.focused {
-        background: linear-gradient(45deg, ${config.colors.nixAzul}, ${config.colors.nixCeleste});
-        color: ${config.colors.blanco};
-        border-bottom: 3px solid ${config.colors.blanco};
+        background: linear-gradient(45deg, ${config.colors.darkblue}, ${config.colors.skyblue});
+        color: ${config.colors.white};
+        border-bottom: 3px solid ${config.colors.white};
       }
 
       #tags button.visible:not(.focused) {
-        background: linear-gradient(45deg, ${config.colors.conRojo}, ${config.colors.conNaranja});
-        color: ${config.colors.negro};
+        background: linear-gradient(45deg, ${config.colors.pink}, ${config.colors.white});
+        color: ${config.colors.black};
         font-weight: bold;
-        border-bottom: 3px solid ${config.colors.conRojo};
+        border-bottom: 3px solid ${config.colors.red};
       }
 
       #tags button.occupied:not(.focused):not(.visible) {
-        color: ${config.colors.nixCeleste};
+        color: ${config.colors.pink};
       }
 
       #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth, #battery, #custom-media {
         padding: 0 10px;
-        border-left: 1px solid ${config.colors.blanco};
+        border-left: 1px solid ${config.colors.white};
       }
 
       #clock {
@@ -174,70 +174,70 @@
       }
 
       #custom-caffeine {
-        color: ${config.colors.nixCeleste};
+        color: ${config.colors.skyblue};
         padding: 0 10px;
-        border-right: 1px solid ${config.colors.blanco}
+        border-right: 1px solid ${config.colors.white}
       }
 
       #bluetooth {
-        color: ${config.colors.nixCeleste};
+        color: ${config.colors.pink};
         padding: 0 10px;
       }
 
       #bluetooth.on {
-        color: ${config.colors.conRojo};
+        color: ${config.colors.coral};
         font-weight: bold;
       }
 
       #bluetooth.connected {
-        color: ${config.colors.nixAzul};
+        color: ${config.colors.green};
         font-weight: bold;
       }
 
       #pulseaudio {
-        color: ${config.colors.blanco};
+        color: ${config.colors.white};
         margin-left: 5px; 
       }
 
       #pulseaudio.muted:not(.microphone) {
-        color: ${config.colors.conNaranja};
+        color: ${config.colors.coral};
       }
 
       #pulseaudio.microphone {
-        color: ${config.colors.blanco};
+        color: ${config.colors.white};
         margin-left: 5px;
       }
 
       #pulseaudio.microphone.source-muted {
-        color: ${config.colors.conNaranja};
+        color: ${config.colors.coral};
       }
 
       #custom-media {
-        color: ${config.colors.nixCeleste};
-        border-left: 1px solid ${config.colors.blanco};
+        color: ${config.colors.skyblue};
+        border-left: 1px solid ${config.colors.white};
         padding: 0 10px;
         font-style: italic;
       }
 
       #custom-media.Paused {
-        color: ${config.colors.gris};
+        color: ${config.colors.grey};
       }
 
       #battery {
-        color: ${config.colors.nixCeleste};
+        color: ${config.colors.skyblue};
         padding: 0 10px;
       }
 
       #battery.charning, #battery.plugged {
-        color: ${config.colors.nixAzul};
+        color: ${config.colors.skyblue};
       }
 
       #battery.warning:not(.charning) {
-        color: ${config.colors.conNaranja};
+        color: ${config.colors.pink};
       }
 
       #battery.critical:not(.charning) {
-        color: ${config.colors.conRojo};
+        color: ${config.colors.red};
         animation-name: blink;
         animation-duration: 0.5s;
         animation-timing-function: linear;
@@ -247,8 +247,8 @@
 
       @keyframes blink {
         to {
-          background-color: ${config.colors.conRojo};
-          color: ${config.colors.blanco};
+          background-color: ${config.colors.red};
+          color: ${config.colors.white};
         }
       }
     '';

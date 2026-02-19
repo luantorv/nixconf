@@ -8,8 +8,8 @@
       image = "${../nixoslogo.png}";
       scaling = "fill";
       color = "000000";
-      ring-color = "5277c3";
-      key-hl-color = "7ebae4";
+      ring-color = "7eabe4";
+      key-hl-color = "f5a9b9";
       line-color = "00000000";
       inside-color = "00000000";
       separator-color = "00000000";
@@ -23,8 +23,8 @@
     image=/home/luis/.config/home-manager/nixoslogo.png
     scaling=center
     color=000000
-    ring-color=5277c3
-    key-hl-color=7ebae4
+    ring-color=7eabe4
+    key-hl-color=f5a9b9
     line-color=00000000
     inside-color=00000000
     separator-color=00000000

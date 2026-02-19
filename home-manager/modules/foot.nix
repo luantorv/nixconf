@@ -12,8 +12,11 @@
         background = "000000";
         foreground = "ffffff";
 
-        regular4 = "5277c3";
-        regular6 = "7ebae4";
+        regular1 = "d62900"; # red
+        regular2 = "27cea9"; # green
+        regular3 = "ff9c55"; # yellow
+        regular4 = "5277c3"; # blue
+        regular6 = "7ebae4"; # cian
       };
     };
   };

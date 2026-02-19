@@ -14,18 +14,18 @@
 
     style = ''
       window {
-        background-color: ${config.colors.negro};
-        color: ${config.colors.blanco};
+        background-color: ${config.colors.black};
+        color: ${config.colors.white};
         font-family: ¨JetBrains Mono¨;
-        border: 2px solid ${config.colors.blanco};
+        border: 2px solid ${config.colors.skyblue};
         border-radius: 12px;
       }
 
       #input {
-        background-color: ${config.colors.negro};
-        color: ${config.colors.blanco};
+        background-color: ${config.colors.black};
+        color: ${config.colors.pink};
         border: none;
-        border-bottom: 1px solid ${config.colors.gris};
+        border-bottom: 1px solid ${config.colors.pink};
         margin: 10px;
         padding: 5px;
       }
@@ -35,12 +35,12 @@
       }
 
       #entry:selected {
-        background-color: ${config.colors.nixAzul};
+        background-color: ${config.colors.pink};
         border-radius: 8px;
       }
 
       #text:selected {
-        color: ${config.colors.blanco};
+        color: ${config.colors.black};
       }
     '';
   };
