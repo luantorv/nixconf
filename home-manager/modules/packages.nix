@@ -32,6 +32,7 @@
     onlyoffice-desktopeditors
     nomacs
     discordo
+    mpv
 
     # terminal utilities
     yazi
