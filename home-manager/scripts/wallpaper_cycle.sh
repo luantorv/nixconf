@@ -22,5 +22,6 @@ if [ -n "$START_IMG" ]; then
 		sleep 15m
 		NEXT_IMG=$(ls $DIR | shuf -n 1)
 		swww img "$DIR/$NEXT_IMG" --transition-type random
+		notify-send "Wallpaper" "Cambiado a: $NEXT_IMG" -t 2000
 	done
 fi

@@ -19,6 +19,7 @@
       # Importar variables del entorno de systemd y activar el target gráfico
       dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
       systemctl --user start graphical-session.target
+      systemctl --user start mako
 
       # Configuración básica
       riverctl set-repeat 50 300
@@ -140,17 +141,17 @@
       riverctl rule-add -app-id 'float-term' border-color-focused "0x7ebae4ff"
 
       # Super + F1 -> Battery Save Power Mode
-      riverctl map normal Super F1 spawn "powerprofilesctl set power-saver"
+      riverctl map normal Super F1 spawn "powerprofilesctl set power-saver && notify-send 'Energía' 'Modo Ahorro de Batería Activo' -u low"
 
       # Super + F2 -> Balanced Power Mode
-      riverctl map normal Super F2 spawn "powerprofilesctl set balanced"
+      riverctl map normal Super F2 spawn "powerprofilesctl set balanced && notify-send 'Energía' 'Modo Balanceado Activo' -u normal"
 
       # Super + F3 -> Performance Power Mode
-      riverctl map normal Super F3 spawn "powerprofilesctl set performance"
+      riverctl map normal Super F3 spawn "powerprofilesctl set performance && notify-send 'Energía' 'Modo Performance Activo' -u critical"
 
       # Screenshoots
-      riverctl map normal Super+Shift P spawn 'grim -g "$(slurp -b 00000088 -c ffffffff -s 00000000)" - | swappy -f -'
-      riverctl map normal None Print    spawn 'grim - | swappy -f -'
+      riverctl map normal Super+Shift P spawn 'grim -g "$(slurp -b 00000088 -c ffffffff -s 00000000)" - | swappy -f - && notify-send "Captura" "Imagen guardada o copiada" -i camera'
+      riverctl map normal None Print    spawn 'grim - | swappy -f - && notify-send "Captura" "Imagen guardada o copiada" -i camera'
       riverctl rule-add -app-id 'swappy' float
 
       # Layout

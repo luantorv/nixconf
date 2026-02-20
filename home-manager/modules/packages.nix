@@ -23,6 +23,8 @@
     slurp
     swappy
     swww
+    mako
+    libnotify
 
     # browser & other
     brave
@@ -43,11 +45,11 @@
     lazygit
     tmux
     atuin
-
     zoxide
     eza
     bat
     fd
     ripgrep
+    btop
   ];
 }

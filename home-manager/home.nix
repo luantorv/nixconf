@@ -10,6 +10,7 @@
 
     ./modules/river.nix
     ./modules/kanshi.nix
+    ./modules/mako.nix
     ./modules/bash.nix
     ./modules/starship.nix
     ./modules/nvim.nix
