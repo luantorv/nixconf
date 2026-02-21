@@ -17,6 +17,7 @@ START_IMG=$(ls $DIR | wofi --dmenu --prompt "Empezar presentación con...")
 
 if [ -n "$START_IMG" ]; then
 	swww img "$DIR/$START_IMG" --transition-type outer
+	notify-send "Wallpaper" "Cambiado a: $START_IMG" -t 2000
 
 	while true; do
 		sleep 15m

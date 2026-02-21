@@ -74,13 +74,13 @@
       riverctl map normal Super O send-to-output next
 
       # Super + W -> Seleccionar fondo estático
-      riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="$HOME/Images/Wallpapers"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center)'
+      riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="$HOME/Images/Wallpapers"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center && notify-send "Wallpaper" "Cambiado a: $IMG" -t 2000)'
 
       # Super + Alt + W -> Iniciar presentación de fondos
       riverctl map normal Super+Alt W spawn "$HOME/.config/home-manager/scripts/wallpaper_cycle.sh"
 
       # Super + Shift + W -> Quitar fondo de pantalla (Modo por defecto)
-      riverctl map normal Super+Shift W spawn 'swww clear 000000 && pkill -f wallpaper_cycle.sh'
+      riverctl map normal Super+Shift W spawn 'swww clear 000000 && pkill -f wallpaper_cycle.sh && notify-send "Wallpaper" "Se quitó el wallpaper\tUse'Super+W' o 'Super+Alt+W' para volver a poner alguno" -t 2000'
 
       # Salir de River
       riverctl map normal Super+Alt E exit 
@@ -105,20 +105,20 @@
       done
 
       # Control de Volumen
-      riverctl map normal None XF86AudioRaiseVolume spawn 'pamixer -i 5'
-      riverctl map normal None XF86AudioLowerVolume spawn 'pamixer -d 5'
-      riverctl map normal None XF86AudioMute        spawn 'pamixer -t'
-      riverctl map normal None XF86AudioMicMute     spawn 'pamixer --default-source -t'
+      riverctl map normal None XF86AudioRaiseVolume spawn 'sh -c "pamixer -i 5; notify-send Volume \"$(pamixer --get-volume)%\" -t 2000"'
+      riverctl map normal None XF86AudioLowerVolume spawn 'sh -c "pamixer -d 5; notify-send Volume \"$(pamixer --get-volume)%\" -t 2000"'
+      riverctl map normal None XF86AudioMute        spawn 'sh -c "pamixer -t; if pamixer --get-mute | grep -q true; then notify-send Volume \"Muted\" -t 2000; else notify-send Volume \"$(pamixer --get-volume)%\" -t 2000; fi"'
+      riverctl map normal None XF86AudioMicMute spawn 'sh -c "pamixer --default-source -t; if pamixer --default-source --get-mute | grep -q true; then notify-send Microphone \"Muted\" -t 2000; else notify-send Microphone \"Unmuted\" -t 2000; fi"'
 
       # Control de Brillo
-      riverctl map normal None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
-      riverctl map normal None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+      riverctl map normal None XF86MonBrightnessUp spawn "sh -c 'brightnessctl set +5% && notify-send Brightness \"$(brightnessctl | grep -oP '\d+(?=%)')%\" -t 2000'"
+      riverctl map normal None XF86MonBrightnessDown spawn "sh -c 'brightnessctl set 5%- && notify-send Brightness \"$(brightnessctl | grep -oP '\d+(?=%)')%\" -t 2000'"
 
       # Controles Multimedia
-      riverctl map normal None XF86AudioPlay spawn 'playerctl play-pause'
-      riverctl map normal None XF86AudioNext spawn 'playerctl next'
-      riverctl map normal None XF86AudioPrev spawn 'playerctl previous'
-      riverctl map normal None XF86AudioStop spawn 'playerctl stop'
+      riverctl map normal None XF86AudioPlay spawn sh -c 'playerctl play-pause; notify-send Media "$(playerctl status)" -t 2000'
+      riverctl map normal None XF86AudioNext spawn sh -c 'playerctl next; notify-send Media "$(playerctl metadata title)" -t 2000'
+      riverctl map normal None XF86AudioPrev spawn sh -c 'playerctl previous; notify-send Media "$(playerctl metadata title)" -t 2000'
+      riverctl map normal None XF86AudioStop spawn sh -c 'playerctl stop; notify-send Media Stopped -t 2000'
 
       # Menu de energia
       riverctl map normal Super L spawn 'pgrep wofi && pkill wofi || (echo -e "1. Bloquear\n2. Sesion\n3. Reiniciar\n4. Apagar\n5. Portapapeles" | wofi --dmenu --header "SISTEMA:" | awk "{print \$2}" | xargs -I{} sh -c "case {} in Bloquear) swaylock -f;; Sesion) riverctl exit;; Reiniciar) reboot;; Apagar) poweroff;; Portapapeles) cliphist wipe;; esac")'
