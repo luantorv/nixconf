@@ -10,7 +10,7 @@
         layer = "top";
         position = "top";
         exclusive = true;
-        height = 24;
+        height = 30;
 
         mode = "dock";
         start_hidden = true;
@@ -127,7 +127,7 @@
 
         "custom/power_profile" = {
           exec = "powerprofilesctl get";
-          interval = 30;
+          interval = 10;
           format = "PWR {}";
           on-click = "powerprofilesctl set performance";
           on-click-right = "powerprofilesctl set power-saver";
@@ -148,7 +148,7 @@
         background: ${config.colors.black};
         background-color: ${config.colors.black};
         color: ${config.colors.white};
-        border-bottom: 2px solid ${config.colors.white};
+        border-bottom: 1px solid ${config.colors.white};
       }
 
       #tags button {
@@ -158,8 +158,8 @@
       }
 
       #tags button.focused {
-        background: linear-gradient(45deg, ${config.colors.darkblue}, ${config.colors.skyblue});
-        color: ${config.colors.white};
+        background: linear-gradient(45deg, ${config.colors.skyblue}, ${config.colors.pink});
+        color: ${config.colors.black};
         border-bottom: 3px solid ${config.colors.white};
       }
 
@@ -171,22 +171,38 @@
       }
 
       #tags button.occupied:not(.focused):not(.visible) {
-        color: ${config.colors.pink};
+        background: rgba(${config.colors.rgb.green}, 0.2);
+        color: ${config.colors.skyblue};
       }
 
-      #clock, #network, #backlight, #pulseaudio, #pulseaudio.microphone, #bluetooth, #battery, #custom-media, #custom-power_profile {
+      #bluetooth, #custom-caffeine, #battery {
         padding: 0 10px;
         border-left: 1px solid ${config.colors.white};
       }
 
+      #backlight, #pulseaudio.microphone {
+        padding: 0 10px;
+        border-left: 1px solid ${config.colors.skyblue};
+      }
+
+      #network, #pulseaudio {
+        padding: 0 10px;
+        border-left: 1px solid ${config.colors.pink};
+      }
+
       #clock {
-        border-left: none;
+        padding: 0 10px;
+        border-left: 1px solid ${config.colors.skyblue};
+      }
+
+      #custom-power_profile, #custom-media {
+        padding: 0 10px;
+        border-left: 1px solid ${config.colors.green};
       }
 
       #custom-caffeine {
         color: ${config.colors.skyblue};
-        padding: 0 10px;
-        border-right: 1px solid ${config.colors.white}
+        border-left: none;
       }
 
       #bluetooth {
@@ -224,7 +240,7 @@
 
       #custom-media {
         color: ${config.colors.skyblue};
-        border-left: 1px solid ${config.colors.white};
+        border-left: 1px solid ${config.colors.green};
         padding: 0 10px;
         font-style: italic;
       }
@@ -239,7 +255,7 @@
       }
 
       #battery.charning, #battery.plugged {
-        color: ${config.colors.skyblue};
+        color: ${config.colors.white};
       }
 
       #battery.warning:not(.charning) {
