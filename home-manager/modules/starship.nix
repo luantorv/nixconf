@@ -7,7 +7,7 @@
   
     settings = {
       format = ''
-      [](${config.colors.skyblue})[ $username ](bold black bg:${config.colors.skyblue})[](${config.colors.skyblue}) [](${config.colors.pink})[ $directory ](bold black bg:${config.colors.pink})[](${config.colors.pink}) $git_branch$nix_shell
+      [](${config.colors.skyblue})[ $username ](bold black bg:${config.colors.skyblue})[](${config.colors.skyblue}) [](${config.colors.pink})[ $directory ](bold black bg:${config.colors.pink})[](${config.colors.pink}) $git_branch $nix_shell
       $character '';
     
       username = {
