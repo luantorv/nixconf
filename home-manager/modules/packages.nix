@@ -35,6 +35,7 @@
     nomacs
     discordo
     mpv
+    unar
 
     # terminal utilities
     yazi
