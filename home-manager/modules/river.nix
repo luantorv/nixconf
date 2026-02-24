@@ -73,6 +73,9 @@
       # Super + O -> Enviar ventana al proximo monitor
       riverctl map normal Super O send-to-output next
 
+      # Super + H -> Htop
+      riverctl map normal Super H spawn "pgrep htop && pkill htop || foot --app-id=float-term -e htop"
+
       # Super + W -> Seleccionar fondo estático
       riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="$HOME/Images/Wallpapers"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center && notify-send "Wallpaper" "Cambiado a: $IMG" -t 2000)'
 

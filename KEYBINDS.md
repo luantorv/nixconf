@@ -13,7 +13,8 @@ Keyboard shortcuts used by default. You can change them in `nixconf/home-manager
 | Super + L | Open/close energy menu |
 | Super + C | Open VSCodium |
 | Super + E | Open yazi |
-| Suoper + Shift + D | Open Discordo |
+| Super + H | Open/cloase htop |
+| Super + Shift + D | Open Discordo |
 | Super + Shift + E | Open Thunar |
 | Super + Alt + E | Exit WM (River) |
 
