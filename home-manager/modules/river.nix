@@ -74,8 +74,8 @@
       # Super + O -> Enviar ventana al proximo monitor
       riverctl map normal Super O send-to-output next
 
-      # Super + H -> Htop
-      riverctl map normal Super H spawn "pgrep htop && pkill htop || foot --app-id=float-term -e htop"
+      # Super + T -> btop
+      riverctl map normal Super T spawn "pgrep btop && pkill btop || foot --app-id=float-term -e btop"
 
       # Super + W -> Seleccionar fondo estático
       riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="$HOME/Images/Wallpapers"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center && notify-send "Wallpaper" "Cambiado a: $IMG" -t 2000)'
@@ -144,7 +144,7 @@
 
       # Ventanas flotantes para módulos de Waybar
       riverctl rule-add -app-id 'float-term' float
-      riverctl rule-add -app-id 'float-term' dimensions 800 500
+      riverctl rule-add -app-id 'float-term' dimensions 1200 700
       riverctl rule-add -app-id 'float-term' border-color-focused "0x7ebae4ff"
 
       # Super + F1 -> Battery Save Power Mode

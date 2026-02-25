@@ -128,6 +128,7 @@ nixconf/
 |    home-manager/
 |    |    modules/
 |    |    |    bash.nix
+|    |    |    btop.nix
 |    |    |    cliphist.nix
 |    |    |    colors.nix
 |    |    |    foot.nix

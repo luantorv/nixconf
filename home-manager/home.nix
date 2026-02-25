@@ -17,6 +17,7 @@
     ./modules/nvim.nix
     ./modules/vim.nix
     ./modules/foot.nix
+    ./modules/btop.nix
     ./modules/gtk.nix
     ./modules/waybar.nix
     ./modules/wofi.nix
