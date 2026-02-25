@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
   	vim
   	wget

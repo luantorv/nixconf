@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Allow swaylock fot verification
+  # Allow swaylock for verification
   security.pam.services.swaylock = {};
 }
