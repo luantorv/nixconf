@@ -52,5 +52,10 @@
     fd
     ripgrep
     btop
+
+    (pkgs.writeShellApplication {
+      name = "gen-mt";
+      text = builtins.readFile ../scripts/gen-mt.sh;
+    })
   ];
 }
