@@ -148,6 +148,7 @@ nixconf/
 |    |    |    wofi.nix
 |    |    |    yazi.nix
 |    |    scripts/
+|    |    |    gen-mt.sh
 |    |    |    wallpaper_cycle.sh
 |    |    home.nix
 |    |    nixoslogo.png
@@ -156,10 +157,12 @@ nixconf/
 |    |    |    boot.nix
 |    |    |    disk.nix
 |    |    |    networking.nix
+|    |    |    nix.nix
 |    |    |    packages.nix
 |    |    |    security.nix
 |    |    |    services.nix
 |    |    |    users.nix
+|    |    |    variables.nix
 |    |    configuration.nix
 |    KEYBINDS.md
 |    README.md
