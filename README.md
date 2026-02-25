@@ -10,7 +10,7 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
   <img src="assets/screenshoots/wofi.png" alt="Wofi launcher" width="45%">
   <img src="assets/screenshoots/wofi-energy_menu.png" alt="Wofi power menu" width="45%">
   <img src="assets/screenshoots/nvim.png" alt="Vim" width="45%">
-  <img src="assets/screenshoots/htop.png" alt="Htop" width="45%">
+  <img src="assets/screenshoots/btop.png" alt="Htop" width="45%">
 </div>
 
 ## System Information
