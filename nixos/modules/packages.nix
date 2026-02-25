@@ -8,7 +8,7 @@
   	vim
   	wget
     git
-	  htop
+	  btop
 	  fastfetch
 	  tree
     tuigreet
