@@ -6,7 +6,7 @@
       Description = "river compositor session";
       Decumentation = [ "man:river(1)" ];
       BindsTo = [ "graphical-session.target" ];
-      Wants = [ "graphical-session-pre.target" ];
+      Wants = [ "graphical-session-pre.target" "tray.target" ];
       After = [ "graphical-session-pre.target" ];
     };
   };
@@ -20,6 +20,7 @@
       dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
       systemctl --user start graphical-session.target
       systemctl --user start mako
+      systemctl --user start udiskie
 
       # Configuración básica
       riverctl set-repeat 50 300
@@ -84,6 +85,9 @@
 
       # Super + Shift + W -> Quitar fondo de pantalla (Modo por defecto)
       riverctl map normal Super+Shift W spawn 'swww clear 000000 && pkill -f wallpaper_cycle.sh && notify-send "Wallpaper" "Se quitó el wallpaper\tUse'Super+W' o 'Super+Alt+W' para volver a poner alguno" -t 2000'
+
+      # Super + U: Open Yazi in mounted disks dir
+      riverctl map normal Super U spawn "foot --app-id=float-term -e yazi /run/media/luis/"
 
       # Salir de River
       riverctl map normal Super+Alt E exit 

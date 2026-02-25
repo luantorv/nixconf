@@ -30,18 +30,20 @@
       text-color=${config.colors.red}
       default-timeout=0
 
-      # 2. Diseño para Reproducción de Música
       [category=preview]
       border-color=${config.colors.skyblue}
       background-color=${config.colors.white}ee
 
-      # 3. Diseño para capturas de pantalla o Spotify (usando app-name)
       [app-name=Spotify]
       border-color=${config.colors.green}
     
       [app-name=swappy]
       border-color=${config.colors.pink}
       default-timeout=2000
+
+      [app-name=udiskie]
+      border-color=${config.colors.green}
+      text-color=${config.colors.white}
     '';
   };
 }

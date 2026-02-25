@@ -6,4 +6,6 @@
     fsType = "ext4";
     options = [ "defaults" "nofail" ];
   };
+
+  services.udisks2.enable = true;
 }

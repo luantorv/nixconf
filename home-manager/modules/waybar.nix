@@ -27,7 +27,8 @@
           "river/tags" 
         ];
 
-        modules-right = [ 
+        modules-right = [
+          "tray"
           "backlight"
           "network" 
           "bluetooth" 
@@ -132,6 +133,11 @@
           on-click = "powerprofilesctl set performance";
           on-click-right = "powerprofilesctl set power-saver";
           tooltip = false;
+        };
+
+        tray = {
+          icon-size = 16;
+          spacing = 10;
         };
       }
     ];
@@ -276,6 +282,20 @@
           background-color: ${config.colors.red};
           color: ${config.colors.white};
         }
+      }
+
+      #tray {
+        padding: 0 10px;
+        margin-right: 5px;
+      }
+
+      #tray > .passive {
+        -gtk-icon-effect: dim;
+      }
+
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
+        background-color: ${config.colors.red};
       }
     '';
   };

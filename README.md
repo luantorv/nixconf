@@ -141,6 +141,7 @@ nixconf/
 |    |    |    starship.nix
 |    |    |    swappy.nix
 |    |    |    swaylock.nix
+|    |    |    udiskie.nix
 |    |    |    variables.nix
 |    |    |    vim.nix
 |    |    |    waybar.nix

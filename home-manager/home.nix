@@ -12,6 +12,7 @@
     ./modules/kanshi.nix
     ./modules/mako.nix
     ./modules/bash.nix
+    ./modules/udiskie.nix
     ./modules/starship.nix
     ./modules/nvim.nix
     ./modules/vim.nix
