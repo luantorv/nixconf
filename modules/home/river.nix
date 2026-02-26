@@ -81,13 +81,13 @@
       riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="$HOME/Images/Wallpapers"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center && notify-send "Wallpaper" "Cambiado a: $IMG" -t 2000)'
 
       # Super + Alt + W -> Iniciar presentación de fondos
-      riverctl map normal Super+Alt W spawn "$HOME/.config/home-manager/scripts/wallpaper_cycle.sh"
+      riverctl map normal Super+Alt W spawn "wallpaper-cycle"
 
       # Super + Shift + W -> Quitar fondo de pantalla (Modo por defecto)
       riverctl map normal Super+Shift W spawn 'swww clear 000000 && pkill -f wallpaper_cycle.sh && notify-send "Wallpaper" "Se quitó el wallpaper\tUse'Super+W' o 'Super+Alt+W' para volver a poner alguno" -t 2000'
 
       # Super + U: Open Yazi in mounted disks dir
-      riverctl map normal Super U spawn "foot --app-id=float-term -e yazi /run/media/luis/"
+      riverctl map normal Super U spawn "foot --app-id=float-term -e yazi /run/media/${globalVars.username}/"
 
       # Salir de River
       riverctl map normal Super+Alt E exit 

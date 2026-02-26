@@ -1,18 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "intl";
   };
-
-  # Configure console keymap
-  console.keyMap = "us-acentos";
 
   # Config portal xdg
   xdg.portal = {
@@ -37,7 +30,7 @@
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd river";
-        user = "luis";
+        user = ${globalVars.username};
       };
     };
   };
@@ -52,9 +45,7 @@
     TTYVTDisallocate = true;
   };
 
-  services.tlp.enable = false;
-  services.power-profiles-daemon.enable = true;
-  hardware.cpu.intel.updateMicrocode = true;
+  services.udisks2.enable = true;
+
   services.irqbalance.enable = true;
-  services.thermald.enable = true;
 }

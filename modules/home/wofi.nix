@@ -16,7 +16,7 @@
       window {
         background-color: ${config.colors.black};
         color: ${config.colors.white};
-        font-family: ¨JetBrains Mono¨;
+        font-family: ¨JetBrains Mono Nerd Font¨;
         border: 2px solid ${config.colors.skyblue};
         border-radius: 12px;
       }

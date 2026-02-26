@@ -1,19 +1,19 @@
 { config, pkgs, ... }:
 
 {
+
+  imports = [ ./packages-minimal.nix ];
+  
   home.packages = with pkgs; [
     # Rice packages
     river-classic
     waybar
     wofi
     foot
-    jetbrains-mono
-    nerd-fonts.jetbrains-mono
     pamixer
     brightnessctl
     wlopm
     swayidle
-    procps
     wl-clipboard
     cliphist
     wlr-randr
@@ -33,29 +33,12 @@
     zathura
     onlyoffice-desktopeditors
     nomacs
-    discordo
     mpv
-    unar
 
-    # terminal utilities
-    yazi
-    exiftool
-    ffmpegthumbnailer
-    poppler-utils
-    fzf
-    lazygit
-    tmux
-    atuin
-    zoxide
-    eza
-    bat
-    fd
-    ripgrep
-    btop
-
+    
     (pkgs.writeShellApplication {
-      name = "gen-mt";
-      text = builtins.readFile ../scripts/gen-mt.sh;
+      name = "wallpaper-cycle";
+      text = builtins.readFile ./scripts/wallpaper_cycle.sh;
     })
   ];
 }
