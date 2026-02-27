@@ -2,6 +2,29 @@
 
 My personal [NixOS](https://nixos.org) configuration featuring the [River](https://github.com/riverwm/river) window manager on Wayland using [Home Manager](https://github.com/nix-community/home-manager).
 
+
+## Structure
+
+```sh
+.
+├── assets/            # Wallpapers and screenshots
+├── flake.nix          # Entry point, global variables
+├── hosts/             # Per-machine configuration
+│   └── laptop/
+│       ├── default.nix
+│       └── hardware-configuration.nix
+├── modules/
+│   ├── home/          # Home Manager modules
+│   └── nixos/         # NixOS modules
+├── profiles/          # Module bundles per use case
+│   ├── desktop.nix
+│   └── minimal.nix
+├── secrets/
+├── shells/            # Nix dev shells
+├── KEYBINDS.md
+└── README.md
+```
+
 ## Screenshoots
 
 <div align="center">
@@ -30,144 +53,181 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 
 ### Prerequisites
 
-- A working NixOS installation
-- Git installed
-- Home Manager instaled
+All three scenarios assume you have booted into a NixOS live environment or an existing NixOS system. The configuration uses flakes, so nix with flakes support is required throughout.
 
->[!TIP]
-> If you don't have Home Manager installed yet:
->
-> ```sh
-> bashnix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
-> nix-channel --update
-> nix-shell '<home-manager>' -A install
-> ```
+If your current nix version does not have flakes enabled, add this flag to every nix command used below:
 
-### Clone the Repository
-
-- To clone without screenshots (recommended):
-
-```sh
-git clone --filter=blob:none --no-checkout https://github.com/luantorv/nixconf.git
-cd nixconf
-git sparse-checkout init --cone
-git sparse-checkout set nixos home-manager assets/wallpapers
-git checkout
+```
+--extra-experimental-features 'nix-command flakes'
 ```
 
-- Or clone everything:
+Or enable it permanently in your current session:
 
-```sh
-git clone https://github.com/luantorv/nixconf.git
-cd nixconf
+```bash
+export NIX_CONFIG="experimental-features = nix-command flakes"
 ```
 
-### Apply Configuration
+#### 1. Fresh NixOS install (post-installer)
 
-- NixOS system configuration:
+This assumes you have just finished partitioning and mounting your drives and have generated a `hardware-configuration.nix` via `nixos-generate-config`.
 
-```sh
-sudo cp -r nixos/* /etc/nixos/
-sudo nixos-rebuild switch
+- Clone the repository
+
+```bash
+git clone https://github.com/luantorv/nixconf.git /mnt/etc/nixos
+cd /mnt/etc/nixos
 ```
 
-- Home Manager configuration:
+- Copy your hardware configuration
 
-```sh
-cp -r home-manager/* ~/.config/home-manager/
-home-manager switch
+```bash
+cp /etc/nixos/hardware-configuration.nix hosts/laptop/hardware-configuration.nix
 ```
 
-- Wallpapers (optional):
+- Adjust global variables
 
-```sh
-mkdir -p ~/Images/Wallpapers
-cp -r assets/wallpapers/* ~/Images/Wallpapers/
+Edit `flake.nix` and set your username and home directory:
+
+```nix
+globalVars = {
+  username              = "youruser";
+  homeDirectory         = "/home/youruser";
+  system                = "x86_64-linux";
+  wallpaperDir          = "/home/youruser/Images/Wallpapers"; # Absolute path
+  wallpaperRelativePath = "Images/Wallpapers"; # Relavite to the home
+};
 ```
+
+- Install
+
+```bash
+nixos-install --flake /mnt/etc/nixos#laptop
+```
+
+- Reboot
+
+```bash
+reboot
+```
+
+After rebooting, the repository will be at `/etc/nixos`. Future rebuilds are done from there.
+
+#### 2. Applying to an existing NixOS system
+
+This assumes NixOS is already running and you want to replace your current configuration with this one.
+
+- Clone the repository
+
+```bash
+git clone https://github.com/luantorv/nixconf.git ~/nixconf
+cd ~/nixconf
+```
+
+- Copy your hardware configuration
+
+```bash
+cp /etc/nixos/hardware-configuration.nix hosts/laptop/hardware-configuration.nix
+```
+
+- Adjust global variables
+
+Edit `flake.nix` and set your username and home directory:
+
+```nix
+globalVars = {
+  username              = "youruser";
+  homeDirectory         = "/home/youruser";
+  system                = "x86_64-linux";
+  wallpaperDir          = "/home/youruser/Images/Wallpapers"; # Absolute path
+  wallpaperRelativePath = "Images/Wallpapers"; # Relavite to the home
+};
+```
+
+- Apply
+
+```bash
+sudo nixos-rebuild switch --flake .#laptop
+```
+
+- (Optional) Move to `/etc/nixos`
+
+If you want the configuration to live in the conventional location:
+
+```bash
+sudo mv ~/nixconf /etc/nixos
+```
+
+Future rebuilds:
+
+```bash
+cd /etc/nixos && sudo nixos-rebuild switch --flake .#laptop
+```
+
+#### 3. Home Manager only (without managing the system)
+
+This scenario applies if you are running NixOS (or another Linux distribution) and only want to manage your user environment, without this flake touching system-level configuration.
+
+>[!NOTE] 
+> This configuration uses Home Manager as a NixOS module. Running it standalone requires minor adjustments. See the note at the end of this section.
+
+- Install Home Manager (standalone)
+
+```bash
+nix run home-manager/master -- init --switch
+```
+
+- Clone the repository
+
+```bash
+git clone https://github.com/luantorv/nixconf.git ~/nixconf
+cd ~/nixconf
+```
+
+- Adjust global variables
+
+Edit `flake.nix` and set your username and home directory.
+
+- Apply
+
+```bash
+home-manager switch --flake .#youruser
+```
+
+> This requires adding a homeConfigurations output to `flake.nix` that points directly to the desired profile's home modules, since the standalone mode does not go through `nixosModules.home-manager`. The system-level modules (`modules/nixos/`) will have no effect in this scenario.
+
+## Updating
+
+- Pull the latest changes and rebuild:
+
+```bash
+git pull
+sudo nixos-rebuild switch --flake .#laptop
+```
+
+To update flake inputs (nixpkgs, home-manager, etc.) before rebuilding:
+
+```bash
+nix flake update
+sudo nixos-rebuild switch --flake .#laptop
+```
+
+## Dev Shells
+
+Project-specific development environments are available under `shells/`. Enter one with:
+
+```bash
+nix develop .#python
+nix develop .#node
+nix develop .#rust
+```
+
+Running `nix develop` without a target drops you into the default shell.
+
 
 ## Keybinds
 
-You can find a guide to the keybinds used [here](https://github.com/luantorv/nixconf/blob/main/KEYBINDS.md).
+You can find a guide to the keybinds used in river [here](https://github.com/luantorv/nixconf/blob/main/KEYBINDS.md).
 
-## Structure
-
-```
-nixconf/
-|    assets/
-|    |    screenshoots/
-|    |    |    foot-fastfetch.png
-|    |    |    htop.png
-|    |    |    nvim.png
-|    |    |    waybar.png
-|    |    |    wofi-clipboard.png
-|    |    |    wofi-energy_menu.png
-|    |    |    wofi.png
-|    |    wallpapers/
-|    |    |    wallhaven-0qre8q.jpg
-|    |    |    wallhaven-3lwxdd.jpg
-|    |    |    wallhaven-838kky.png
-|    |    |    wallhaven-o5kzv7.png
-|    |    |    wallhaven-x8oxez.png
-|    |    |    wallhaven-zx6xyy.png
-|    |    |    wallhaven-1jyjp1.png
-|    |    |    wallhaven-5gpvg8.png
-|    |    |    wallhaven-d6k9lj.jpg
-|    |    |    wallhaven-p9qmje.jpg
-|    |    |    wallhaven-x67prv.jpg
-|    |    |    wallhaven-zyqwev.jpg
-|    |    |    wallhaven-1p2ojg.jpg
-|    |    |    wallhaven-8xmx5o.png
-|    |    |    wallhaven-d6kl1j.jpg
-|    |    |    wallhaven-r27pyw.jpg
-|    |    |    wallhaven-x621xo.png
-|    |    |    wallhaven-1pd98v.jpg
-|    |    |    wallhaven-96y9qk.jpg
-|    |    |    wallhaven-mdjvy8.jpg
-|    |    |    wallhaven-vg8mo8.jpg
-|    |    |    wallhaven-z8zkmw.jpg
-|    home-manager/
-|    |    modules/
-|    |    |    bash.nix
-|    |    |    btop.nix
-|    |    |    cliphist.nix
-|    |    |    colors.nix
-|    |    |    foot.nix
-|    |    |    gtk.nix
-|    |    |    home-manager.nix
-|    |    |    kanshi.nix
-|    |    |    mako.nix
-|    |    |    nvim.nix
-|    |    |    packages.nix
-|    |    |    river.nix
-|    |    |    starship.nix
-|    |    |    swappy.nix
-|    |    |    swaylock.nix
-|    |    |    udiskie.nix
-|    |    |    variables.nix
-|    |    |    vim.nix
-|    |    |    waybar.nix
-|    |    |    wofi.nix
-|    |    |    yazi.nix
-|    |    scripts/
-|    |    |    gen-mt.sh
-|    |    |    wallpaper_cycle.sh
-|    |    home.nix
-|    |    nixoslogo.png
-|    nixos/
-|    |    modules/
-|    |    |    boot.nix
-|    |    |    disk.nix
-|    |    |    networking.nix
-|    |    |    nix.nix
-|    |    |    packages.nix
-|    |    |    security.nix
-|    |    |    services.nix
-|    |    |    users.nix
-|    |    |    variables.nix
-|    |    configuration.nix
-|    KEYBINDS.md
-|    README.md
-```
 
 ## Credits
 
