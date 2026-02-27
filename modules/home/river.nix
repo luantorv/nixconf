@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, globalVars, ... }:
 
 {
   systemd.user.targets.river-session = {
@@ -81,7 +81,7 @@
       riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="${globalVars.wallpaperDir}"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center && notify-send "Wallpaper" "Cambiado a: $IMG" -t 2000)'
 
       # Super + Alt + W -> Iniciar presentación de fondos
-      riverctl map normal Super+Alt W spawn "wallpaper-cycle"
+      riverctl map normal Super+Alt W spawn "wallpaper-cycle ${globalVars.wallpaperDir}"
 
       # Super + Shift + W -> Quitar fondo de pantalla (Modo por defecto)
       riverctl map normal Super+Shift W spawn 'swww clear 000000 && pkill -f wallpaper_cycle.sh && notify-send "Wallpaper" "Se quitó el wallpaper\tUse'Super+W' o 'Super+Alt+W' para volver a poner alguno" -t 2000'

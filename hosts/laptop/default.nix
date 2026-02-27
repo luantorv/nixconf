@@ -18,7 +18,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit globalVars; };
-    users.${globalVars.username} = import ../../profiles/desktop.nix;
   };
 
   networking.hostName = "nichos";

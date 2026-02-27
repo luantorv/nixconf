@@ -6,7 +6,6 @@
     nerd-fonts.jetbrains-mono
     procps
 
-    discordo
     unar
 
     yazi

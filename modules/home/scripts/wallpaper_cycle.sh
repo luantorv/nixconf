@@ -10,10 +10,20 @@ fi
 
 echo $$ > "$PIDFILE"
 
-DIR=${globalVars.wallpaperDir}
+DIR="$1"
+
+if [ -z "$DIR" ]; then
+	echo "Uso: $0 <directorio_de_wallpapers>"
+	exit 1
+fi
+
+if [ ! -d "$DIR" ]; then
+	notify-send "Error" "'$DIR' no es un directorio valido"
+	exit 1
+fi
 
 # Elegir la imagen inicial con Wofi
-START_IMG=$(ls $DIR | wofi --dmenu --prompt "Empezar presentación con...")
+START_IMG=$(find "$DIR" -maxdepth 1 -type f -printf "%f\n" | wofi --dmenu --prompt "Empezar presentacion con...")
 
 if [ -n "$START_IMG" ]; then
 	swww img "$DIR/$START_IMG" --transition-type outer
@@ -21,7 +31,7 @@ if [ -n "$START_IMG" ]; then
 
 	while true; do
 		sleep 15m
-		NEXT_IMG=$(ls $DIR | shuf -n 1)
+		NEXT_IMG=$(find "$DIR" -maxdepth 1 -type f -printf "%f\n" | shuf -n 1)
 		swww img "$DIR/$NEXT_IMG" --transition-type random
 		notify-send "Wallpaper" "Cambiado a: $NEXT_IMG" -t 2000
 	done

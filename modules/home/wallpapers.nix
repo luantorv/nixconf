@@ -2,9 +2,9 @@
 
 {
   home.activation.copyWallpapers = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-    if [ ! -d "${globalVars.wallpapersDir}" ] || [ -z "$(ls -A ${globalVars.wallpapersDir})" ]; then
-      mkdir -p "${globalVars.wallpapersDir}"
-      cp ${../assets/wallpapers}/* "${globalVars.wallpapersDir}/"
+    if [ ! -d "${globalVars.wallpaperDir}" ] || [ -z "$(ls -A ${globalVars.wallpaperDir})" ]; then
+      mkdir -p "${globalVars.wallpaperDir}"
+      cp ${../../assets/wallpapers}/* "${globalVars.wallpaperDir}/"
     fi
   '';
 }

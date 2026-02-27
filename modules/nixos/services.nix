@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, globalVars, ... }:
 
 {
   # Configure keymap in X11
@@ -30,7 +30,7 @@
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd river";
-        user = ${globalVars.username};
+        user = "${globalVars.username}";
       };
     };
   };

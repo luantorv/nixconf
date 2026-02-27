@@ -4,7 +4,6 @@
   imports = [
     ../modules/nixos/base.nix
     ../modules/nixos/boot.nix
-    ../modules/nixos/disk.nix
     ../modules/nixos/networking.nix
     ../modules/nixos/nix.nix
     ../modules/nixos/packages.nix
