@@ -1,17 +1,25 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Enviar notificación de inicio
-notify-send "Mantenimiento" "Iniciando actualización y limpieza del sistema..." -i system-software-update
+notify() {
+    local title="$1"
+    local message="$2"
+    local urgency="${3:-normal}"
+    local icon="${4:-}"
 
-# 1. Actualizar el sistema (si usas Flakes, añade --flake .#default)
-if sudo nixos-rebuild switch; then
-    # 2. Limpiar generaciones viejas de más de 7 días
+    if command -v notify-send >/dev/null 2>&1 && \
+       { [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; }; then
+        notify-send "$title" "$message" -u "$urgency" ${icon:+-i "$icon"}
+    else
+        echo "[$title] $message"
+    fi
+}
+
+notify "Mantenimiento" "Iniciando actualización y limpieza del sistema..." "normal" "system-software-update"
+
+if sudo nixos-rebuild switch --flake ~/nixconf#laptop; then
     sudo nix-collect-garbage --delete-older-than 7d
-    
-    # 3. Optimizar el almacenamiento (hardlinks para archivos duplicados)
     nix-store --optimise
-    
-    notify-send "Mantenimiento" "Sistema actualizado y optimizado con éxito" -u low -i checkbox-checked-symbolic
+    notify "Mantenimiento" "Sistema actualizado y optimizado con éxito" "low" "checkbox-checked-symbolic"
 else
-    notify-send "Mantenimiento" "Error durante la actualización" -u critical -i error
+    notify "Mantenimiento" "Error durante la actualización" "critical" "error"
 fi
