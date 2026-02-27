@@ -16,13 +16,9 @@
       cd = "z";
       lg = "lazygit";
       
-      gen-rb = "sudo nixos-rebuild switch";
-      gen-up = "sudo cp -r ~/nixconf/nixos/* /etc/nixos/";
+      gen-rb = "sudo nixos-rebuild switch --flake ~/nixconf#laptop";
+      gen-up = "nix flake update ~/nixconf";
       gen-ls = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-
-      hml = "home-manager generations";
-      hms = "home-manager switch";
-      hmu = "cp -r ~/nixconf/home-manager/* ~/.config/home-manager/";
     };
   };
 
