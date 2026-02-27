@@ -18,6 +18,8 @@
       
       gen-rb = "sudo nixos-rebuild switch --flake ~/nixconf#laptop";
       gen-up = "nix flake update ~/nixconf";
+      gen-gc = "sudo nix-collect-garbage --delete-older-than 7d";
+      gen-op = "nix-store --optimise";
       gen-ls = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
     };
   };
