@@ -78,7 +78,7 @@
       riverctl map normal Super T spawn "pgrep btop && pkill btop || foot --app-id=float-term -e btop"
 
       # Super + W -> Seleccionar fondo estático
-      riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="$HOME/Images/Wallpapers"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center && notify-send "Wallpaper" "Cambiado a: $IMG" -t 2000)'
+      riverctl map normal Super W spawn 'pgrep wofi && pkill wofi || (DIR="${globalVars.wallpaperDir}"; IMG=$(ls $DIR | wofi --dmenu --prompt "Seleccionar Fondo:"); [ -n "$IMG" ] && swww img "$DIR/$IMG" --transition-type center && notify-send "Wallpaper" "Cambiado a: $IMG" -t 2000)'
 
       # Super + Alt + W -> Iniciar presentación de fondos
       riverctl map normal Super+Alt W spawn "wallpaper-cycle"

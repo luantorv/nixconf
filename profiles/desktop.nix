@@ -33,6 +33,7 @@
       ../modules/home/udiskie.nix
       ../modules/home/variables.nix
       ../modules/home/vim.nix
+      ../modules/home/wallpapers.nix
       ../modules/home/waybar.nix
       ../modules/home/wofi.nix
       ../modules/home/yazi.nix

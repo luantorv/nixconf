@@ -10,7 +10,7 @@ fi
 
 echo $$ > "$PIDFILE"
 
-DIR=$HOME/Images/Wallpapers
+DIR=${globalVars.wallpaperDir}
 
 # Elegir la imagen inicial con Wofi
 START_IMG=$(ls $DIR | wofi --dmenu --prompt "Empezar presentación con...")
