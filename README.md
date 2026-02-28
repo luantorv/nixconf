@@ -8,6 +8,9 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 ```sh
 .
 ├── assets/            # Wallpapers and screenshots
+├── docs/              # Configuration documentation
+│       ├── KEYBINDS.md
+│       └── SECRETS.md
 ├── flake.nix          # Entry point, global variables
 ├── hosts/             # Per-machine configuration
 │   └── laptop/
@@ -19,9 +22,8 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 ├── profiles/          # Module bundles per use case
 │   ├── desktop.nix
 │   └── minimal.nix
-├── secrets/
+├── secrets/           # Secrets handled by SOPS
 ├── shells/            # Nix dev shells
-├── KEYBINDS.md
 └── README.md
 ```
 
@@ -228,7 +230,7 @@ Running `nix develop` without a target drops you into the default shell.
 
 ## Keybinds
 
-You can find a guide to the keybinds used in river [here](https://github.com/luantorv/nixconf/blob/main/KEYBINDS.md).
+You can find a guide to the keybinds used in river [here](https://github.com/luantorv/nixconf/blob/main/docs/KEYBINDS.md).
 
 
 ## Credits
