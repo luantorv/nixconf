@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
     let
       globalVars = {
         username = "luis";
@@ -31,9 +31,8 @@
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = { 
-            inherit globalVars;
-            inherit (input) sops-nix;
-          } // { inherit home-manager; };
+            inherit globalVars sops-nix home-manager; 
+          };
 
           modules = [
             home-manager.nixosModules.home-manager

@@ -1,4 +1,4 @@
-{ config, pkgs, globalVars, ... }:
+{ config, pkgs, globalVars, sops-nix, ... }:
 
 {
   imports = [
@@ -17,7 +17,8 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit globalVars; };
+    extraSpecialArgs = { inherit globalVars sops-nix; };
+    sharedModules = [ sops-nix.homeManagerModules.sops ];
   };
 
   networking.hostName = "nichos";

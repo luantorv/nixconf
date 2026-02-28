@@ -1,7 +1,6 @@
 { config, pkgs, globalVars, sops-nix, ... }:
 
 {
-  imports = [ sops-nix.homeManagerModules.sops ];
 
   sops = {
     # Clave con la que sops descifra. Deriva una clave age a partir de tu clave SSH ed25519.
