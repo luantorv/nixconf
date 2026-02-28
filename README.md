@@ -9,8 +9,8 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 .
 ├── assets/            # Wallpapers and screenshots
 ├── docs/              # Configuration documentation
-│       ├── KEYBINDS.md
-│       └── SECRETS.md
+│   ├── KEYBINDS.md
+│   └── SECRETS.md
 ├── flake.nix          # Entry point, global variables
 ├── hosts/             # Per-machine configuration
 │   └── laptop/
