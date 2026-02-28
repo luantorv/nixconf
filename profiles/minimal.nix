@@ -18,6 +18,7 @@
       ../modules/home/colors.nix
       ../modules/home/nvim.nix
       ../modules/home/packages-minimal.nix
+      ../modules/home/sops.nix
       ../modules/home/starship.nix
       ../modules/home/udiskie.nix
       ../modules/home/variables.nix

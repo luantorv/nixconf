@@ -26,6 +26,7 @@
       ../modules/home/nvim.nix
       ../modules/home/packages-desktop.nix
       ../modules/home/river.nix
+      ../modules/home/sops.nix
       ../modules/home/starship.nix
       ../modules/home/swappy.nix
       ../modules/home/swaylock.nix

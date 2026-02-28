@@ -1,0 +1,8 @@
+keys:
+  - &laptop age16m9z78r2epj7qh0st83tcmvyam6g86tsezuvl9xmh3u8jatal3xszcz7fc
+
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - *laptop

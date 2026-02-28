@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }:
@@ -25,9 +30,14 @@
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
-          specialArgs = { inherit globalVars; } // { inherit home-manager; };
+          specialArgs = { 
+            inherit globalVars;
+            inherit (input) sops-nix;
+          } // { inherit home-manager; };
+
           modules = [
             home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops 
             ./hosts/laptop/default.nix
           ];
         };
