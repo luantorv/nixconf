@@ -216,9 +216,11 @@ sudo nixos-rebuild switch --flake .#laptop
 Project-specific development environments are available under `shells/`. Enter one with:
 
 ```bash
-nix develop .#python
-nix develop .#node
-nix develop .#rust
+nix develop ~/nixconf#default
+nix develop ~/nixconf#python
+nix develop ~/nixconf#node
+nix develop ~/nixconf#rust
+nix develop ~/nixconf#latex
 ```
 
 Running `nix develop` without a target drops you into the default shell.
