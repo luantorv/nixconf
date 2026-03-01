@@ -34,6 +34,10 @@
     onlyoffice-desktopeditors
     nomacs
     mpv
+    steam
+    discord
+    spotify
+    prismlauncher
 
     
     (pkgs.writeShellApplication {
