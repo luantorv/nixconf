@@ -24,6 +24,8 @@
 
         wallpaperDir = "/home/luis/Images/Wallpapers"; # Absolute path
         wallpaperRelativePath = "Images/Wallpapers"; # Relavite to the home
+
+        notesDir = "/data/notas";
       };
     in
     {

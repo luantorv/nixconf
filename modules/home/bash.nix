@@ -15,6 +15,8 @@
       grep = "rg";
       cd = "z";
       lg = "lazygit";
+
+      new = "nvim '$(date +%Y-%m-%d_%H:%M:%S).md'";
       
       gen-rb = "sudo nixos-rebuild switch --flake ~/nixconf#laptop";
       gen-up = "nix flake update ~/nixconf";

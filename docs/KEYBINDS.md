@@ -13,8 +13,7 @@ Keyboard shortcuts used by default. You can change them in `nixconf/home-manager
 | Super + L | Open/close energy menu |
 | Super + C | Open VSCodium |
 | Super + E | Open yazi |
-| Super + T | Open/cloase btop |
-| Super + Shift + D | Open Discordo |
+| Super + T | Open/close btop |
 | Super + Shift + E | Open Thunar |
 | Super + Alt + E | Exit WM (River) |
 
@@ -47,6 +46,13 @@ Keyboard shortcuts used by default. You can change them in `nixconf/home-manager
 |---------|--------|
 | Super + 1-9 | Focus 1-9 tag |
 | Super + Shift + 1-9 | Move focused window to 1-9 tag |
+
+## Notes
+
+| Keybind | Action |
+|---------|--------|
+| Super + N | Open a floating terminal in globalVars.notesDir |
+| Super + Shift + N | (Super + N) + create a new note and open it in neovim |
 
 ## Screenshoots
 
