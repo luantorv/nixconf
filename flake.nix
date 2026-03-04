@@ -42,6 +42,19 @@
             ./hosts/laptop/default.nix
           ];
         };
+
+        server = nixpkgs.lib.nixosSystem {
+          inherit (globalVars) system;
+          specialArgs = { 
+            inherit globalVars sops-nix home-manager; 
+          };
+
+          modules = [
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops 
+            ./hosts/server/default.nix
+          ];
+        };
       };
 
       devShells.${globalVars.system} = import ./shells {
