@@ -6,6 +6,7 @@
     ./boot.nix
     ./hardware.nix
     ../../profiles/minimal.nix
+    ../../modules/nixos/server.nix
   ];
 
   home-manager = {
