@@ -2,7 +2,7 @@
 
 {
   imports = [
-    #./hardware-configuration.nix
+    ./hardware-configuration.nix
     ./boot.nix
     ./hardware.nix
     ../../profiles/minimal.nix
