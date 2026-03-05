@@ -48,4 +48,6 @@
   services.udisks2.enable = true;
 
   services.irqbalance.enable = true;
+
+  services.tailscale.enable = true;
 }

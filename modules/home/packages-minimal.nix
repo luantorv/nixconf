@@ -22,6 +22,7 @@
     fd
     ripgrep
     btop
+    tailscale
 
     (pkgs.writeShellApplication {
       name = "gen-mt";

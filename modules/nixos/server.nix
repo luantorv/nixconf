@@ -23,4 +23,8 @@
   };
 
   services.tailscale.enable = true;
+
+  users.users.luis.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK6Gf9ipzbPYD6zADlf9y4ZV6I8ntNG9JIzHjBLEJybh luantorv@gmail.com"
+  ];
 }
