@@ -3,7 +3,7 @@
 {
   imports = [
     ../modules/nixos/base.nix
-    ../modules/nixos/boot.nix
+    ../modules/nixos/boot_systemd-boot.nix
     ../modules/nixos/networking.nix
     ../modules/nixos/nix.nix
     ../modules/nixos/packages.nix
