@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  lockImage = ../../assets/nixoslogo.png;
+  lockImage = ../../../assets/nixoslogo.png;
 in
 {
   programs.swaylock = {

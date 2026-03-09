@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ../modules/nixos/base.nix
-    ../modules/nixos/boot_systemd-boot.nix
-    ../modules/nixos/nix.nix
+    ../modules/nixos/core/base.nix
+    ../modules/nixos/core/nix.nix
+    ../modules/nixos/boot/systemd-boot.nix
     ../modules/nixos/packages.nix
     ../modules/nixos/users.nix
     ../modules/nixos/variables.nix
@@ -12,17 +12,16 @@
 
   home-manager.users.${globalVars.username} = { pkgs, ... }: {
     imports = [
-      ../modules/home/bash.nix
-      ../modules/home/btop.nix
-      ../modules/home/colors.nix
-      ../modules/home/nvim.nix
-      ../modules/home/packages-minimal.nix
+      ../modules/home/packages/minimal.nix
+
+      ../modules/home/editors
+      ../modules/home/files
+
+      ../modules/home/shell/bash.nix
+      ../modules/home/terminal/btop.nix
+      ../modules/home/theme/colors.nix
       ../modules/home/sops.nix
-      ../modules/home/starship.nix
-      ../modules/home/udiskie.nix
       ../modules/home/variables.nix
-      ../modules/home/vim.nix
-      ../modules/home/yazi.nix
     ];
 
     home = {

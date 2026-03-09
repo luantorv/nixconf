@@ -2,7 +2,7 @@
 
 {
 
-  imports = [ ./packages-minimal.nix ];
+  imports = [ ./minimal.nix ];
   
   home.packages = with pkgs; [
     # Rice packages
