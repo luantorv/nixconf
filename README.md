@@ -13,12 +13,28 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 │   └── SECRETS.md
 ├── flake.nix          # Entry point, global variables
 ├── hosts/             # Per-machine configuration
-│   └── laptop/
+│   ├── laptop/
+│   │   ├── default.nix
+│   │   ├── boot.nix
+│   │   ├── hardware-configuration.nix
+│   │   └── hardware.nix
+│   └── server/
 │       ├── default.nix
-│       └── hardware-configuration.nix
+│       ├── boot.nix
+│       ├── hardware-configuration.nix
+│       └── harwdare.nix
 ├── modules/
 │   ├── home/          # Home Manager modules
+│   │   ├── desktop/
+│   │   ├── editors/
+│   │   ├── files/
+│   │   ├── packages/
+│   │   ├── shell/
+│   │   ├── terminal/
+│   │   └── theme/
 │   └── nixos/         # NixOS modules
+│       ├── boot/
+│       └── core/
 ├── profiles/          # Module bundles per use case
 │   ├── desktop.nix
 │   └── minimal.nix
