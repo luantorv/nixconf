@@ -59,8 +59,8 @@
       # Super + C -> VSCodium
       riverctl map normal Super C spawn codium
 
-      # Super + Shift + D -> Discordo
-      riverctl map normal Super+Shift D spawn "foot -e discordo"
+      # Super + Shift + D -> Discord
+      riverctl map normal Super+Shift D spawn discord
 
       # Super + Q -> cerrar ventana focused
       riverctl map normal Super Q close

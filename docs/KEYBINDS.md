@@ -14,6 +14,7 @@ Keyboard shortcuts used by default. You can change them in `nixconf/home-manager
 | Super + C | Open VSCodium |
 | Super + E | Open yazi |
 | Super + T | Open/close btop |
+| Super + Shift + D | Open Discord |
 | Super + Shift + E | Open Thunar |
 | Super + Alt + E | Exit WM (River) |
 
