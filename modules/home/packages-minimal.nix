@@ -23,6 +23,7 @@
     ripgrep
     btop
     tailscale
+    onefetch
 
     (pkgs.writeShellApplication {
       name = "gen-mt";
