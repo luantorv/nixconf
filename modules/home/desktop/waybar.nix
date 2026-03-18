@@ -44,6 +44,7 @@
           format = "{:%H:%M | %d-%m-%y}";
           timezone = "America/Argentina/Buenos_Aires";
           tooltip = false;
+          on-click = "orage";
         };
 
         "network" = {
@@ -111,7 +112,7 @@
             Paused = "PAUSED";
           };
           escape = true;
-          exec = ''playerctl -a metadata --format '{ "text": "{{artist}} - {{title}}", "alt": "{{status}}", "class": "{{status}}" }' -F 2>/dev/null || echo '{ "text": "", "alt": "Stopped", "class": "stopped" }' '';
+          exec = ''playerctl -a metadata --format '{ "text": "{{title}} - {{artist}}", "alt": "{{status}}", "class": "{{status}}" }' -F 2>/dev/null || echo '{ "text": "", "alt": "Stopped", "class": "stopped" }' '';
         };
 
         battery = {

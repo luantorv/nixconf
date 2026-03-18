@@ -25,6 +25,7 @@
     swww
     mako
     libnotify
+    xfce.orage
 
     # browser & other
     brave
