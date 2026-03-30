@@ -6,5 +6,5 @@
   hardware.cpu.intel.updateMicrocode = true;
   services.thermald.enable = true;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 }
