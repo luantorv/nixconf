@@ -47,11 +47,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774921944,
-        "narHash": "sha256-p5tRiYodAj9g+RkAroA1UtbmNiGeVLHTkbycVO0Otp8=",
+        "lastModified": 1774922563,
+        "narHash": "sha256-vVpnDMLd1AzOj6wJmuy2i1X9NYpqalADIj8oVVl/eJ8=",
         "owner": "luantorv",
         "repo": "nixbox",
-        "rev": "26c284ef81de9466e5e8f8b241cb0a3ef91ace28",
+        "rev": "650cdcff8ef6d82462350d93a18c1492a5aefd16",
         "type": "github"
       },
       "original": {
