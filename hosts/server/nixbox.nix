@@ -14,7 +14,7 @@
   #       OPENAI_API_KEY=sk-...
   #       GOOGLE_API_KEY=AI...
   sops.secrets.nixbox-tokens = {
-    sopsFile = ../../secrets/secrets.yaml;
+    #sopsFile = ../../secrets/secrets.yaml;
     key = "nixbox/tokens";
     owner = "nixbox";
     mode = "0400";
