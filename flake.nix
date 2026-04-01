@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, nixbox, ... }:
+  outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
     let
       globalVars = {
         username = "luis";
