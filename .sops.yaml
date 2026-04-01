@@ -1,7 +1,6 @@
 keys:
   - &laptop age16m9z78r2epj7qh0st83tcmvyam6g86tsezuvl9xmh3u8jatal3xszcz7fc
   - &server age1pyc9unmrx3g7tq5czp9pysusehtg2f53gmm30s8s4g0q3p8j2s4sjfjnec
-  - &server-host age12lkfg3u7hzpmay5xzrlf668my0w0lm68nj0lp2ut6jhjhqp5evzsr9nyzk
 
 creation_rules:
   - path_regex: secrets/.*\.yaml$
@@ -9,4 +8,3 @@ creation_rules:
       - age:
           - *laptop
           - *server
-          - *server-host

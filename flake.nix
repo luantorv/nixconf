@@ -13,11 +13,6 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixbox = {
-      url = "github:luantorv/nixbox";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, sops-nix, nixbox, ... }:
@@ -57,7 +52,6 @@
           modules = [
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
-            nixbox.nixosModules.default
             ./hosts/server/default.nix
           ];
         };

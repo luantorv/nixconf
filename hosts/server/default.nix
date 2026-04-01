@@ -7,7 +7,6 @@
     ./hardware.nix
     ../../profiles/minimal.nix
     ../../modules/nixos/server.nix
-    ./nixbox.nix
   ];
 
   home-manager = {
