@@ -8,7 +8,7 @@ let
         pkill wlsunset
         notify-send "Modo Lectura" "Desactivado" -h string:x-canonical-private-synchronous:modo-lectura
     else
-        wlsunset -t 3000 -T 3000 &
+        wlsunset -t 3000 -T 3100 &
         notify-send "Modo Lectura" "Activado (3000K)" -h string:x-canonical-private-synchronous:modo-lectura
     fi
   '';
