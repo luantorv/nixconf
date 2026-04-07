@@ -56,9 +56,5 @@
           ];
         };
       };
-
-      devShells.${globalVars.system} = import ./shells {
-        pkgs = nixpkgs.legacyPackages.${globalVars.system};
-      };
     };
 }
