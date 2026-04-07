@@ -69,7 +69,7 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 
 ## Documentation
 
-In the "docs" folder you can find detailed documentation on implementing (secrets)[https://github.com/luantorv/nixconf/blob/main/docs/SECRETS.md], (keybinds)[https://github.com/luantorv/nixconf/blob/main/docs/KEYBINDS.md], and (how to prove or test)[https://github.com/luantorv/nixconf/blob/main/docs/INSTALLATION%20and%20UPDATING.md] this configuration.
+In the "docs" folder you can find detailed documentation on implementing [secrets](https://github.com/luantorv/nixconf/blob/main/docs/SECRETS.md), [keybinds](https://github.com/luantorv/nixconf/blob/main/docs/KEYBINDS.md), and [how to prove or test](https://github.com/luantorv/nixconf/blob/main/docs/INSTALLATION%20and%20UPDATING.md) this configuration.
 
 ## Credits
 
