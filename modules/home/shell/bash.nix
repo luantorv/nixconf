@@ -19,6 +19,9 @@
 
       new = "nvim $(date +%Y-%m-%d_%H:%M:%S).md";
       
+      dev = "nix develop";
+      shell = "nix shell";
+      
       gen-rb = "sudo nixos-rebuild switch --flake ~/nixconf#laptop";
       gen-up = "nix flake update ~/nixconf";
       gen-gc = "sudo nix-collect-garbage --delete-older-than 7d";
