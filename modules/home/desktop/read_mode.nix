@@ -8,8 +8,7 @@ let
         pkill wlsunset
         notify-send "Modo Lectura" "Desactivado" -h string:x-canonical-private-synchronous:modo-lectura
     else
-        # 3000 es la temperatura cálida, puedes subirlo a 4000 si es muy naranja
-        wlsunset -T 3000 & 
+        wlsunset -t 3000 -T 3000 &
         notify-send "Modo Lectura" "Activado (3000K)" -h string:x-canonical-private-synchronous:modo-lectura
     fi
   '';
