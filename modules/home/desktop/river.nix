@@ -96,7 +96,7 @@
       riverctl map normal Super U spawn "foot --app-id=float-term -e yazi /run/media/${globalVars.username}/"
 
       # Super + Z -> Translate Selected Text
-      riverctl map normal Super Z spawn tra
+      riverctl map normal Super Z spawn "foot --app-id=float-term -e tra"
 
       # Super + Shift + L -> Read Mode
       riverctl map normal Super+Shift L spawn modo-lectura
