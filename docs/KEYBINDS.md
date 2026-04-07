@@ -13,10 +13,13 @@ Keyboard shortcuts used by default. You can change them in `nixconf/home-manager
 | Super + L | Open/close energy menu |
 | Super + C | Open VSCodium |
 | Super + E | Open yazi |
+| Super + U | Open yazi on mounted disks dir |
 | Super + T | Open/close btop |
 | Super + Shift + D | Open Discord |
 | Super + Shift + E | Open Thunar |
 | Super + Alt + E | Exit WM (River) |
+| Super + Z | Translate Selected Text |
+| Super + Shift + L | Enable/Disable Read Mode |
 
 ## Power Modes
 
