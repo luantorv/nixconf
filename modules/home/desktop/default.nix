@@ -9,5 +9,7 @@
     ./swaylock.nix
     ./waybar.nix
     ./wofi.nix
+    ./read_mode.nix
+    ./translate.nix
   ];
 }
