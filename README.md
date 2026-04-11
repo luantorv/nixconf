@@ -40,6 +40,7 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 │   ├── desktop.nix
 │   └── minimal.nix
 ├── secrets/           # Secrets handled by SOPS
+├── CREDITS.md
 └── README.md
 ```
 
