@@ -69,17 +69,11 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 
 ## Documentation
 
-In the "docs" folder you can find detailed documentation on implementing [secrets](https://github.com/luantorv/nixconf/blob/main/docs/SECRETS.md), [keybinds](https://github.com/luantorv/nixconf/blob/main/docs/KEYBINDS.md), and [how to prove or test](https://github.com/luantorv/nixconf/blob/main/docs/INSTALLATION%20and%20UPDATING.md) this configuration.
+In the [docs](https://github.com/luantorv/nixconf/tree/main/docs) folder you can find detailed documentation on implementing [secrets](https://github.com/luantorv/nixconf/blob/main/docs/SECRETS.md), [keybinds](https://github.com/luantorv/nixconf/blob/main/docs/KEYBINDS.md), and [how to prove or test](https://github.com/luantorv/nixconf/blob/main/docs/INSTALLATION%20and%20UPDATING.md) this configuration.
 
 ## Credits
 
-All wallpapers available in [wallpapers](https://github.com/luantorv/nixconf/tree/main/assets/wallpapers/) were extracted from [wallhaven](https://wallhaven.cc).
-
-The wallpapers in this repository are the property of their respective authors. I do not claim ownership of any artwork shared here.
-
-If you recognize any of these works and know the original artist, or if you are the creator of an image and would like it to be specifically credited (or removed), please reach out directly via any of my [contact methods](#author)
-
-The image for [swaylock-effects](https://github.com/jirutka/swaylock-effects) were extracted from [nixos-artwork GitHub repository](https://github.com/NixOS/nixos-artwork/blob/master/wallpapers/nix-wallpaper-gear.png).
+In [CREDITS.md](CREDITS.md) you can find the sources for the images (except for the screenshoots, obviously) available in this repository.
 
 ## Disclaimer
 
