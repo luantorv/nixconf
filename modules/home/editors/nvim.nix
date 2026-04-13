@@ -7,6 +7,16 @@
     viAlias = true;
     vimAlias = true;
 
+    # LSP Servers
+    extraPackages = with pkgs; [
+	    nixd					                          # Nix
+	    pyright					                        # Python
+	    rust-analyzer				                    # Rust
+	    nodePackages.typescript-language-server	# JS/TS
+	    vscode-langservers-extracted		        # HTML/CSS/JSON/ESLint
+	    texlab					                        # LaTeX
+    ];
+
     plugins = with pkgs.vimPlugins; [
       # Theme
       rose-pine
@@ -21,6 +31,16 @@
       cmp-path
       luasnip
       cmp_luasnip
+
+      # TabLine
+      bufferline-nvim
+      nvim-web-devicons
+
+      # LSP
+      nvim-lspconfig
+
+      # Mini-map
+      codewindow-nvim
     ];
 
     extraLuaConfig = ''
@@ -36,6 +56,30 @@
       vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })
       vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { silent = true })
       vim.keymap.set('n', '<C-q>', ':bd<CR>', { silent = true})
+
+      -- Tabline
+      require("bufferline").setup({
+        options = {
+          mode = "buffers",
+          separator_style = "thin",
+          always_show_bufferline = true,
+          show_buffer_close_icons = true,
+          show_close_icon = true,
+          offsets = {
+            {
+              filetype = "netrw",
+              text = "File Explorer",
+              text_align = "left",
+              separator = true
+            }
+          }
+        }
+      })
+
+      vim.opt.tabstop = 2
+      vim.opt.shiftwidth = 2
+      vim.opt.expandtab = true
+      vim.opt.softtabstop = 2 
 
       -- Show buffers
       vim.opt.showtabline = 2
@@ -72,6 +116,23 @@
         },
         indent = { enable = true }
       }
+
+      -- LSPs
+
+      local lspconfig = require('lspconfig')
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local servers = { 'nixd', 'pyright', 'rust_analyzer', 'ts_ls', 'html', 'cssls', 'texlab' }
+
+      for _, lsp in ipairs(servers) do 
+      	lspconfig[lsp].setup {
+	        capabilities = capabilities,
+	      }
+      end
+
+      -- Keybinds for LSP
+      vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = "Go to Definition" })
+      vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { desc = "Hover Documentation" })
+      vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end, { desc = "Code Action" })
 
       -- Autocomplete (nvim-cmp)
       local cmp = require('cmp')
@@ -116,6 +177,18 @@
           { name = 'path' },
         })
       })
+
+      vim.opt.number = true
+
+      -- Mini-Map
+      local codewindow = require('codewindow')
+      codewindow.setup({
+        active_in_terminals = false,
+        auto_enable = false,
+        minimap_width = 10, 
+      })
+
+      vim.keymap.set('n', '<A-m>', codewindow.toggle_minimap, { desc = "Toggle Minimap"})
     '';
   };
 }
