@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, globalVars, ... }:
 
 {
   programs.neovim = {
@@ -15,6 +15,10 @@
 	    nodePackages.typescript-language-server	# JS/TS
 	    vscode-langservers-extracted		        # HTML/CSS/JSON/ESLint
 	    texlab					                        # LaTeX
+      lazygit
+      onefetch
+      ripgrep
+      fd
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -41,9 +45,35 @@
 
       # Mini-map
       codewindow-nvim
+
+      # Git integration
+      lazygit-nvim
+      gitsigns-nvim
+
+      # Home Page & Projects
+      telescope-nvim
+      telescope-project-nvim
+      alpha-nvim
+      plenary-nvim
     ];
 
     extraLuaConfig = ''
+      vim.deprecate = function() end
+      vim.g.mapleader = " "
+
+      local original_deprecate = vim.deprecate
+      
+      local lspconfig = require('lspconfig')
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      -- Lista de servidores LSP
+      local servers = { 'nixd', 'pyright', 'rust_analyzer', 'ts_ls', 'html', 'cssls', 'texlab' }
+      for _, lsp in ipairs(servers) do
+        lspconfig[lsp].setup {
+          capabilities = capabilities,
+        }
+      end
+
       -- Explorador de archivos
       vim.g.netrw_banner = 0
       vim.g.netrw_liststyle = 3
@@ -117,18 +147,6 @@
         indent = { enable = true }
       }
 
-      -- LSPs
-
-      local lspconfig = require('lspconfig')
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local servers = { 'nixd', 'pyright', 'rust_analyzer', 'ts_ls', 'html', 'cssls', 'texlab' }
-
-      for _, lsp in ipairs(servers) do 
-      	lspconfig[lsp].setup {
-	        capabilities = capabilities,
-	      }
-      end
-
       -- Keybinds for LSP
       vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = "Go to Definition" })
       vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { desc = "Hover Documentation" })
@@ -185,10 +203,103 @@
       codewindow.setup({
         active_in_terminals = false,
         auto_enable = false,
-        minimap_width = 10, 
+        minimap_width = 10,
+        use_git = true,
+        use_treesitter = true
       })
 
-      vim.keymap.set('n', '<A-m>', codewindow.toggle_minimap, { desc = "Toggle Minimap"})
+      vim.keymap.set('n', '<leader>m', codewindow.toggle_minimap, { desc = "Toggle Minimap"})
+
+      -- Git indicators
+      require('gitsigns').setup({
+        signs = {
+          add          = { text = '│' },
+          change       = { text = '│' },
+          delete       = { text = '_' },
+          topdelete    = { text = '‾' },
+          changedelete = { text = '~' },
+        },
+      })
+
+      -- Keybind for LazyGit
+      vim.keymap.set('n', '<leader>g', ':LazyGit<CR>', { silent = true, desc = "Abrir LazyGit" })
+
+      -- Changes to Netrw
+      vim.g.netrw_winsize = 25
+      vim.g.netrw_list_hide = [[\(^\|\s\s\)\(\.git\)\($\|\s\s\)]]
+
+      vim.api.nvim_create_autocmd('filetype', {
+        pattern = 'netrw',
+        desc = 'Mejoras estéticas para Netrw',
+        callback = function()
+          vim.opt_local.number = false
+          vim.opt_local.relativenumber = false
+          vim.keymap.set('n', 'q', ':Lexplore<CR>', { remap = true, buffer = true })
+        end
+      })
+
+      -- Project Management
+      local telescope = require('telescope')
+
+      telescope.setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-j>"] = "move_selection_next",
+              ["<C-k>"] = "move_selection_previous",
+            },
+          },
+        },
+        extensions = {
+          project = {
+            hidden_files = true, 
+            theme = "dropdown",  
+            order_by = "recent", 
+          }
+        }
+      })
+
+      require('telescope').load_extension('project')
+
+      vim.keymap.set('n', '<leader>fp', ':Telescope project<CR>', { desc = "Buscar Proyectos" })
+
+      -- Home Page (OneFetch)
+
+      local alpha = require('alpha')
+      local dashboard = require('alpha.themes.dashboard')
+
+      local function get_onefetch()
+        local is_git = os.execute("git rev-parse --is-inside-work-tree > /dev/null 2>&1")
+        if is_git == 0 then
+          local handle = io.popen("onefetch --no-color")
+          local result = handle:read("*a")
+          handle:close()
+
+          local lines = {}
+          
+          for line in result:gmatch("([^\n]*)\n") do
+            table.insert(lines, line)
+          end
+
+          return lines
+        else
+          return { " ", "    Bienvenido, ${globalVars.username}", " ", "    No se detectó un repositorio Git" }
+        end
+      end
+
+      dashboard.section.header.val = get_onefetch()
+      dashboard.section.header.opts.hl = "String"
+
+      dashboard.section.buttons.val = {
+        dashboard.button("p", "󰄉  Proyectos", ":Telescope project<CR>"),
+        dashboard.button("f", "󰈞  Buscar archivos", ":Telescope find_files<CR>"),
+        dashboard.button("q", "󰅚  Salir", ":qa<CR>"),
+      }
+
+      alpha.setup(dashboard.config)
+      
+      -- General Keybind for File Search 
+      vim.keymap.set('n', '<leader><space>', require('telescope.builtin').find_files, { desc = "Buscar archivos" })
     '';
   };
 }
