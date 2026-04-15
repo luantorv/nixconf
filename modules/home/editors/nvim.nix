@@ -268,27 +268,42 @@
       local alpha = require('alpha')
       local dashboard = require('alpha.themes.dashboard')
 
+      local function strip_ansi(text)
+        if type(text) ~= "string" then return text end
+        local s, _ = text:gsub("\27%[[%?0-9;]*%a", "")
+        return s
+      end
+
       local function get_onefetch()
-        local is_git = os.execute("git rev-parse --is-inside-work-tree > /dev/null 2>&1")
-        if is_git == 0 then
-          local handle = io.popen("onefetch --no-color")
-          local result = handle:read("*a")
-          handle:close()
-
-          local lines = {}
-          
-          for line in result:gmatch("([^\n]*)\n") do
-            table.insert(lines, line)
-          end
-
-          return lines
-        else
-          return { " ", "    Bienvenido, ${globalVars.username}", " ", "    No se detectó un repositorio Git" }
+        local cmd = "TERM=dumb onefetch 2>/dev/null"
+        
+        local git_check = vim.fn.systemlist("git rev-parse --is-inside-work-tree 2>/dev/null")
+        if type(git_check) ~= "table" or git_check[1] ~= "true" then
+          return { " ", "   󱄅  Bienvenido, Luis", " ", "   No se detectó un repositorio Git." }
         end
+
+        local raw_output = vim.fn.systemlist(cmd)
+        local clean_output = {}
+
+        if type(raw_output) == "table" and #raw_output > 0 then
+          for _, line in ipairs(raw_output) do
+            table.insert(clean_output, (strip_ansi(line)) )
+          end
+          return clean_output
+        end
+
+        return { 
+          " ", 
+          "   󱄅  Bienvenido, Luis", 
+          " ", 
+          "   Error al cargar estadísticas." 
+        }
       end
 
       dashboard.section.header.val = get_onefetch()
-      dashboard.section.header.opts.hl = "String"
+
+      vim.api.nvim_set_hl(0, 'AlphaHeaderColor', { fg = "${config.colors.skyblue}" })
+      dashboard.section.header.opts.hl = "AlphaHeaderColor"
 
       dashboard.section.buttons.val = {
         dashboard.button("p", "󰄉  Proyectos", ":Telescope project<CR>"),
