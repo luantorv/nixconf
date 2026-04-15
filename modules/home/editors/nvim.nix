@@ -61,6 +61,9 @@
       vim.deprecate = function() end
       vim.g.mapleader = " "
 
+      vim.opt.splitright = true
+      vim.opt.splitbelow = true
+
       local original_deprecate = vim.deprecate
       
       local lspconfig = require('lspconfig')
@@ -80,12 +83,19 @@
       vim.keymap.set('n', '<C-b>', ':Lexplore<CR>', { silent = true })
 
       -- Terminal
-      vim.keymap.set('n', '<C-t>', ':split | terminal<CR>i', { silent = true })
+      vim.keymap.set('n', '<C-t>', ':vsplit | terminal<CR>i', { silent = true })
 
       -- bufferline
       vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })
       vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { silent = true })
       vim.keymap.set('n', '<C-q>', ':bd<CR>', { silent = true})
+
+      vim.keymap.set('n', '<leader>/', ':vsplit | wincmd h | bprevious | wincmd l<CR>', { desc = "Mover buffer actual a split derecho", silent = true })
+
+      vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = "Mover a ventana izquierda" })
+      vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = "Mover a ventana derecha" })
+      vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = "Mover a ventana abajo" })
+      vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = "Mover a ventana arriba" })
 
       -- Tabline
       require("bufferline").setup({
