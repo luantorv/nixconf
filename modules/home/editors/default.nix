@@ -3,6 +3,5 @@
 {
   imports = [
     ./nvim.nix
-    ./vim.nix
   ];
 }

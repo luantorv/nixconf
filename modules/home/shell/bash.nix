@@ -18,6 +18,7 @@
       lg = "lazygit";
 
       new = "nvim $(date +%Y-%m-%d_%H:%M:%S).md";
+      vim = "nvim";
       
       dev = "nix develop";
       shell = "nix shell";
