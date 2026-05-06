@@ -16,6 +16,7 @@
       grep = "rg";
       cd = "z";
       lg = "lazygit";
+      ld = "lazydocker";
 
       new = "nvim $(date +%Y-%m-%d_%H:%M:%S).md";
       vim = "nvim";

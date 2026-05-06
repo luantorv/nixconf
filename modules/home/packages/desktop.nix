@@ -26,6 +26,7 @@
     mako
     libnotify
     xfce.orage
+    dbeaver-bin
 
     # browser & other
     brave
