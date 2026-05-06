@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./boot.nix
     ./hardware.nix
+    ./docker.nix
     ../../profiles/minimal.nix
     ../../modules/nixos/server.nix
   ];
