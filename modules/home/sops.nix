@@ -1,7 +1,6 @@
 { config, pkgs, globalVars, sops-nix, ... }:
 
 {
-
   sops = {
     # Clave con la que sops descifra. Deriva una clave age a partir de tu clave SSH ed25519.
     age.sshKeyPaths = [ "${globalVars.homeDirectory}/.ssh/id_ed25519" ];
@@ -23,9 +22,7 @@
         path = "${globalVars.homeDirectory}/.ssh/id_ed25519.pub";
         mode = "0644";
       };
-      "open_webui_secret" = {
-        owner = "root";
-      };
+      "open_webui_secret" = { };
     };
   };
 }

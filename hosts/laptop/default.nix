@@ -6,6 +6,7 @@
     ./boot.nix
     ./hardware.nix
     ./docker.nix
+    ../../modules/home/sops.nix
     ../../profiles/desktop.nix
   ];
 
