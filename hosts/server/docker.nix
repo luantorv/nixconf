@@ -16,19 +16,18 @@
         image = "ghcr.io/open-webui/open-webui:main";
         ports = [ "3000:8080" ];
         
-        # Cargamos el secreto desde el path que genera sops-nix
         environmentFiles = [
-          # sops-nix por defecto coloca los secretos en /run/secrets/
           config.sops.secrets.open_webui_secret.path
         ];
 
         environment = {
-          "OLLAMA_BASE_URL" = "http://ollama:11434";
+          "OLLAMA_BASE_URL" = "http://host.docker.internal:11434";
         };
+
+        extraOptions = [ "--add-host=host.docker.internal:host-gateway" ];
 
         volumes = [ "open-webui_data:/app/backend/data" ];
         dependsOn = [ "ollama" ];
-        extraOptions = [ "--network=container:ollama" ];
       };
     };
   };
