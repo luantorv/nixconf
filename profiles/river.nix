@@ -16,6 +16,7 @@
     imports = [
       ../modules/home/packages/desktop.nix 
 
+      ../modules/home/river
       ../modules/home/desktop
       ../modules/home/editors
       ../modules/home/files

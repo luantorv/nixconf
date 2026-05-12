@@ -7,7 +7,7 @@
     ./hardware.nix
     ./docker.nix
     ../../modules/home/sops.nix
-    ../../profiles/desktop.nix
+    ../../profiles/river.nix
   ];
 
   home-manager = {

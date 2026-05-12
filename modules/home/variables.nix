@@ -7,4 +7,6 @@
     XCURSOR_THEME = "Adwaita";
     XCURSOR_SIZE = "24";
   };
+
+  nixpkgs.config.allowUnfree = true;
 }

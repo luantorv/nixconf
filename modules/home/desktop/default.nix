@@ -3,12 +3,7 @@
 {
   imports = [
     ./kanshi.nix
-    ./mako.nix
-    ./river.nix
     ./swappy.nix
-    ./swaylock.nix
-    ./waybar.nix
-    ./wofi.nix
     ./read_mode.nix
     ./translate.nix
   ];
