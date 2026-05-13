@@ -14,9 +14,9 @@
 
   home-manager.users.${globalVars.username} = { pkgs, ... }: {
     imports = [
-      ../modules/home/packages/river.nix 
+      ../modules/home/packages/hypr.nix 
 
-      ../modules/home/river
+      ../modules/home/hypr
       ../modules/home/desktop
       ../modules/home/editors
       ../modules/home/files

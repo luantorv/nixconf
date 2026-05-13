@@ -1,6 +1,8 @@
 # NixConf
 
-My personal [NixOS](https://nixos.org) configuration featuring the [River](https://github.com/riverwm/river) window manager on Wayland using [Home Manager](https://github.com/nix-community/home-manager) and [SOPS](https://getsops.io) as a flake module.
+My personal [NixOS](https://nixos.org) configuration using [Home Manager](https://github.com/nix-community/home-manager) and [SOPS](https://getsops.io) as a flake module.
+
+Contains several profiles including [minimal.nix](https://github.com/luantorv/nixconf/tree/main/profiles/minimal.nix) (CLI/TUI only), [river.nix](https://github.com/luantorv/nixconf/tree/main/profiles/river.nix) and [hypr.nix](https://github.com/luantorv/nixconf/tree/main/profiles/hypr.nix) with different graphical configurations.
 
 ## Structure
 
@@ -28,7 +30,9 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 │   │   ├── desktop/
 │   │   ├── editors/
 │   │   ├── files/
+│   │   ├── hypr/
 │   │   ├── packages/
+│   │   ├── river/
 │   │   ├── shell/
 │   │   ├── terminal/
 │   │   └── theme/
@@ -36,14 +40,26 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
 │       ├── boot/
 │       └── core/
 ├── profiles/          # Module bundles per use case
-│   ├── desktop.nix
-│   └── minimal.nix
+│   ├── hypr.nix
+│   ├── minimal.nix
+│   └── river.nix
 ├── secrets/           # Secrets handled by SOPS
 ├── CREDITS.md
 └── README.md
 ```
 
-## Screenshoots
+## Profiles
+
+### Minimal
+
+| Components |  |
+|---|---|
+| WM/DE | TTY (CLI/TUI only) |
+| Shell | [Bash](https://www.gnu.org/software/bash/) |
+| Editor | [NeoVim](https://neovim.io/) |
+| File Manager | [yazi](https://github.com/sxyazi/yazi) |
+
+### River
 
 <div align="center">
   <img src="assets/screenshoots/foot-fastfetch.png" alt="Fastfetch" width="45%">
@@ -54,15 +70,13 @@ My personal [NixOS](https://nixos.org) configuration featuring the [River](https
   <img src="assets/screenshoots/btop.png" alt="Htop" width="45%">
 </div>
 
-## System Information
-
 | Components |  |
 |---|---|
-| OS | [NixOS 25.11 (Xantusia)](https://nixos.org) |
 | WM | [River (wayland)](https://codeberg.org/river/river-classic) |
 | Terminal | [Foot](https://codeberg.org/dnkl/foot/) |
 | Shell | [Bash](https://www.gnu.org/software/bash/) |
 | Editor | [NeoVim](https://neovim.io/) - [VSCodium](https://vscodium.com/) |
+| System Monitor | [btop](https://github.com/aristocratos/btop) |
 | File Manager | [yazi](https://github.com/sxyazi/yazi) - [Thunar](https://gitlab.xfce.org/xfce/thunar) |
 | Status Bar | [waybar](https://github.com/alexays/waybar) |
 | Launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi) |
