@@ -58,6 +58,10 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 | Shell | [Bash](https://www.gnu.org/software/bash/) |
 | Editor | [NeoVim](https://neovim.io/) |
 | File Manager | [yazi](https://github.com/sxyazi/yazi) |
+| System Monitor | [btop](https://github.com/aristocratos/btop) |
+| Fetch | [fastfetch](https://github.com/fastfetch-cli/fastfetch) - [onefetch](https://github.com/o2sh/onefetch) |
+| CLI Utilities | [atuin](https://github.com/atuinsh/atuin) - [zoxide](https://github.com/ajeetdsouza/zoxide) - [eza](https://github.com/eza-community/eza) - [fzf](https://github.com/junegunn/fzf) - [bat](https://github.com/sharkdp/bat) - [fd](https://github.com/sharkdp/fd) - [ripgrep](https://github.com/BurntSushi/ripgrep) |
+| TUI tools| [lazygit](https://github.com/jesseduffield/lazygit) - [lazydocker](https://github.com/jesseduffield/lazydocker) |
 
 ### River
 
@@ -76,7 +80,6 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 | Terminal | [Foot](https://codeberg.org/dnkl/foot/) |
 | Shell | [Bash](https://www.gnu.org/software/bash/) |
 | Editor | [NeoVim](https://neovim.io/) - [VSCodium](https://vscodium.com/) |
-| System Monitor | [btop](https://github.com/aristocratos/btop) |
 | File Manager | [yazi](https://github.com/sxyazi/yazi) - [Thunar](https://gitlab.xfce.org/xfce/thunar) |
 | Status Bar | [waybar](https://github.com/alexays/waybar) |
 | Launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi) |
