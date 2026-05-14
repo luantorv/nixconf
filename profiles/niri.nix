@@ -14,9 +14,9 @@
 
   home-manager.users.${globalVars.username} = { pkgs, ... }: {
     imports = [
-      ../modules/home/packages/hypr.nix 
+      ../modules/home/packages/niri.nix 
 
-      ../modules/home/hypr
+      ../modules/home/niri
       ../modules/home/desktop
       ../modules/home/editors
       ../modules/home/files
