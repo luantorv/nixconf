@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./foot.nix
+    ./gtk.nix
     ./mako.nix
     ./river.nix
     ./swaylock.nix

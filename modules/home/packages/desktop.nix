@@ -5,6 +5,7 @@
   imports = [ ./minimal.nix ];
   
   home.packages = with pkgs; [
+    xwayland
     pamixer
     brightnessctl
     wl-clipboard

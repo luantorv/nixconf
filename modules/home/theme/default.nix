@@ -3,7 +3,6 @@
 {
   imports = [
     ./colors.nix
-    ./gtk.nix
     ./wallpapers.nix
   ];
 }

@@ -3,6 +3,5 @@
 {
   imports = [
     ./btop.nix
-    ./foot.nix
   ];
 }
