@@ -21,6 +21,7 @@
         username = "luis";
         homeDirectory = "/home/luis";
         system = "x86_64-linux";
+        stateVersion = "25.11";
 
         wallpaperDir = "/home/luis/Images/Wallpapers"; # Absolute path
         wallpaperRelativePath = "Images/Wallpapers"; # Relavite to the home

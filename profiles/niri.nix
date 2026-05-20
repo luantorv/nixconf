@@ -31,7 +31,6 @@
 
     home = {
       inherit (globalVars) username homeDirectory;
-      stateVersion = "25.11";
     };
   };
 }

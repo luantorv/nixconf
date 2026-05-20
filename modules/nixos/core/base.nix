@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, globalVars, ... }:
 
 {
-  system.stateVersion = "25.11";
+  system.stateVersion = ${globalVars.stateVersion};
 
   console.keyMap = "us-acentos";
 }
