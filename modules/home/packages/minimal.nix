@@ -7,6 +7,7 @@
     procps
 
     unar
+    zip
 
     yazi
     exiftool
