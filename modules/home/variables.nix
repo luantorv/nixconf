@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, globalVars, ... }:
 
 {
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-    TERMINAL = "foot";
-    XCURSOR_THEME = "Adwaita";
-    XCURSOR_SIZE = "24";
+  home = {
+    sessionVariables = {
+      TERMINAL = "foot";
+    };
+
+    stateVersion = "${globalVars.stateVersion}";
   };
 
   nixpkgs.config.allowUnfree = true;
