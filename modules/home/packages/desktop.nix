@@ -27,7 +27,6 @@
     mpv
     steam
     discord
-    spotify
     prismlauncher
     dbeaver-bin
     gnome-boxes
