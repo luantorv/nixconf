@@ -10,6 +10,7 @@
     ../modules/nixos/security.nix
     ../modules/nixos/users.nix
     ../modules/nixos/variables.nix
+    ../modules/nixos/android.nix
   ];
 
   home-manager.users.${globalVars.username} = { pkgs, ... }: {

@@ -1,6 +1,6 @@
 # Android Integration
 
-Packages and options for Android device integration on NixOS with Home Manager.
+Packages and options for Android device integration on NixOS.
 
 ## Configuration
 

@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./android.nix
     ./kanshi.nix
     ./swappy.nix
     ./read_mode.nix
