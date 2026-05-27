@@ -15,7 +15,6 @@
     poppler-utils
     fzf
     lazygit
-    tmux
     atuin
     zoxide
     eza

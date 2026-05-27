@@ -30,7 +30,7 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 │   │   ├── desktop/
 │   │   ├── editors/
 │   │   ├── files/
-│   │   ├── hypr/
+│   │   ├── niri/
 │   │   ├── packages/
 │   │   ├── river/
 │   │   ├── shell/
@@ -38,7 +38,8 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 │   │   └── theme/
 │   └── nixos/         # NixOS modules
 │       ├── boot/
-│       └── core/
+|       ├── core/
+│       └── scripts/
 ├── profiles/          # Module bundles per use case
 │   ├── minimal.nix
 │   ├── niri.nix

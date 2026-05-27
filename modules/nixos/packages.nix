@@ -11,5 +11,14 @@
 	  fastfetch
 	  tree
     tuigreet
+
+    tmux
+    iftop
+    lnav
+
+    (pkgs.writeShellApplication {
+      name = "monitor";
+      text = builtins.readFile ./scripts/monitor.sh;
+    })
   ];
 }
