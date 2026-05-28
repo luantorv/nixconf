@@ -25,6 +25,8 @@
     tailscale
     onefetch
 
+    benhsm-minesweeper
+
     (pkgs.writeShellApplication {
       name = "gen-mt";
       text = builtins.readFile ./scripts/gen-mt.sh;

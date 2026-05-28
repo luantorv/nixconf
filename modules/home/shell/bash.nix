@@ -20,6 +20,7 @@
 
       new = "nvim $(date +%Y-%m-%d_%H:%M:%S).md";
       vim = "nvim";
+      vi  = "nvim";
       
       dev = "nix develop";
       shell = "nix shell";
@@ -29,6 +30,9 @@
       gen-gc = "sudo nix-collect-garbage --delete-older-than 7d";
       gen-op = "nix-store --optimise";
       gen-ls = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+
+      bm = "benhsm-minesweeper";
+      buscaminas = "benhsm-minesweeper";
     };
   };
 
