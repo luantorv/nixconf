@@ -86,12 +86,12 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 ### River
 
 <div align="center">
-  <img src="assets/screenshoots/foot-fastfetch.png" alt="Fastfetch" width="45%">
-  <img src="assets/screenshoots/waybar.png" alt="Waybar" width="45%">
-  <img src="assets/screenshoots/wofi.png" alt="Wofi launcher" width="45%">
-  <img src="assets/screenshoots/wofi-energy_menu.png" alt="Wofi power menu" width="45%">
-  <img src="assets/screenshoots/nvim.png" alt="Vim" width="45%">
-  <img src="assets/screenshoots/btop.png" alt="Htop" width="45%">
+  <img src="assets/screenshoots/river/foot-fastfetch.png" alt="Fastfetch" width="45%">
+  <img src="assets/screenshoots/river/waybar.png" alt="Waybar" width="45%">
+  <img src="assets/screenshoots/river/wofi.png" alt="Wofi launcher" width="45%">
+  <img src="assets/screenshoots/river/wofi-energy_menu.png" alt="Wofi power menu" width="45%">
+  <img src="assets/screenshoots/river/nvim.png" alt="Vim" width="45%">
+  <img src="assets/screenshoots/river/btop.png" alt="Htop" width="45%">
 </div>
 
 | Components |  |
