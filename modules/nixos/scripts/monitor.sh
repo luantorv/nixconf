@@ -21,8 +21,8 @@ fi
 
 # --- Tema de colores ---
 # Paleta: fondo oscuro con acentos azul/verde/amarillo/rojo por panel
-C_RESET="default"
-C_ACTIVE_BG="colour234"   # gris muy oscuro para panel activo
+#C_RESET="default"
+#C_ACTIVE_BG="colour234"   # gris muy oscuro para panel activo
 C_BORDER="colour240"      # gris medio para bordes
 C_BORDER_ACTIVE="colour75" # azul claro para borde del panel con foco
 
