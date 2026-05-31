@@ -2,10 +2,12 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+
+    nixpkgs-old.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -15,13 +17,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
+  outputs = { self, nixpkgs, nixpkgs-old, home-manager, sops-nix, ... }:
     let
       globalVars = {
         username = "luis";
         homeDirectory = "/home/luis";
         system = "x86_64-linux";
-        stateVersion = "25.11";
+        stateVersion = "26.05";
 
         wallpaperDir = "/home/luis/Images/Wallpapers"; # Absolute path
         wallpaperRelativePath = "Images/Wallpapers"; # Relavite to the home
@@ -34,7 +36,7 @@
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = { 
-            inherit globalVars sops-nix home-manager; 
+            inherit globalVars sops-nix home-manager nixpkgs-old; 
           };
 
           modules = [
@@ -47,7 +49,7 @@
         server = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = { 
-            inherit globalVars sops-nix home-manager; 
+            inherit globalVars sops-nix home-manager nixpkgs-old; 
           };
 
           modules = [

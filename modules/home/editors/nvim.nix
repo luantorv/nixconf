@@ -1,27 +1,33 @@
-{ config, pkgs, globalVars, ... }:
+{ config, pkgs, globalVars, nixpkgs-old, ... }:
 
+let
+  pkgsOld = nixpkgs-old.legacyPackages.${globalVars.system};
+in
 {
   programs.neovim = {
     enable = true;
+    package = pkgsOld.neovim-unwrapped;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
 
     # LSP Servers
     extraPackages = with pkgs; [
-	    nixd					                          # Nix
-	    pyright					                        # Python
-	    rust-analyzer				                    # Rust
-	    nodePackages.typescript-language-server	# JS/TS
-	    vscode-langservers-extracted		        # HTML/CSS/JSON/ESLint
-	    texlab					                        # LaTeX
+      gcc
+      tree-sitter
+	    nixd					                # Nix
+	    pyright					              # Python
+	    rust-analyzer				          # Rust
+	    typescript-language-server	  # JS/TS
+	    vscode-langservers-extracted  # HTML/CSS/JSON/ESLint
+	    texlab					              # LaTeX
       lazygit
       onefetch
       ripgrep
       fd
     ];
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgsOld.vimPlugins; [
       # Theme
       rose-pine
 
@@ -57,7 +63,7 @@
       plenary-nvim
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       vim.deprecate = function() end
       vim.g.mapleader = " "
 

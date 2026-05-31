@@ -98,9 +98,10 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 |---|---|
 | WM | [River (wayland)](https://codeberg.org/river/river-classic) |
 | Terminal | [Foot](https://codeberg.org/dnkl/foot/) |
-| Shell | [Bash](https://www.gnu.org/software/bash/) |
 | Status Bar | [waybar](https://github.com/alexays/waybar) |
 | Launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi) |
+| Notifications | [Mako](https://github.com/emersion/mako) - [Libnotify](https://gitlab.gnome.org/GNOME/libnotify) |
+| Screen Locker| [SwayLock](https://github.com/swaywm/swaylock) |
 
 ## Documentation
 

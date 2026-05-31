@@ -12,7 +12,7 @@
     wlopm
     swayidle
     wlr-randr
-    swww
+    awww
     mako
     libnotify
     

@@ -1,4 +1,4 @@
-{ config, pkgs, globalVars, sops-nix, ... }:
+{ config, pkgs, globalVars, sops-nix, nixpkgs-old, ... }:
 
 {
   imports = [

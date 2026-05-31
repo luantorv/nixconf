@@ -19,8 +19,8 @@
     # browser & other
     brave
     vscodium
-    xfce.thunar
-    xfce.orage
+    thunar
+    orage
     zathura
     onlyoffice-desktopeditors
     nomacs

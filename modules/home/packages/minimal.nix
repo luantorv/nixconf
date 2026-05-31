@@ -26,6 +26,7 @@
     onefetch
 
     benhsm-minesweeper
+    cmatrix
 
     (pkgs.writeShellApplication {
       name = "gen-mt";
