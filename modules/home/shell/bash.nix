@@ -31,8 +31,8 @@
       gen-op = "nix-store --optimise";
       gen-ls = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
 
-      bm = "benhsm-minesweeper";
-      buscaminas = "benhsm-minesweeper";
+      bm = "minesweeper";
+      buscaminas = "minesweeper";
     };
   };
 
