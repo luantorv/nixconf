@@ -1,15 +1,9 @@
 { pkgs, globalVars, ... }:
 
 {
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      # Esto configura automáticamente la variable de entorno DOCKER_HOST
-      # para que el cliente de Docker sepa dónde está el socket del usuario.
-      setSocketVariable = true;
-    };
-  };
+  virtualisation.docker.enable = true;
+
+  virtualisation.libvirtd.enable = true;
 
   environment.systemPackages = with pkgs; [
     docker-compose
