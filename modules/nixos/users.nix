@@ -6,7 +6,7 @@
     home = "${globalVars.homeDirectory}";
     description = "${globalVars.username}";
     shell = pkgs.bash;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "render" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "render" "libvirtd" "kvm" ];
     packages = with pkgs; [];
   };
 }

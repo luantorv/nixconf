@@ -30,5 +30,6 @@
     prismlauncher
     dbeaver-bin
     gnome-boxes
+    cinny-desktop
   ];
 }
