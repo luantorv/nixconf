@@ -117,6 +117,12 @@ This project is primarily designed for personal use.
 
 Feel free to adapt it, fork it, or break it.
 
+## License
+
+Copyright © 2026 Luis Reis Viera
+
+Licensed under the Apache License, Version 2.0. See the `LICENSE` file for details.
+
 ## Author:
 
 - [GitHub](https://github.com/luantorv/)
