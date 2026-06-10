@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # monitor.sh — panel de monitoreo de red/puertos/SSH
 
+# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-License-Identifier: Apache-2.0
+
 SESSION="monitor"
 
 # No levantar una segunda sesión si ya existe

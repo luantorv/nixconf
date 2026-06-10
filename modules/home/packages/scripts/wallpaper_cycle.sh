@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-License-Identifier: Apache-2.0
+
 PIDFILE="$HOME/.cache/wallpaper_cycle.pid"
 
 if [ -f "$PIDFILE" ]; then
