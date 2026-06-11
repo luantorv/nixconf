@@ -125,6 +125,5 @@ Licensed under the Apache License, Version 2.0. See the `LICENSE` file for detai
 
 ## Author:
 
-- [GitHub](https://github.com/luantorv/)
-- [Discord](https://discord.com/users/711613864386625618)
+- [GitHub](https://github.com/luantorv/) @luantorv
 - **Matrix**: @luis-rv:matrix.org
