@@ -79,7 +79,7 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 | Brightness Control | [brightnessctl](https://github.com/Hummer12007/brightnessctl) |
 | Media Tools | [mpv](https://mpv.io) - [nomacs](https://nomacs.org) - [zathura](https://pwnet.org/projects/zathura) |
 | Sound | [pamixer](https://github.com/cdemoulins/pamixer) - [playerctl](https://github.com/acrisci/playerctl) |
-| Screenshoot Tools | [grim](https://gitlab.freedesktop..org/emersion/grim) - [slurp](https://github.com/emersion/slurp) - [swappy](hhtps://github.com/jtheoof/swappy) |
+| Screenshoot Tools | [grim](https://gitlab.freedesktop..org/emersion/grim) - [slurp](https://github.com/emersion/slurp) - [swappy](https://github.com/jtheoof/swappy) |
 | Clipboard | [wl-clipboard](https://github.com/bugaevc/wl-clipboard) - [cliphist](https://github.com/sentriz/cliphist) |
 | Game Apps | [Steam](https://store.steampowered.com) - [Discord](https://discordapp.com) - [PrismLauncher](https://prismlauncher.org) |
 
