@@ -17,4 +17,7 @@
     algorithm = "zstd";
     memoryPercent = 25;
   };
+
+  # Habilitar hibernación usando la partición swap
+  boot.resumeDevice = "/dev/disk/by-uuid/988d9290-2de4-4f9f-a73a-85a34af44f86";
 }

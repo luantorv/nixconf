@@ -143,7 +143,7 @@
       riverctl map normal None XF86AudioStop spawn sh -c 'playerctl stop; notify-send Media Stopped -t 2000'
 
       # Menu de energia
-      riverctl map normal Super L spawn 'pgrep wofi && pkill wofi || (echo -e "1. Bloquear\n2. Sesion\n3. Reiniciar\n4. Apagar\n5. Portapapeles" | wofi --dmenu --header "SISTEMA:" | awk "{print \$2}" | xargs -I{} sh -c "case {} in Bloquear) swaylock -f;; Sesion) riverctl exit;; Reiniciar) reboot;; Apagar) poweroff;; Portapapeles) cliphist wipe;; esac")'
+      riverctl map normal Super L spawn 'pgrep wofi && pkill wofi || (echo -e "1. Bloquear\n2. Sesion\n3. Reiniciar\n4. Apagar\n5. Hibernar\n6. Portapapeles" | wofi --dmenu --header "SISTEMA:" | awk "{print \$2}" | xargs -I{} sh -c "case {} in Bloquear) swaylock -f;; Sesion) riverctl exit;; Reiniciar) reboot;; Apagar) poweroff;; Hibernar) systemctl hibernate;; Portapapeles) cliphist wipe;; esac")'
 
       # Portapapeles
       riverctl spawn "systemctl --user start cliphist"
