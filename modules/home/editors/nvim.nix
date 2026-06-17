@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, globalVars, nixpkgs-old, ... }:
@@ -67,273 +67,41 @@ in
     ];
 
     initLua = ''
-      vim.deprecate = function() end
-      vim.g.mapleader = " "
-
-      vim.opt.splitright = true
-      vim.opt.splitbelow = true
-
-      local original_deprecate = vim.deprecate
-      
-      local lspconfig = require('lspconfig')
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      -- Options
+      ${buildins.readFile ./lua/options.lua}
 
       -- Lista de servidores LSP
-      local servers = { 'nixd', 'pyright', 'rust_analyzer', 'ts_ls', 'html', 'cssls', 'texlab' }
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
-          capabilities = capabilities,
-        }
-      end
+      ${buildins.readFile ./lua/LSPs.lua}
 
-      -- Explorador de archivos
-      vim.g.netrw_banner = 0
-      vim.g.netrw_liststyle = 3
-      vim.keymap.set('n', '<C-b>', ':Lexplore<CR>', { silent = true })
+      -- Keybinds
+      ${buildins.readFile ./lua/keybinds.lua}
 
-      -- Terminal
-      vim.keymap.set('n', '<C-t>', ':vsplit | terminal<CR>i', { silent = true })
-
-      -- bufferline
-      vim.keymap.set('n', '<Tab>', ':bnext<CR>', { silent = true })
-      vim.keymap.set('n', '<S-Tab>', ':bprev<CR>', { silent = true })
-      vim.keymap.set('n', '<C-q>', ':bd<CR>', { silent = true})
-
-      vim.keymap.set('n', '<leader>/', ':vsplit | wincmd h | bprevious | wincmd l<CR>', { desc = "Mover buffer actual a split derecho", silent = true })
-
-      vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = "Mover a ventana izquierda" })
-      vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = "Mover a ventana derecha" })
-      vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = "Mover a ventana abajo" })
-      vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = "Mover a ventana arriba" })
-
-      -- Tabline
-      require("bufferline").setup({
-        options = {
-          mode = "buffers",
-          separator_style = "thin",
-          always_show_bufferline = true,
-          show_buffer_close_icons = true,
-          show_close_icon = true,
-          offsets = {
-            {
-              filetype = "netrw",
-              text = "File Explorer",
-              text_align = "left",
-              separator = true
-            }
-          }
-        }
-      })
-
-      vim.opt.tabstop = 2
-      vim.opt.shiftwidth = 2
-      vim.opt.expandtab = true
-      vim.opt.softtabstop = 2 
-
-      -- Show buffers
-      vim.opt.showtabline = 2
-
-      vim.api.nvim_create_autocmd("TermClose", {
-        pattern = "*",
-        command = "if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif"
-      })
+      -- Git Integration
+      ${buildins.readFile ./lua/git.lua}
 
       -- Color Theme
-      require('rose-pine').setup({
-          variant = "auto", -- 'auto', 'main', 'moon', o 'dawn'
-          dark_variant = "main",
-          styles = {
-              bold = true,
-              italic = true,
-              transparency = false,
-          },
-          highlight_groups = {
-              -- Normal = { bg = "${config.colors.black}" },
-              -- Keyword = { fg = "${config.colors.skyblue}" },
-              -- String = { fg = "${config.colors.green}" },
-              -- Error = { fg = "${config.colors.red}" },
-              -- Warning = { fg = "${config.colors.coral}" },
-          }
-      })
-      vim.cmd('colorscheme rose-pine')
+      ${buildins.readFile ./lua/theme.lua}
 
-      -- Syntax Highlighting (Treesitter)
-      require('nvim-treesitter.configs').setup {
-        highlight = { 
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true }
-      }
+      -- MiniMap
+      ${buildins.readFile ./lua/minimap.lua}
 
-      -- Keybinds for LSP
-      vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = "Go to Definition" })
-      vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { desc = "Hover Documentation" })
-      vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end, { desc = "Code Action" })
-
-      -- Autocomplete (nvim-cmp)
-      local cmp = require('cmp')
-      local luasnip = require('luasnip')
-
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Acepta sugerencia con Enter
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-        }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-        }, {
-          { name = 'buffer' },
-          { name = 'path' },
-        })
-      })
-
-      vim.opt.number = true
-
-      -- Mini-Map
-      local codewindow = require('codewindow')
-      codewindow.setup({
-        active_in_terminals = false,
-        auto_enable = false,
-        minimap_width = 10,
-        use_git = true,
-        use_treesitter = true
-      })
-
-      vim.keymap.set('n', '<leader>m', codewindow.toggle_minimap, { desc = "Toggle Minimap"})
-
-      -- Git indicators
-      require('gitsigns').setup({
-        signs = {
-          add          = { text = '│' },
-          change       = { text = '│' },
-          delete       = { text = '_' },
-          topdelete    = { text = '‾' },
-          changedelete = { text = '~' },
-        },
-      })
-
-      -- Keybind for LazyGit
-      vim.keymap.set('n', '<leader>g', ':LazyGit<CR>', { silent = true, desc = "Abrir LazyGit" })
-
-      -- Changes to Netrw
-      vim.g.netrw_winsize = 25
-      vim.g.netrw_list_hide = [[\(^\|\s\s\)\(\.git\)\($\|\s\s\)]]
-
-      vim.api.nvim_create_autocmd('filetype', {
-        pattern = 'netrw',
-        desc = 'Mejoras estéticas para Netrw',
-        callback = function()
-          vim.opt_local.number = false
-          vim.opt_local.relativenumber = false
-          vim.keymap.set('n', 'q', ':Lexplore<CR>', { remap = true, buffer = true })
-        end
-      })
-
-      -- Project Management
-      local telescope = require('telescope')
-
-      telescope.setup({
-        defaults = {
-          mappings = {
-            i = {
-              ["<C-j>"] = "move_selection_next",
-              ["<C-k>"] = "move_selection_previous",
-            },
-          },
-        },
-        extensions = {
-          project = {
-            hidden_files = true, 
-            theme = "dropdown",  
-            order_by = "recent", 
-          }
-        }
-      })
-
-      require('telescope').load_extension('project')
-
-      vim.keymap.set('n', '<leader>fp', ':Telescope project<CR>', { desc = "Buscar Proyectos" })
+      -- Project Management (Telescope)
+      ${buildins.readFile ./lua/telescope.lua}
 
       -- Home Page (OneFetch)
+      ${buildins.readFile ./lua/onefetch.lua}
 
-      local alpha = require('alpha')
-      local dashboard = require('alpha.themes.dashboard')
-
-      local function strip_ansi(text)
-        if type(text) ~= "string" then return text end
-        local s, _ = text:gsub("\27%[[%?0-9;]*%a", "")
-        return s
-      end
-
-      local function get_onefetch()
-        local cmd = "TERM=dumb onefetch 2>/dev/null"
-        
-        local git_check = vim.fn.systemlist("git rev-parse --is-inside-work-tree 2>/dev/null")
-        if type(git_check) ~= "table" or git_check[1] ~= "true" then
-          return { " ", "   󱄅  Bienvenido, Luis", " ", "   No se detectó un repositorio Git." }
-        end
-
-        local raw_output = vim.fn.systemlist(cmd)
-        local clean_output = {}
-
-        if type(raw_output) == "table" and #raw_output > 0 then
-          for _, line in ipairs(raw_output) do
-            table.insert(clean_output, (strip_ansi(line)) )
-          end
-          return clean_output
-        end
-
-        return { 
-          " ", 
-          "   󱄅  Bienvenido, Luis", 
-          " ", 
-          "   Error al cargar estadísticas." 
-        }
-      end
-
-      dashboard.section.header.val = get_onefetch()
-
-      vim.api.nvim_set_hl(0, 'AlphaHeaderColor', { fg = "${config.colors.skyblue}" })
-      dashboard.section.header.opts.hl = "AlphaHeaderColor"
-
-      dashboard.section.buttons.val = {
-        dashboard.button("p", "󰄉  Proyectos", ":Telescope project<CR>"),
-        dashboard.button("f", "󰈞  Buscar archivos", ":Telescope find_files<CR>"),
-        dashboard.button("q", "󰅚  Salir", ":qa<CR>"),
-      }
-
-      alpha.setup(dashboard.config)
+      -- Explorador de archivos
+      ${buildins.readFile ./lua/netrw.lua}
       
-      -- General Keybind for File Search 
-      vim.keymap.set('n', '<leader><space>', require('telescope.builtin').find_files, { desc = "Buscar archivos" })
+      -- Tabline
+      ${buildins.readFile ./lua/tabline.lua}
+
+      -- Syntax Highlighting (Treesitter)
+      ${buildins.readFile ./lua/treesitter.lua}
+
+      -- Autocomplete (nvim-cmp)
+      ${buildins.readFile ./lua/autocomplete.lua}
     '';
   };
 }
