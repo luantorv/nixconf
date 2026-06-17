@@ -34,5 +34,6 @@
     dbeaver-bin
     gnome-boxes
     cinny-desktop
+    claude-code
   ];
 }
