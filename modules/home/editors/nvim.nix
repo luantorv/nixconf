@@ -1,21 +1,19 @@
 # SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, nixpkgs-old, ... }:
+{ config, pkgs, globalVars, pkgs-old, ... }:
 
-let
-  pkgsOld = nixpkgs-old.legacyPackages.${globalVars.system};
-in
 {
   programs.neovim = {
     enable = true;
-    package = pkgsOld.neovim-unwrapped;
+    package = pkgs-old.neovim-unwrapped;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
 
     # LSP Servers
     extraPackages = with pkgs; [
+      curl
       gcc
       tree-sitter
 	    nixd					                # Nix
@@ -30,7 +28,7 @@ in
       fd
     ];
 
-    plugins = with pkgsOld.vimPlugins; [
+    plugins = with pkgs-old.vimPlugins; [
       # Theme
       rose-pine
 
@@ -51,6 +49,7 @@ in
 
       # LSP
       nvim-lspconfig
+      lspkind-nvim
 
       # Mini-map
       codewindow-nvim
@@ -64,6 +63,15 @@ in
       telescope-project-nvim
       alpha-nvim
       plenary-nvim
+
+      # Err/Warn Toggle
+      trouble-nvim
+
+      # IA integrations
+      windsurf-nvim
+      avante-nvim
+      nui-nvim
+      render-markdown-nvim
     ];
 
     initLua = ''
@@ -107,6 +115,9 @@ in
 
       -- Autocomplete (nvim-cmp)
       ${builtins.readFile ./lua/autocomplete.lua}
+
+      -- IA Tools (Codeium + Avante)
+      ${builtins.readFile ./lua/ia-tools.lua}
     '';
   };
 }

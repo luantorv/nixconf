@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 {
@@ -33,13 +33,18 @@
 
         notesDir = "/data/notas";
       };
+
+      pkgs-old = import nixpkgs-old {
+        inherit (globalVars) system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = { 
-            inherit globalVars sops-nix home-manager nixpkgs-old; 
+            inherit globalVars sops-nix home-manager pkgs-old; 
           };
 
           modules = [
@@ -52,7 +57,7 @@
         server = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = { 
-            inherit globalVars sops-nix home-manager nixpkgs-old; 
+            inherit globalVars sops-nix home-manager pkgs-old; 
           };
 
           modules = [

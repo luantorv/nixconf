@@ -3,6 +3,8 @@
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
+--require("luasnip.loader.from_vscode").lazy_load()
+local lspkind = require("lspkind")
 
 cmp.setup({
     snippet = {
@@ -38,6 +40,13 @@ cmp.setup({
             end
         end, { 'i', 's' }),
     }),
+
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = "symbol_text",
+            maxwidth = 50,
+        }),
+    },
 
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },

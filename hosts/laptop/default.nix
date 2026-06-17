@@ -1,7 +1,7 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, sops-nix, nixpkgs-old, ... }:
+{ config, pkgs, globalVars, sops-nix, pkgs-old, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit globalVars sops-nix nixpkgs-old; };
+    extraSpecialArgs = { inherit globalVars sops-nix pkgs-old; };
     sharedModules = [ sops-nix.homeManagerModules.sops ];
   };
 

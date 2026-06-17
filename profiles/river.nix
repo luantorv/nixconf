@@ -1,7 +1,7 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, nixpkgs-old, ... }:
+{ config, pkgs, globalVars, pkgs-old, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
     ../modules/nixos/android.nix
   ];
 
-  home-manager.users.${globalVars.username} = { pkgs, ... }: {
+  home-manager.users.${globalVars.username} = { pkgs, pkgs-old, ... }: {
     imports = [
       ../modules/home/packages/river.nix 
 
