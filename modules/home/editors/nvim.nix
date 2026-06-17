@@ -67,6 +67,11 @@ in
     ];
 
     initLua = ''
+      _G.NixVars = {
+        skyblue = "${config.colors.skyblue}",
+        username = "${globalVars.username}"
+      }
+
       -- Options
       ${builtins.readFile ./lua/options.lua}
 

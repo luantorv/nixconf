@@ -15,7 +15,7 @@ local function get_onefetch()
         
     local git_check = vim.fn.systemlist("git rev-parse --is-inside-work-tree 2>/dev/null")
     if type(git_check) ~= "table" or git_check[1] ~= "true" then
-        return { " ", "   󱄅  Bienvenido, Luis", " ", "   No se detectó un repositorio Git." }
+        return { " ", "   󱄅  Bienvenido, " .. _G.NixVars.username, " ", "   No se detectó un repositorio Git." }
     end
 
     local raw_output = vim.fn.systemlist(cmd)
@@ -30,7 +30,7 @@ local function get_onefetch()
 
     return { 
         " ", 
-        "   󱄅  Bienvenido, Luis", 
+        "   󱄅  Bienvenido, _G.NixVars.username", 
         " ", 
         "   Error al cargar estadísticas." 
     }
@@ -38,7 +38,7 @@ end
 
 dashboard.section.header.val = get_onefetch()
 
-vim.api.nvim_set_hl(0, 'AlphaHeaderColor', { fg = "${config.colors.skyblue}" })
+vim.api.nvim_set_hl(0, 'AlphaHeaderColor', { fg = _G.NixVars.skyblue })
 dashboard.section.header.opts.hl = "AlphaHeaderColor"
 
 dashboard.section.buttons.val = {
