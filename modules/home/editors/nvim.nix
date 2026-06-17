@@ -68,40 +68,40 @@ in
 
     initLua = ''
       -- Options
-      ${buildins.readFile ./lua/options.lua}
+      ${builtins.readFile ./lua/options.lua}
 
       -- Lista de servidores LSP
-      ${buildins.readFile ./lua/LSPs.lua}
+      ${builtins.readFile ./lua/LSPs.lua}
 
       -- Keybinds
-      ${buildins.readFile ./lua/keybinds.lua}
+      ${builtins.readFile ./lua/keybinds.lua}
 
       -- Git Integration
-      ${buildins.readFile ./lua/git.lua}
+      ${builtins.readFile ./lua/git.lua}
 
       -- Color Theme
-      ${buildins.readFile ./lua/theme.lua}
+      ${builtins.readFile ./lua/theme.lua}
 
       -- MiniMap
-      ${buildins.readFile ./lua/minimap.lua}
+      ${builtins.readFile ./lua/minimap.lua}
 
       -- Project Management (Telescope)
-      ${buildins.readFile ./lua/telescope.lua}
+      ${builtins.readFile ./lua/telescope.lua}
 
       -- Home Page (OneFetch)
-      ${buildins.readFile ./lua/onefetch.lua}
+      ${builtins.readFile ./lua/onefetch.lua}
 
       -- Explorador de archivos
-      ${buildins.readFile ./lua/netrw.lua}
+      ${builtins.readFile ./lua/netrw.lua}
       
       -- Tabline
-      ${buildins.readFile ./lua/tabline.lua}
+      ${builtins.readFile ./lua/tabline.lua}
 
       -- Syntax Highlighting (Treesitter)
-      ${buildins.readFile ./lua/treesitter.lua}
+      ${builtins.readFile ./lua/treesitter.lua}
 
       -- Autocomplete (nvim-cmp)
-      ${buildins.readFile ./lua/autocomplete.lua}
+      ${builtins.readFile ./lua/autocomplete.lua}
     '';
   };
 }
