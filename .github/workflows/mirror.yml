@@ -1,13 +1,18 @@
-name: Test SSH
+name: Mirror to Codeberg
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
-  test:
+  mirror:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
@@ -15,6 +20,7 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan codeberg.org >> ~/.ssh/known_hosts
 
-      - name: Test connection
+      - name: Push mirror
         run: |
-          ssh -T git@codeberg.org
+          git remote add codeberg git@codeberg.org:luantorv/${{ github.event.repository.name }}.git || true
+          git push --mirror codeberg
