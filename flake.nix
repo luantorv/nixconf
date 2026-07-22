@@ -5,6 +5,8 @@
   description = "NixOS configuration";
 
   inputs = {
+    nixpkgs-new.url = "github:nixos/nixpkgs/nixos-unstable";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     nixpkgs-old.url = "github:nixos/nixpkgs/nixos-25.11";
@@ -18,9 +20,14 @@
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/legacy-v4";
+      inputs.nixpkgs.follows = "nixpkgs-new";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-old, home-manager, sops-nix, ... }:
+  outputs = { self, nixpkgs, nixpkgs-new, nixpkgs-old, home-manager, sops-nix, noctalia, ... }:
     let
       globalVars = {
         username = "luis";
@@ -38,13 +45,18 @@
         inherit (globalVars) system;
         config.allowUnfree = true;
       };
+
+      pkgs-new = import nixpkgs-new {
+        inherit (globalVars) system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = { 
-            inherit globalVars sops-nix home-manager pkgs-old; 
+            inherit globalVars sops-nix home-manager pkgs-old pkgs-new noctalia;
           };
 
           modules = [

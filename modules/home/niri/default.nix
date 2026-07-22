@@ -1,15 +1,14 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, sops-nix, ... }:
+{ config, pkgs, globalVars, ... }:
 
 {
   imports = [
+    ./noctalia.nix
     ./foot.nix
     ./gtk.nix
-    ./mako.nix
-    ./rofi.nix
-    ./swayidle.nix
-    ./waybar.nix
+    ./swaylock.nix
+    ./niri.nix
   ];
 }
