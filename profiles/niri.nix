@@ -7,6 +7,7 @@
   imports = [
     ../modules/nixos/core
     ../modules/nixos/boot/grub.nix
+    ../modules/nixos/greetd.nix
 
     ../modules/nixos/packages.nix
     ../modules/nixos/services.nix

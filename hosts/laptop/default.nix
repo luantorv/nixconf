@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, sops-nix, pkgs-new, pkgs-old, ... }:
+{ config, pkgs, globalVars, sops-nix, pkgs-new, pkgs-old, plasma-manager, ... }:
 
 {
   imports = [
@@ -10,7 +10,7 @@
     ./hardware.nix
     ./docker.nix
     ../../modules/home/sops.nix
-    ../../profiles/niri.nix
+    ../../profiles/plasma.nix
   ];
 
   home-manager = {

@@ -25,9 +25,14 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs-new";
     };
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-new, nixpkgs-old, home-manager, sops-nix, noctalia, ... }:
+  outputs = { self, nixpkgs, nixpkgs-new, nixpkgs-old, home-manager, sops-nix, noctalia, plasma-manager, ... }:
     let
       globalVars = {
         username = "luis";
@@ -55,8 +60,8 @@
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
-          specialArgs = { 
-            inherit globalVars sops-nix home-manager pkgs-old pkgs-new noctalia;
+          specialArgs = {
+            inherit globalVars sops-nix home-manager pkgs-old pkgs-new noctalia plasma-manager;
           };
 
           modules = [
