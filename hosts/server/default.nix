@@ -17,7 +17,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit globalVars sops-nix nixpkgs-old; };
+    extraSpecialArgs = { inherit globalVars sops-nix pkgs-old; };
     sharedModules = [ sops-nix.homeManagerModules.sops ];
   };
 
