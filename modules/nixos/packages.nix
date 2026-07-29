@@ -24,4 +24,6 @@
       text = builtins.readFile ./scripts/monitor.sh;
     })
   ];
+
+  programs.steam.enable = true;
 }

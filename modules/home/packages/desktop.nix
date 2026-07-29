@@ -28,7 +28,6 @@
     onlyoffice-desktopeditors
     nomacs
     mpv
-    steam
     discord
     prismlauncher
     dbeaver-bin
