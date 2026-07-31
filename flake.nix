@@ -30,9 +30,13 @@
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Kernel optimizado de CachyOS (con cache binario en Hydra CI).
+    # Rama `release`: solo kernels ya construidos y presentes en el cache.
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-new, nixpkgs-old, home-manager, sops-nix, noctalia, plasma-manager, ... }:
+  outputs = { self, nixpkgs, nixpkgs-new, nixpkgs-old, home-manager, sops-nix, noctalia, plasma-manager, nix-cachyos-kernel, ... }:
     let
       globalVars = {
         username = "luis";
@@ -61,7 +65,7 @@
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = {
-            inherit globalVars sops-nix home-manager pkgs-old pkgs-new noctalia plasma-manager;
+            inherit globalVars sops-nix home-manager pkgs-old pkgs-new noctalia plasma-manager nix-cachyos-kernel;
           };
 
           modules = [
@@ -73,8 +77,8 @@
 
         server = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
-          specialArgs = { 
-            inherit globalVars sops-nix home-manager pkgs-old; 
+          specialArgs = {
+            inherit globalVars sops-nix home-manager pkgs-old nix-cachyos-kernel;
           };
 
           modules = [

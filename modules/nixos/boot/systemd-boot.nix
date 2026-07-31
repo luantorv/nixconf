@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Bootloader.
@@ -9,6 +9,6 @@
   
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Kernel por defecto (fallback). Un host puede sobrescribirlo en su boot.nix.
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
 }
