@@ -2,7 +2,7 @@
 
 My personal [NixOS](https://nixos.org) configuration using [Home Manager](https://github.com/nix-community/home-manager) and [SOPS](https://getsops.io) as a flake module.
 
-Contains several profiles including [minimal.nix](https://github.com/luantorv/nixconf/tree/main/profiles/minimal.nix) (CLI/TUI only), [river.nix](https://github.com/luantorv/nixconf/tree/main/profiles/river.nix) and [niri.nix](https://github.com/luantorv/nixconf/tree/main/profiles/niri.nix) with different graphical configurations.
+Contains several profiles including [minimal.nix](https://github.com/luantorv/nixconf/tree/main/profiles/minimal.nix) (CLI/TUI only), [river.nix](https://github.com/luantorv/nixconf/tree/main/profiles/river.nix) and [plasma.nix](https://github.com/luantorv/nixconf/tree/main/profiles/plasma.nix) with different graphical configurations.
 
 ## Structure
 
@@ -18,11 +18,13 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 │   ├── laptop/
 │   │   ├── default.nix
 │   │   ├── boot.nix
+│   │   ├── docker.nix
 │   │   ├── hardware-configuration.nix
 │   │   └── hardware.nix
 │   └── server/
 │       ├── default.nix
 │       ├── boot.nix
+│       ├── docker.nix
 │       ├── hardware-configuration.nix
 │       └── harwdare.nix
 ├── modules/
@@ -32,6 +34,7 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 │   │   ├── files/
 │   │   ├── niri/
 │   │   ├── packages/
+│   │   ├── plasma/
 │   │   ├── river/
 │   │   ├── shell/
 │   │   ├── terminal/
@@ -43,6 +46,7 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 ├── profiles/          # Module bundles per use case
 │   ├── minimal.nix
 │   ├── niri.nix
+│   ├── plasma.nix
 │   └── river.nix
 ├── secrets/           # Secrets handled by SOPS
 ├── CREDITS.md
@@ -102,6 +106,20 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 | Launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi) |
 | Notifications | [Mako](https://github.com/emersion/mako) - [Libnotify](https://gitlab.gnome.org/GNOME/libnotify) |
 | Screen Locker| [SwayLock](https://github.com/swaywm/swaylock) |
+
+### Plasma
+
+Just declare Plasma in a basic way
+
+<div align="center">
+  <img src="assets/screenshoots/plasma/general.png" alt="Fastfetch" width="95%">
+</div>
+
+| Components| |
+|---|---|
+| DE | KDE/Plasma |
+| WM | KWin |
+| Terminal | Konsole |
 
 ## Documentation
 
