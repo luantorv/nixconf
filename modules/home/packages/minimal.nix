@@ -27,6 +27,7 @@
     btop
     tailscale
     onefetch
+    hyfetch
 
     benhsm-minesweeper
     cmatrix
