@@ -18,6 +18,7 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit globalVars sops-nix pkgs-new pkgs-old; };
     sharedModules = [ sops-nix.homeManagerModules.sops ];
+    backupFileExtension = "backup";
   };
 
   nixpkgs.config.allowUnfree = true;
