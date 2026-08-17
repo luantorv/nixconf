@@ -32,7 +32,6 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 │   │   ├── desktop/
 │   │   ├── editors/
 │   │   ├── files/
-│   │   ├── niri/
 │   │   ├── packages/
 │   │   ├── plasma/
 │   │   ├── river/
@@ -41,11 +40,10 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 │   │   └── theme/
 │   └── nixos/         # NixOS modules
 │       ├── boot/
-|       ├── core/
+│       ├── core/
 │       └── scripts/
 ├── profiles/          # Module bundles per use case
 │   ├── minimal.nix
-│   ├── niri.nix
 │   ├── plasma.nix
 │   └── river.nix
 ├── secrets/           # Secrets handled by SOPS
@@ -117,13 +115,13 @@ Just declare Plasma in a basic way
 
 | Components| |
 |---|---|
-| DE | KDE/Plasma |
-| WM | KWin |
-| Terminal | Konsole |
+| DE | [KDE/Plasma](https://kde.org/plasma-desktop/) |
+| WM | [KWin](https://invent.kde.org/plasma/kwin) |
+| Terminal | [Konsole](https://apps.kde.org/en/konsole/) |
 
 ## Documentation
 
-In the [docs folder](https://github.com/luantorv/nixconf/tree/main/docs) you can find detailed documentation on implementing [secrets](https://github.com/luantorv/nixconf/blob/main/docs/SECRETS.md), [keybinds](https://github.com/luantorv/nixconf/blob/main/docs/KEYBINDS.md), [android integration](https://github.com/luantorv/nixconf/blob/main/docs/ANDROID-INTEGRATION.md) and [how to prove or test](https://github.com/luantorv/nixconf/blob/main/docs/INSTALLATION%20and%20UPDATING.md) this configuration.
+In the [docs folder](https://github.com/luantorv/nixconf/tree/main/docs) you can find a summary of the [logic of modules and imports](https://github.com/luantorv/nixconf/blob/main/docs/MODULES.md), detailed documentation on implementing [secrets](https://github.com/luantorv/nixconf/blob/main/docs/SECRETS.md), [keybinds](https://github.com/luantorv/nixconf/blob/main/docs/KEYBINDS.md), [android integration](https://github.com/luantorv/nixconf/blob/main/docs/ANDROID-INTEGRATION.md) and [how to prove or test](https://github.com/luantorv/nixconf/blob/main/docs/INSTALLATION%20and%20UPDATING.md) this configuration.
 
 ## Credits
 
