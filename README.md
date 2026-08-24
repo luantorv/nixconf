@@ -46,6 +46,10 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 │   ├── minimal.nix
 │   ├── plasma.nix
 │   └── river.nix
+├── shells/            # Dirs with flakes for devShell templates
+│   ├── node/
+│   ├── py-basic/
+│   └── py-notebooks/
 ├── secrets/           # Secrets handled by SOPS
 ├── CREDITS.md
 └── README.md
