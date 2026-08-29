@@ -34,5 +34,10 @@
     gnome-boxes
     cinny-desktop
     claude-code
+
+    (pkgs.writeShellApplication {
+      name = "cpenv";
+      text = builtins.readFile ./scripts/cp-template.sh;
+    })
   ];
 }
