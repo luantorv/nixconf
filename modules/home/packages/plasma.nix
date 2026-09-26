@@ -8,5 +8,7 @@
 
   home.packages = with pkgs; [
     xwayland-satellite
+    kdePackages.kamera
+    kdePackages.koko
   ];
 }

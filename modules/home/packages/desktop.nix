@@ -31,6 +31,9 @@
     cinny-desktop
     claude-code
 
+    kdePackages.kmahjongg
+    kdePackages.kmines
+
     (pkgs.writeShellApplication {
       name = "cpenv";
       text = builtins.readFile ./scripts/cp-template.sh;
