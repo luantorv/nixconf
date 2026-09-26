@@ -66,12 +66,6 @@
 
       # Err/Warn Toggle
       trouble-nvim
-
-      # IA integrations
-      windsurf-nvim
-      avante-nvim
-      nui-nvim
-      render-markdown-nvim
     ];
 
     initLua = ''
@@ -115,9 +109,6 @@
 
       -- Autocomplete (nvim-cmp)
       ${builtins.readFile ./lua/autocomplete.lua}
-
-      -- IA Tools (Codeium + Avante)
-      ${builtins.readFile ./lua/ia-tools.lua}
     '';
   };
 }
