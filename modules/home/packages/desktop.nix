@@ -33,6 +33,7 @@
 
     kdePackages.kmahjongg
     kdePackages.kmines
+    kdePackages.kcalc
 
     (pkgs.writeShellApplication {
       name = "cpenv";
