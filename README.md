@@ -77,17 +77,15 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 | Components | |
 |---|---|
 | Editors | [NeoVim](https://neovim.io/) - [VSCodium](https://vscodium.com/) |
-| File Managers | [yazi](https://github.com/sxyazi/yazi) - [Thunar](https://gitlab.xfce.org/xfce/thunar) |
-| Calendar | [Orage](https://gitlab.xfce.org/apps/orage) |
 | Browser | [Brave](https://brave.com/) |
 | Office Suite | [OnlyOffice](https://www.onlyoffice.com/) |
-| GUI Dev Tools | [DBeaver]() - [Boxes]() |
+| GUI Dev Tools | [DBeaver](https://dbeaver.io/) - [Boxes](https://apps.gnome.org/es/Boxes/) |
 | Brightness Control | [brightnessctl](https://github.com/Hummer12007/brightnessctl) |
-| Media Tools | [mpv](https://mpv.io) - [nomacs](https://nomacs.org) - [zathura](https://pwnet.org/projects/zathura) |
+| Media Tools | [mpv](https://mpv.io) |
 | Sound | [pamixer](https://github.com/cdemoulins/pamixer) - [playerctl](https://github.com/acrisci/playerctl) |
 | Screenshoot Tools | [grim](https://gitlab.freedesktop..org/emersion/grim) - [slurp](https://github.com/emersion/slurp) - [swappy](https://github.com/jtheoof/swappy) |
 | Clipboard | [wl-clipboard](https://github.com/bugaevc/wl-clipboard) - [cliphist](https://github.com/sentriz/cliphist) |
-| Game Apps | [Steam](https://store.steampowered.com) - [Discord](https://discordapp.com) - [PrismLauncher](https://prismlauncher.org) |
+| Game Apps | [Steam](https://store.steampowered.com) - [Discord](https://discordapp.com) - [PrismLauncher](https://prismlauncher.org) - [KMahjongg](https://invent.kde.org/games/kmanjongg) - [KMines](https://invent.kde.org/games/kmines)|
 
 ### River
 
@@ -104,10 +102,13 @@ Contains several profiles including [minimal.nix](https://github.com/luantorv/ni
 |---|---|
 | WM | [River (wayland)](https://codeberg.org/river/river-classic) |
 | Terminal | [Foot](https://codeberg.org/dnkl/foot/) |
+| File Manager | [Thunar](https://gitlab.xfce.org/xfce/thunar) |
 | Status Bar | [waybar](https://github.com/alexays/waybar) |
 | Launcher | [Wofi](https://hg.sr.ht/~scoopta/wofi) |
 | Notifications | [Mako](https://github.com/emersion/mako) - [Libnotify](https://gitlab.gnome.org/GNOME/libnotify) |
 | Screen Locker| [SwayLock](https://github.com/swaywm/swaylock) |
+| Calendar | [Orage](https://gitlab.xfce.org/apps/orage) |
+| Media Tools | [nomacs](https://nomacs.org) - [zathura](https://pwnet.org/projects/zathura) |
 
 ### Plasma
 
@@ -122,6 +123,8 @@ Just declare Plasma in a basic way
 | DE | [KDE/Plasma](https://kde.org/plasma-desktop/) |
 | WM | [KWin](https://invent.kde.org/plasma/kwin) |
 | Terminal | [Konsole](https://apps.kde.org/en/konsole/) |
+| File Manager | [Dolphin](https://invent.kde.org/system/dolphin) - [Photos (Koko)](https://invent.kde.org/graphics/koko) |
+| Media Tools | [Elisa](https://invent.kde.org/multimedia/elisa) - [Okular](https://invent.kde.org/graphics/okular) - [Gwenview](https://invent.kde.org/graphics/gwenview) - [Kamera](https://invent.kde.org/graphics/kamera) |
 
 ## Documentation
 
