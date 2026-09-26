@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, globalVars, ... }:
@@ -22,11 +22,7 @@
     # browser & other
     brave
     vscodium
-    thunar
-    orage
-    zathura
     onlyoffice-desktopeditors
-    nomacs
     mpv
     discord
     prismlauncher
