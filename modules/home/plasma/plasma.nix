@@ -7,4 +7,8 @@
   programs.plasma = {
     enable = true;
   };
+
+  home.file.".local/share/colors-scheme/Verdigris.colors" = {
+    source = ./Verdigris.colors;
+  };
 }
