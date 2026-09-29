@@ -31,7 +31,7 @@ let
     #coral    = "#ff9c55";
     #red      = "#d62900";
     black     = "#141311";
-    white     = "#f3efe7";
+    white     = "#c7bfba";
     grey      = "#8a8583";
     darkblue  = "#2ea0c7";
     lightblue = "#17a696";
