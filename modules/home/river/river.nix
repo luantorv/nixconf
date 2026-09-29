@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, globalVars, ... }:
@@ -28,10 +28,10 @@
       # Configuración básica
       riverctl set-repeat 50 300
 
-      riverctl background-color 0x000000
+      riverctl background-color 0x141311
       riverctl border-width 2
-      riverctl border-color-focused 0xffffff
-      riverctl border-color-unfocused 0x333333
+      riverctl border-color-focused 0xc7bfba
+      riverctl border-color-unfocused 0x8a8583
 
       riverctl focus-follows-mouse  enabled
       riverctl focus-follows-cursor enabled
