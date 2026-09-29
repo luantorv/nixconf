@@ -33,7 +33,7 @@ let
     black     = "#141311";
     white     = "#f3efe7";
     grey      = "#8a8583";
-    blue      = "#2ea0c7";
+    darkblue  = "#2ea0c7";
     lightblue = "#17a696";
     green     = "#295e3c";
     sand      = "#9f842e";
