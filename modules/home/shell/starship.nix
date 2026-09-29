@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, ... }:
@@ -6,41 +6,34 @@
 {
   programs.starship = {
     enable = true;
-    enableBashIntegration = true;
-  
+    #enableBashIntegration = true;
+    enableZshIntegration = true;
+
     settings = {
-      format = ''
-      [](${config.colors.skyblue})[ $username ](bold black bg:${config.colors.skyblue})[](${config.colors.skyblue}) [](${config.colors.pink})[ $directory ](bold black bg:${config.colors.pink})[](${config.colors.pink}) $git_branch $nix_shell
-      $character '';
-    
-      username = {
-        style_user = "bold ${config.colors.black} bg:${config.colors.skyblue}";
-        format = "[$user]($style)";
-        show_always = true;
-      };
+      format = "$directory $git_branch $nix_shell\n$character";
 
       directory = {
-        style = "bold ${config.colors.black} bg:${config.colors.pink}";
-        format = "[ $path ]($style)";
+        style = "${config.colors.white}";
+        format = "[$path]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
       };
 
-      character = {
-        success_symbol = "[➜](${config.colors.darkblue})";
-        error_symbol = "[➜](${config.colors.red})";
-      };
-
       git_branch = {
-        symbol = " ";
-        style = "bold ${config.colors.black} bg:${config.colors.white}";
-        format = "[](${config.colors.white})[ $symbol$branch ]($style)[](${config.colors.white})";
+        symbol = "git:";
+        style = "${config.colors.lavanda}";
+        format = "[$symbol$branch]($style)";
       };
 
       nix_shell = {
-        symbol = " ";
-        style = "bold ${config.colors.black} bg:${config.colors.white}";
-        format = "[](${config.colors.white})[ $symbol$state ]($style)[](${config.colors.white})";
+        symbol = "nix:";
+        style = "${config.colors.lightblue}";
+        format = "[$symbol$state]($style)";
+      };
+
+      character = {
+        success_symbol = "[>](${config.colors.green})";
+        error_symbol = "[>](${config.colors.red})";
       };
     };
   };

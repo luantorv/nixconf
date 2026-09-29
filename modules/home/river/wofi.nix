@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, ... }:
@@ -20,15 +20,15 @@
         background-color: ${config.colors.black};
         color: ${config.colors.white};
         font-family: ¨JetBrains Mono Nerd Font¨;
-        border: 2px solid ${config.colors.skyblue};
+        border: 2px solid ${config.colors.lightblue};
         border-radius: 12px;
       }
 
       #input {
         background-color: ${config.colors.black};
-        color: ${config.colors.pink};
+        color: ${config.colors.grey};
         border: none;
-        border-bottom: 1px solid ${config.colors.pink};
+        border-bottom: 1px solid ${config.colors.lavanda};
         margin: 10px;
         padding: 5px;
       }
@@ -38,7 +38,7 @@
       }
 
       #entry:selected {
-        background-color: ${config.colors.pink};
+        background-color: ${config.colors.lavanda};
         border-radius: 8px;
       }
 

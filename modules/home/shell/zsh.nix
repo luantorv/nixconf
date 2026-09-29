@@ -4,52 +4,58 @@
 { config, pkgs, ... }:
 
 {
-  programs.bash = {
+  programs.zsh = {
     enable = true;
+
     shellAliases = {
       ff = "fastfetch";
       of = "onefetch";
       hf = "hyfetch";
+
       ls = "eza";
       ll = "eza -l";
       la = "eza -la";
       lt = "eza --tree";
+
       cat = "bat";
       fm = "yazi";
       find = "fd";
       grep = "rg";
       cd = "z";
+
       lg = "lazygit";
       ld = "lazydocker";
 
       new = "nvim $(date +%Y-%m-%d_%H:%M:%S).md";
       vim = "nvim";
-      vi  = "nvim";
+      vi = "nvim";
       v = "nvim";
-      
+
       dev = "nix develop";
       shell = "nix shell";
       ns = "nix-shell -p";
-      
+
       gen-rb = "sudo nixos-rebuild switch --flake ~/nixconf#laptop";
       gen-up = "nix flake update ~/nixconf";
       gen-gc = "sudo nix-collect-garbage --delete-older-than 7d";
       gen-op = "nix-store --optimise";
       gen-ls = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-
-      bm = "minesweeper";
-      buscaminas = "minesweeper";
     };
+
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
   };
 
   programs.fzf = {
     enable = true;
-    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 
   programs.atuin = {
     enable = true;
-    enableBashIntegration = true;
+    enableZshIntegration = true;
+
     settings = {
       auto_sync = true;
       sync_frequency = "5m";
@@ -59,6 +65,6 @@
 
   programs.zoxide = {
     enable = true;
-    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 }

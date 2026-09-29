@@ -70,7 +70,7 @@
 
     initLua = ''
       _G.NixVars = {
-        skyblue = "${config.colors.skyblue}",
+        skyblue = "${config.colors.lightblue}",
         username = "${globalVars.username}"
       }
 

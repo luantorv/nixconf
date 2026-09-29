@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, ... }:
@@ -37,12 +37,12 @@
 
       filelist = {
         hovered = { bg = "${config.colors.darkblue}"; fg = "${config.colors.white}"; bold = true; };
-        selected = { bg = "${config.colors.skyblue}"; fg = "${config.colors.black}"; bold = true; };
+        selected = { bg = "${config.colors.lightblue}"; fg = "${config.colors.black}"; bold = true; };
       };
 
       icon = {
         rules = [
-          { name = "*.nix"; symbol = "nix"; color = "${config.colors.skyblue}"; }
+          { name = "*.nix"; symbol = "nix"; color = "${config.colors.lightblue}"; }
           { name = "*.sh"; symbol = "sh"; color = "${config.colors.green}"; }
         ];
       };

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, ... }:
@@ -168,13 +168,13 @@
       }
 
       #tags button.focused {
-        background: linear-gradient(45deg, ${config.colors.skyblue}, ${config.colors.pink});
+        background: linear-gradient(45deg, ${config.colors.lightblue}, ${config.colors.lavanda});
         color: ${config.colors.black};
         border-bottom: 3px solid ${config.colors.white};
       }
 
       #tags button.visible:not(.focused) {
-        background: linear-gradient(45deg, ${config.colors.pink}, ${config.colors.white});
+        background: linear-gradient(45deg, ${config.colors.lavanda}, ${config.colors.white});
         color: ${config.colors.black};
         font-weight: bold;
         border-bottom: 3px solid ${config.colors.red};
@@ -182,7 +182,7 @@
 
       #tags button.occupied:not(.focused):not(.visible) {
         background: rgba(${config.colors.rgb.green}, 0.2);
-        color: ${config.colors.skyblue};
+        color: ${config.colors.lightblue};
       }
 
       #bluetooth, #custom-caffeine, #battery {
@@ -192,17 +192,17 @@
 
       #backlight, #pulseaudio.microphone {
         padding: 0 10px;
-        border-left: 1px solid ${config.colors.skyblue};
+        border-left: 1px solid ${config.colors.lightblue};
       }
 
       #network, #pulseaudio {
         padding: 0 10px;
-        border-left: 1px solid ${config.colors.pink};
+        border-left: 1px solid ${config.colors.lavanda};
       }
 
       #clock {
         padding: 0 10px;
-        border-left: 1px solid ${config.colors.skyblue};
+        border-left: 1px solid ${config.colors.lightblue};
       }
 
       #custom-power_profile, #custom-media {
@@ -211,17 +211,17 @@
       }
 
       #custom-caffeine {
-        color: ${config.colors.skyblue};
+        color: ${config.colors.lightblue};
         border-left: none;
       }
 
       #bluetooth {
-        color: ${config.colors.pink};
+        color: ${config.colors.lavanda};
         padding: 0 10px;
       }
 
       #bluetooth.on {
-        color: ${config.colors.coral};
+        color: ${config.colors.sand};
         font-weight: bold;
       }
 
@@ -236,7 +236,7 @@
       }
 
       #pulseaudio.muted:not(.microphone) {
-        color: ${config.colors.coral};
+        color: ${config.colors.sand};
       }
 
       #pulseaudio.microphone {
@@ -245,11 +245,11 @@
       }
 
       #pulseaudio.microphone.source-muted {
-        color: ${config.colors.coral};
+        color: ${config.colors.sand};
       }
 
       #custom-media {
-        color: ${config.colors.skyblue};
+        color: ${config.colors.lightblue};
         border-left: 1px solid ${config.colors.green};
         padding: 0 10px;
         font-style: italic;
@@ -260,7 +260,7 @@
       }
 
       #battery {
-        color: ${config.colors.skyblue};
+        color: ${config.colors.lightblue};
         padding: 0 10px;
       }
 
@@ -269,7 +269,7 @@
       }
 
       #battery.warning:not(.charning) {
-        color: ${config.colors.pink};
+        color: ${config.colors.sand};
       }
 
       #battery.critical:not(.charning) {

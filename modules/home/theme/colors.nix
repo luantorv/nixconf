@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, lib, ... }:
@@ -21,15 +21,24 @@ let
   in "${toString r}, ${toString g}, ${toString b}";
 
   palette = {
-    black   = "#000000";
-    white   = "#ffffff";
-    grey    = "#888888";
-    darkblue = "#5277c3";
-    skyblue = "#7ebae4";
-    green   = "#27cea9";
-    pink    = "#f5a9b9";
-    coral   = "#ff9c55";
-    red     = "#d62900";
+    #black    = "#000000";
+    #white    = "#ffffff";
+    #grey     = "#888888";
+    #darkblue = "#5277c3";
+    #skyblue  = "#7ebae4";
+    #green    = "#27cea9";
+    #pink     = "#f5a9b9";
+    #coral    = "#ff9c55";
+    #red      = "#d62900";
+    black     = "#141311";
+    white     = "#f3efe7";
+    grey      = "#8a8583";
+    blue      = "#2ea0c7";
+    lightblue = "#17a696";
+    green     = "#295e3c";
+    sand      = "#9f842e";
+    red       = "#e75f6f";
+    lavanda   = "#ae9afa";
   };
 in
 {

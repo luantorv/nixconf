@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, ... }:
@@ -32,7 +32,7 @@
       theme[title]="${config.colors.white}"
 
       # Highlight color for keyboard shortcuts
-      theme[hi_fg]="${config.colors.skyblue}"
+      theme[hi_fg]="${config.colors.lightblue}"
 
       # Selected item background
       theme[selected_bg]="${config.colors.darkblue}"
@@ -44,22 +44,22 @@
       theme[inactive_fg]="${config.colors.grey}"
 
       # Color of lines and borders
-      theme[proc_misc]="${config.colors.pink}"
+      theme[proc_misc]="${config.colors.lavanda}"
 
-      # CPU graph colors (Gradient: Green -> Coral -> Red)
+      # CPU graph colors (Gradient: Green -> Sand -> Red)
       theme[cpu_start]="${config.colors.green}"
-      theme[cpu_mid]="${config.colors.coral}"
+      theme[cpu_mid]="${config.colors.sand}"
       theme[cpu_end]="${config.colors.red}"
 
       # Mem graph colors (Skyblue)
-      theme[mem_start]="${config.colors.skyblue}"
+      theme[mem_start]="${config.colors.lightblue}"
       theme[mem_mid]="${config.colors.darkblue}"
       theme[mem_end]="${config.colors.darkblue}"
 
-      # Net graph colors (Pink)
-      theme[net_start]="${config.colors.pink}"
-      theme[net_mid]="${config.colors.pink}"
-      theme[net_end]="${config.colors.pink}"
+      # Net graph colors (Lavanda)
+      theme[net_start]="${config.colors.lavanda}"
+      theme[net_mid]="${config.colors.lavanda}"
+      theme[net_end]="${config.colors.lavanda}"
 
       # Processes table (Skyblue)
       theme[proc_grid]="${config.colors.darkblue}"

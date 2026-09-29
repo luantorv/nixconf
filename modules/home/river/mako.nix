@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 Luis
+# SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
 { config, pkgs, ...}:
@@ -34,14 +34,14 @@
       default-timeout=0
 
       [category=preview]
-      border-color=${config.colors.skyblue}
+      border-color=${config.colors.lightblue}
       background-color=${config.colors.white}ee
 
       [app-name=Spotify]
       border-color=${config.colors.green}
     
       [app-name=swappy]
-      border-color=${config.colors.pink}
+      border-color=${config.colors.lavanda}
       default-timeout=2000
 
       [app-name=udiskie]

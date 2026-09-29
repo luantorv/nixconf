@@ -11,10 +11,10 @@ require('rose-pine').setup({
     },
     highlight_groups = {
         -- Normal = { bg = "${config.colors.black}" },
-        -- Keyword = { fg = "${config.colors.skyblue}" },
+        -- Keyword = { fg = "${config.colors.lightblue}" },
         -- String = { fg = "${config.colors.green}" },
         -- Error = { fg = "${config.colors.red}" },
-        -- Warning = { fg = "${config.colors.coral}" },
+        -- Warning = { fg = "${config.colors.sand}" },
     }
 })
 
