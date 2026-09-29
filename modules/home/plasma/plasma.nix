@@ -8,7 +8,7 @@
     enable = true;
   };
 
-  home.file.".local/share/colors-scheme/Verdigris.colors" = {
+  home.file.".local/share/color-schemes/Verdigris.colors" = {
     source = ./Verdigris.colors;
   };
 }
