@@ -13,7 +13,7 @@
       format = "$directory $git_branch $nix_shell\n$character";
 
       directory = {
-        style = "${config.colors.white}";
+        style = "${config.colors.grey}";
         format = "[$path]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
@@ -27,12 +27,12 @@
 
       nix_shell = {
         symbol = "nix:";
-        style = "${config.colors.lightblue}";
+        style = "${config.colors.darkblue}";
         format = "[$symbol$state]($style)";
       };
 
       character = {
-        success_symbol = "[>](${config.colors.green})";
+        success_symbol = "[>](${config.colors.lightblue})";
         error_symbol = "[>](${config.colors.red})";
       };
     };
