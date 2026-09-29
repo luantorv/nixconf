@@ -31,9 +31,9 @@
       vi = "nvim";
       v = "nvim";
 
-      dev = "nix develop";
-      shell = "nix shell";
-      ns = "nix-shell -p";
+      dev = "nix develop -c zsh";
+      shell = "nix shell -c zsh";
+      ns = "nix-shell --run zsh -p";
 
       gen-rb = "sudo nixos-rebuild switch --flake ~/nixconf#laptop";
       gen-up = "nix flake update ~/nixconf";
