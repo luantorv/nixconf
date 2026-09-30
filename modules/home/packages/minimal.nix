@@ -28,6 +28,7 @@
     tailscale
     onefetch
     hyfetch
+    git-fame
 
     benhsm-minesweeper
     cmatrix

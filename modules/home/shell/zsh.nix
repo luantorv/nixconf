@@ -25,6 +25,7 @@
 
       lg = "lazygit";
       ld = "lazydocker";
+      gf = "git-fame";
 
       new = "nvim $(date +%Y-%m-%d_%H:%M:%S).md";
       vim = "nvim";
