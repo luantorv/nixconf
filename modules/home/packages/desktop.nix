@@ -34,6 +34,8 @@
     kdePackages.kmahjongg
     kdePackages.kmines
     kdePackages.kcalc
+    kdePackages.kamera
+    pika-backup
 
     (pkgs.writeShellApplication {
       name = "cpenv";
