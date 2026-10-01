@@ -6,10 +6,6 @@ The image for [swaylock-effects](https://github.com/jirutka/swaylock-effects) we
 
 [This](./assets/wallpapers/nix.png) wallpaper was taken from a [post](https://www.reddit.com/r/NixOS/comments/1mpwpvp/i_made_some_nix_wallpapers/) of [r/NixOS](https://reddit.com/r/NixOS/).
 
-[This](./assets/wallpapers/zusoedkl0qkb1.png) from this other [post](https://www.reddit.com/r/NixOS/comments/1632nml/edited_this_into_a_nix_wallpaper_a_while_ago/).
-
-And [this](./assets/wallpapers/0f6oxa9y9jlb1.png) from this other [post](https://www.reddit.com/r/NixOS/comments/166r8n7/anime_nix_wallpaper_i_created/)
-
 ---
 
 The wallpapers in this repository are the property of their respective authors. I do not claim ownership of any artwork shared here.
