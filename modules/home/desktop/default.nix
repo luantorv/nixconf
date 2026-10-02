@@ -5,7 +5,6 @@
 
 {
   imports = [
-    ./gtk.nix
     ./kanshi.nix
     ./swappy.nix
     ./read_mode.nix
