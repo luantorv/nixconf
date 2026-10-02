@@ -36,6 +36,7 @@
     kdePackages.kcalc
     kdePackages.kamera
     pika-backup
+    whatsapp-electron
 
     (pkgs.writeShellApplication {
       name = "cpenv";
