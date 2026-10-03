@@ -30,13 +30,14 @@
     gnome-boxes
     cinny-desktop
     claude-code
+    whatsapp-electron
+    clickup
+    pika-backup
 
     kdePackages.kmahjongg
     kdePackages.kmines
     kdePackages.kcalc
     kdePackages.kamera
-    pika-backup
-    whatsapp-electron
 
     (pkgs.writeShellApplication {
       name = "cpenv";
