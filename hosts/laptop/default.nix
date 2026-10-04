@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, sops-nix, pkgs-new, pkgs-old, plasma-manager, ... }:
+{ config, pkgs, globalVars, sops-nix, pkgs-new, plasma-manager, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
 
   home-manager = {
     useUserPackages = true;
-    extraSpecialArgs = { inherit globalVars sops-nix pkgs-new pkgs-old; };
+    extraSpecialArgs = { inherit globalVars sops-nix pkgs-new; };
     sharedModules = [ sops-nix.homeManagerModules.sops ];
     backupFileExtension = "backup";
   };

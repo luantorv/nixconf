@@ -28,10 +28,10 @@
       # Configuración básica
       riverctl set-repeat 50 300
 
-      riverctl background-color 0x141311
+      riverctl background-color 0x141310
       riverctl border-width 2
-      riverctl border-color-focused 0xc7bfba
-      riverctl border-color-unfocused 0x8a8583
+      riverctl border-color-focused 0xae9afb
+      riverctl border-color-unfocused 0xc7afab
 
       riverctl focus-follows-mouse  enabled
       riverctl focus-follows-cursor enabled

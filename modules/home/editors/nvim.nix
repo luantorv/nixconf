@@ -1,12 +1,12 @@
 # SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, pkgs-old, ... }:
+{ config, pkgs, globalVars, ... }:
 
 {
   programs.neovim = {
     enable = true;
-    package = pkgs-old.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
@@ -28,12 +28,9 @@
       fd
     ];
 
-    plugins = with pkgs-old.vimPlugins; [
-      # Theme
-      rose-pine
-
+    plugins = with pkgs.vimPlugins; [
       # Syntax highlighting
-      nvim-treesitter.withAllGrammars
+      nvim-treesitter-legacy.withAllGrammars
 
       # Autocomplete engine and its sources
       nvim-cmp
@@ -70,8 +67,17 @@
 
     initLua = ''
       _G.NixVars = {
-        skyblue = "${config.colors.lightblue}",
-        username = "${globalVars.username}"
+        black     = "${config.colors.black}",
+        white     = "${config.colors.white}",
+        grey      = "${config.colors.grey}",
+        darkblue  = "${config.colors.darkblue}",
+        lightblue = "${config.colors.lightblue}",
+        green     = "${config.colors.green}",
+        sand      = "${config.colors.sand}",
+        red       = "${config.colors.red}",
+        lavanda   = "${config.colors.lavanda}",
+        
+        username  = "${globalVars.username}"
       }
 
       -- Options

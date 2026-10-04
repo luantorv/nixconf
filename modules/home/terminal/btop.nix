@@ -51,7 +51,7 @@
       theme[cpu_mid]="${config.colors.sand}"
       theme[cpu_end]="${config.colors.red}"
 
-      # Mem graph colors (Skyblue)
+      # Mem graph colors
       theme[mem_start]="${config.colors.lightblue}"
       theme[mem_mid]="${config.colors.darkblue}"
       theme[mem_end]="${config.colors.darkblue}"
@@ -61,7 +61,7 @@
       theme[net_mid]="${config.colors.lavanda}"
       theme[net_end]="${config.colors.lavanda}"
 
-      # Processes table (Skyblue)
+      # Processes table
       theme[proc_grid]="${config.colors.darkblue}"
       theme[proc_color_up]="${config.colors.green}"
       theme[proc_color_down]="${config.colors.red}"

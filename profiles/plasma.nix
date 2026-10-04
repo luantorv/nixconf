@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, pkgs-old, plasma-manager, ... }:
+{ config, pkgs, globalVars, plasma-manager, ... }:
 
 {
   imports = [
@@ -21,7 +21,7 @@
     plasma-manager.homeModules.plasma-manager
   ];
 
-  home-manager.users.${globalVars.username} = { pkgs, pkgs-old, ... }: {
+  home-manager.users.${globalVars.username} = { pkgs, ... }: {
     imports = [
       ../modules/home/packages/plasma.nix
 

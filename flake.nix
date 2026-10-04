@@ -9,8 +9,6 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    nixpkgs-old.url = "github:nixos/nixpkgs/nixos-25.11";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +29,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-new, nixpkgs-old, home-manager, sops-nix, plasma-manager, nix-cachyos-kernel, ... }:
+  outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, nix-cachyos-kernel, ... }:
     let
       globalVars = {
         username = "luis";
@@ -45,11 +43,6 @@
         notesDir = "/data/notas";
       };
 
-      pkgs-old = import nixpkgs-old {
-        inherit (globalVars) system;
-        config.allowUnfree = true;
-      };
-
       pkgs-new = import nixpkgs-new {
         inherit (globalVars) system;
         config.allowUnfree = true;
@@ -60,7 +53,7 @@
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = {
-            inherit globalVars sops-nix home-manager pkgs-old pkgs-new plasma-manager nix-cachyos-kernel;
+            inherit globalVars sops-nix home-manager pkgs-new plasma-manager nix-cachyos-kernel;
           };
 
           modules = [
@@ -73,7 +66,7 @@
         server = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = {
-            inherit globalVars sops-nix home-manager pkgs-old nix-cachyos-kernel;
+            inherit globalVars sops-nix home-manager nix-cachyos-kernel;
           };
 
           modules = [

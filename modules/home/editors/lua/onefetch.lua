@@ -38,7 +38,7 @@ end
 
 dashboard.section.header.val = get_onefetch()
 
-vim.api.nvim_set_hl(0, 'AlphaHeaderColor', { fg = _G.NixVars.skyblue })
+vim.api.nvim_set_hl(0, 'AlphaHeaderColor', { fg = _G.NixVars.darkblue })
 dashboard.section.header.opts.hl = "AlphaHeaderColor"
 
 dashboard.section.buttons.val = {

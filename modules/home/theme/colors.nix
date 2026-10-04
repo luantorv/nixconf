@@ -30,15 +30,15 @@ let
     #pink     = "#f5a9b9";
     #coral    = "#ff9c55";
     #red      = "#d62900";
-    black     = "#141311";
-    white     = "#c7bfba";
-    grey      = "#8a8583";
-    darkblue  = "#2ea0c7";
-    lightblue = "#17a696";
-    green     = "#295e3c";
-    sand      = "#9f842e";
-    red       = "#e75f6f";
-    lavanda   = "#ae9afa";
+    black     = "#141310";
+    white     = "#f4f1f0";
+    grey      = "#c7afab";
+    darkblue  = "#5589f7";
+    lightblue = "#2ea1c7";
+    green     = "#17c0ae";
+    sand      = "#e3be3c";
+    red       = "#f23a50";
+    lavanda   = "#ae9afb";
   };
 in
 {
