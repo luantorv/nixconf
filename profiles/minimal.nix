@@ -20,7 +20,7 @@
       ../modules/home/editors
       ../modules/home/files
 
-      ../modules/home/shell/bash.nix
+      ../modules/home/shell
       ../modules/home/terminal/btop.nix
       ../modules/home/theme/colors.nix
       ../modules/home/sops.nix

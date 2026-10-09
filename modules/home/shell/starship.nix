@@ -10,7 +10,19 @@
     enableZshIntegration = true;
 
     settings = {
-      format = "$directory $git_branch $nix_shell\n$character";
+      format = "$username$hostname $directory $git_branch $nix_shell\n$character";
+
+      username = {
+        ssh_only = true;
+        style_user = "${config.colors.sand}";
+        format = "[$user]($style)";
+      };
+
+      hostname = {
+        ssh_only = true;
+        style = "${config.colors.sand}";
+        format = "[:$hostname]($style)";
+      };
 
       directory = {
         style = "${config.colors.grey}";
@@ -32,7 +44,7 @@
       };
 
       character = {
-        success_symbol = "[>](${config.colors.lightblue})";
+        success_symbol = "[>](${config.colors.green})";
         error_symbol = "[>](${config.colors.red})";
       };
     };
