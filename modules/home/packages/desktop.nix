@@ -38,6 +38,8 @@
     kdePackages.kmines
     kdePackages.kcalc
     kdePackages.kamera
+    drawy
+    reaper
 
     (pkgs.writeShellApplication {
       name = "cpenv";
