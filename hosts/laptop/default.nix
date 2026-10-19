@@ -10,7 +10,7 @@
     ./hardware.nix
     ./docker.nix
     ../../modules/home/sops.nix
-    ../../modules/nixos/cachyos-kernel.nix
+    #../../modules/nixos/cachyos-kernel.nix
     ../../profiles/plasma.nix
   ];
 

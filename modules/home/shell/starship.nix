@@ -13,7 +13,7 @@
       format = "$username$hostname $directory $git_branch $nix_shell\n$character";
 
       username = {
-        ssh_only = true;
+        show_always = false;
         style_user = "${config.colors.sand}";
         format = "[$user]($style)";
       };

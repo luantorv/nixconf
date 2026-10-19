@@ -10,5 +10,5 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel por defecto (fallback). Un host puede sobrescribirlo en su boot.nix.
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 }

@@ -5,7 +5,8 @@
 
 {
   # Kernel CachyOS optimizado para x86_64-v3 (AVX2).
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
+  #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-x86_64-v3;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernelModules = [ "ideapad_laptop" ];
 

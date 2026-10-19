@@ -26,10 +26,11 @@
 
     # Kernel optimizado de CachyOS (con cache binario en Hydra CI).
     # Rama `release`: solo kernels ya construidos y presentes en el cache.
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    #nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, nix-cachyos-kernel, ... }:
+  #outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, nix-cachyos-kernel, ... }:
+  outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, ... }:
     let
       globalVars = {
         username = "luis";
@@ -53,7 +54,8 @@
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = {
-            inherit globalVars sops-nix home-manager pkgs-new plasma-manager nix-cachyos-kernel;
+            #inherit globalVars sops-nix home-manager pkgs-new plasma-manager nix-cachyos-kernel;
+            inherit globalVars sops-nix home-manager pkgs-new plasma-manager;
           };
 
           modules = [
@@ -66,7 +68,8 @@
         server = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = {
-            inherit globalVars sops-nix home-manager nix-cachyos-kernel;
+            #inherit globalVars sops-nix home-manager nix-cachyos-kernel;
+            inherit globalVars sops-nix home-manager;
           };
 
           modules = [
