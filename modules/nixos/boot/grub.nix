@@ -14,6 +14,14 @@
       };
 
       efi.canTouchEfiVariables = true;
+
+      grub2-theme = {
+        enable = true;
+        theme = "tela";
+        icon = "color";
+        screen = "1080p";
+        footer = true;
+      };
     };
 
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;

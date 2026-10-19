@@ -27,10 +27,14 @@
     # Kernel optimizado de CachyOS (con cache binario en Hydra CI).
     # Rama `release`: solo kernels ya construidos y presentes en el cache.
     #nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+    };
   };
 
-  #outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, nix-cachyos-kernel, ... }:
-  outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, ... }:
+  #outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, nix-cachyos-kernel, grub2-themes, ... }:
+  outputs = { self, nixpkgs, nixpkgs-new, home-manager, sops-nix, plasma-manager, grub2-themes, ... }:
     let
       globalVars = {
         username = "luis";
@@ -54,13 +58,14 @@
         laptop = nixpkgs.lib.nixosSystem {
           inherit (globalVars) system;
           specialArgs = {
-            #inherit globalVars sops-nix home-manager pkgs-new plasma-manager nix-cachyos-kernel;
-            inherit globalVars sops-nix home-manager pkgs-new plasma-manager;
+            #inherit globalVars sops-nix home-manager pkgs-new plasma-manager nix-cachyos-kernel grub2-themes;
+            inherit globalVars sops-nix home-manager pkgs-new plasma-manager grub2-themes;
           };
 
           modules = [
             home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops 
+            sops-nix.nixosModules.sops
+            grub2-themes.nixosModules.default
             ./hosts/laptop/default.nix
           ];
         };
