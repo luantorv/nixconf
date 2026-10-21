@@ -29,7 +29,6 @@
     dbeaver-bin
     gnome-boxes
     cinny-desktop
-    claude-code
     whatsapp-electron
     clickup
     pika-backup
@@ -40,6 +39,9 @@
     kdePackages.kamera
     drawy
     reaper
+
+    claude-code
+    codex
 
     (pkgs.writeShellApplication {
       name = "cpenv";
