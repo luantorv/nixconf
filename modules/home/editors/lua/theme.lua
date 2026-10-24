@@ -4,15 +4,21 @@
 -- Custom Theme: Verdigris
 
 local colors = {
-    black     = _G.NixVars.black,
-    white     = _G.NixVars.white,
-    grey      = _G.NixVars.grey,
-    darkblue  = _G.NixVars.darkblue,
-    lightblue = _G.NixVars.lightblue,
-    green     = _G.NixVars.green,
-    sand      = _G.NixVars.sand,
-    red       = _G.NixVars.red,
-    lavanda   = _G.NixVars.lavanda,
+    black         = _G.NixVars.black,
+    white         = _G.NixVars.white,
+    grey          = _G.NixVars.grey,
+    darkblue      = _G.NixVars.darkblue,
+    lightblue     = _G.NixVars.lightblue,
+    green         = _G.NixVars.green,
+    sand          = _G.NixVars.sand,
+    red           = _G.NixVars.red,
+    lavanda       = _G.NixVars.lavanda,
+    surface       = "#1b1917",
+    surfaceRaised = "#24201e",
+    surfaceActive = "#302b29",
+    border        = "#3a3432",
+    borderStrong  = "#554c48",
+    textSubtle    = "#958985",
 }
 
 local set = vim.api.nvim_set_hl
@@ -26,34 +32,34 @@ set(0, "Normal", {
 
 set(0, "NormalFloat", {
     fg = colors.white,
-    bg = colors.black,
+    bg = colors.surfaceRaised,
 })
 
 set(0, "FloatBorder", {
-    fg = colors.grey,
-    bg = colors.black,
+    fg = colors.borderStrong,
+    bg = colors.surfaceRaised,
 })
 
 set(0, "Cursor", {
     fg = colors.black,
-    bg = colors.white,
+    bg = colors.green,
 })
 
 set(0, "CursorLine", {
-    bg = "#1b1917",
+    bg = colors.surface,
 })
 
 set(0, "CursorLineNr", {
-    fg = colors.white,
+    fg = colors.green,
     bold = true,
 })
 
 set(0, "LineNr", {
-    fg = colors.grey,
+    fg = colors.textSubtle,
 })
 
 set(0, "Visual", {
-    bg = "#302b29",
+    bg = colors.surfaceActive,
 })
 
 set(0, "Search", {
@@ -63,7 +69,7 @@ set(0, "Search", {
 
 set(0, "IncSearch", {
     fg = colors.black,
-    bg = colors.lightblue,
+    bg = colors.green,
 })
 
 set(0, "MatchParen", {
@@ -72,62 +78,62 @@ set(0, "MatchParen", {
 })
 
 set(0, "NonText", {
-    fg = colors.grey,
+    fg = colors.textSubtle,
 })
 
 set(0, "Whitespace", {
-    fg = "#3a3432",
+    fg = colors.border,
 })
 
 -- Syntax
 
 set(0, "Comment", {
-    fg = colors.grey,
+    fg = colors.textSubtle,
     italic = true,
 })
 
 set(0, "String", {
-    fg = colors.sand,
+    fg = colors.green,
 })
 
 set(0, "Character", {
-    fg = colors.sand,
+    fg = colors.green,
 })
 
 set(0, "Number", {
-    fg = colors.red,
+    fg = colors.sand,
 })
 
 set(0, "Float", {
-    fg = colors.red,
+    fg = colors.sand,
 })
 
 set(0, "Boolean", {
-    fg = colors.red,
+    fg = colors.sand,
 })
 
 set(0, "Constant", {
-    fg = colors.red,
+    fg = colors.sand,
 })
 
 set(0, "Keyword", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "Statement", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "Conditional", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "Repeat", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "Operator", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "Function", {
@@ -180,6 +186,10 @@ set(0, "@string", {
     link = "String",
 })
 
+set(0, "@character", {
+    link = "Character",
+})
+
 set(0, "@string.escape", {
     fg = colors.lightblue,
 })
@@ -194,7 +204,7 @@ set(0, "@constant", {
 })
 
 set(0, "@constant.builtin", {
-    fg = colors.red,
+    fg = colors.sand,
 })
 
 set(0, "@boolean", {
@@ -205,29 +215,41 @@ set(0, "@number", {
     link = "Number",
 })
 
+set(0, "@number.float", {
+    link = "Float",
+})
+
 -- Keywords
 set(0, "@keyword", {
     link = "Keyword",
 })
 
 set(0, "@keyword.function", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "@keyword.return", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "@keyword.operator", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "@conditional", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "@repeat", {
-    fg = colors.green,
+    fg = colors.darkblue,
+})
+
+set(0, "@keyword.conditional", {
+    fg = colors.darkblue,
+})
+
+set(0, "@keyword.repeat", {
+    fg = colors.darkblue,
 })
 
 -- Functions
@@ -251,6 +273,14 @@ set(0, "@method.call", {
     fg = colors.lavanda,
 })
 
+set(0, "@function.method", {
+    fg = colors.lavanda,
+})
+
+set(0, "@function.method.call", {
+    fg = colors.lavanda,
+})
+
 -- Types
 set(0, "@type", {
     link = "Type",
@@ -261,6 +291,14 @@ set(0, "@type.builtin", {
 })
 
 set(0, "@constructor", {
+    fg = colors.darkblue,
+})
+
+set(0, "@module", {
+    fg = colors.darkblue,
+})
+
+set(0, "@type.definition", {
     fg = colors.darkblue,
 })
 
@@ -285,17 +323,21 @@ set(0, "@field", {
     fg = colors.lightblue,
 })
 
+set(0, "@variable.member", {
+    fg = colors.lightblue,
+})
+
 -- Operators / punctuation
 set(0, "@operator", {
     link = "Operator",
 })
 
 set(0, "@punctuation.delimiter", {
-    fg = colors.grey,
+    fg = colors.textSubtle,
 })
 
 set(0, "@punctuation.bracket", {
-    fg = colors.grey,
+    fg = colors.textSubtle,
 })
 
 set(0, "@punctuation.special", {
@@ -313,15 +355,15 @@ set(0, "@lsp.type.method", {
 })
 
 set(0, "@lsp.type.keyword", {
-    fg = colors.green,
+    fg = colors.darkblue,
 })
 
 set(0, "@lsp.type.string", {
-    fg = colors.sand,
+    fg = colors.green,
 })
 
 set(0, "@lsp.type.number", {
-    fg = colors.red,
+    fg = colors.sand,
 })
 
 set(0, "@lsp.type.type", {
@@ -333,6 +375,18 @@ set(0, "@lsp.type.class", {
 })
 
 set(0, "@lsp.type.interface", {
+    fg = colors.darkblue,
+})
+
+set(0, "@lsp.type.namespace", {
+    fg = colors.darkblue,
+})
+
+set(0, "@lsp.type.enum", {
+    fg = colors.darkblue,
+})
+
+set(0, "@lsp.type.typeParameter", {
     fg = colors.darkblue,
 })
 
@@ -404,24 +458,24 @@ set(0, "GitSignsDelete", {
 
 set(0, "Pmenu", {
     fg = colors.white,
-    bg = "#1b1917",
+    bg = colors.surfaceRaised,
 })
 
 set(0, "PmenuSel", {
     fg = colors.black,
-    bg = colors.lightblue,
+    bg = colors.green,
 })
 
 set(0, "PmenuSbar", {
-    bg = "#292522",
+    bg = colors.surfaceActive,
 })
 
 set(0, "PmenuThumb", {
-    bg = colors.grey,
+    bg = colors.borderStrong,
 })
 
 set(0, "CmpItemAbbrDeprecated", {
-    fg = colors.grey,
+    fg = colors.textSubtle,
     strikethrough = true,
 })
 
@@ -429,7 +483,7 @@ set(0, "CmpItemAbbrDeprecated", {
 
 set(0, "StatusLine", {
     fg = colors.white,
-    bg = "#1b1917",
+    bg = colors.surface,
 })
 
 set(0, "StatusLineNC", {
@@ -438,18 +492,18 @@ set(0, "StatusLineNC", {
 })
 
 set(0, "WinSeparator", {
-    fg = "#292522",
+    fg = colors.border,
     bg = colors.black,
 })
 
 set(0, "VertSplit", {
-    fg = "#292522",
+    fg = colors.border,
     bg = colors.black,
 })
 
 set(0, "Folded", {
     fg = colors.grey,
-    bg = "#1b1917",
+    bg = colors.surface,
 })
 
 set(0, "Title", {
