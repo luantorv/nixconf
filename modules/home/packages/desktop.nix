@@ -1,11 +1,16 @@
 # SPDX-FileCopyrightText: 2026 Luis Reis Viera
 # SPDX-License-Identifier: Apache-2.0
 
-{ config, pkgs, globalVars, ... }:
+{ config, pkgs, pkgs-new, globalVars, ... }:
 
 {
 
   imports = [ ./minimal.nix ];
+
+  programs.firefox = {
+    enable = true;
+    languagePacks = [ "es-AR" "en-US" ];
+  };
   
   home.packages = with pkgs; [
     xwayland
@@ -20,7 +25,6 @@
     swappy
 
     # browser & other
-    brave
     vscodium
     onlyoffice-desktopeditors
     mpv
