@@ -24,7 +24,7 @@
     slurp
     swappy
 
-    # browser & other
+    chromium
     vscodium
     onlyoffice-desktopeditors
     mpv
